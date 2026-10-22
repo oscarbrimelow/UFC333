@@ -1,0 +1,50 @@
+1. Net striking differential: Significant strikes landed per minute minus significant strikes absorbed per minute.
+2. Strike absorption rate: Total significant strikes absorbed per minute to identify defensive liabilities.
+3. Striking accuracy vs. striking defense: The mathematical intersection of Fighter A's accuracy against Fighter B's defense.
+4. Takedown defense percentage: The historical rate at which a fighter successfully stuffs grappling attempts.
+5. Control time percentage: Total ground or cage control time divided by total fight duration.
+6. Submission attempts per 15 minutes: Historical frequency of dangerous submission setups.
+7. Fighter age differential: The exact age gap between the two opponents on fight night.
+8. Weight class relative age: Age adjusted for weight class (since lighter divisions favor youth much more than heavy divisions).
+9. Reach-to-height ratio (APE index): Frame leverages, particularly evaluating the reach advantage of the shorter fighter.
+10. Stance matchup coefficients: Categorical flags for Southpaw vs. Orthodox interactions to capture defensive blind spots.
+11. Glicko-2 ratings: A dynamic skill rating that updates based on the quality of past opponents and inactivity periods.
+12. PageRank network score: Network-based ranking evaluating the structural strength of a fighter's entire win ledger.
+13. Exponentially weighted moving average (EWMA): Recency-weighted fight stats that penalise performances from years ago.
+14. Layoff duration: The exact number of days a fighter has been inactive since their last bout (testing for "ring rust").
+15. Career Octagon time: Cumulative minutes spent fighting inside the UFC to track physical wear and tear.
+16. Championship round experience: Total rounds fought in rounds 4 and 5 for main events or title fights.
+17. Weight cut proxy variables: Tracking career weight class changes (moving up or down a division for the bout).
+18. Home-town / Travel distance advantage: Distance traveled to the venue to capture jetlag and travel fatigue.
+19. Knockdown ratio: Total knockdowns scored per 15 minutes to measure raw power.
+20. Chin durability proxy: Total career knockdown losses and knockout losses suffered over time.
+21. Finishing rate vs. decision rate: The ratio of inside-the-distance wins to 3-round judges' decisions.
+22. Cardio/Output decay rate: Striking volume in round 1 compared to volume in round 3 to measure energy depletion.
+23. Switch-stance capability: A binary variable flagging if a fighter actively shifts stances during a bout.
+24. Market-implied closing line probability: Incorporating the sportsbooks' final odds as a weighted baseline feature.
+25. Judicial bias metrics: Historical scorecard tendencies of the specific cageside judges assigned to the event.
+26. Opponent strength of schedule (SoS): The average win-loss record or Elo rating of all past opponents at the time they fought.
+27. Camp switching indicator: A binary flag tracking if a fighter changed their head coach or primary training camp for this bout.
+28. Altitude adjustments: A metric calculation based on the elevation difference between the fighter’s home gym and the fight venue.
+29. Cage size differential: A categorical variable tracking whether the event uses the standard 30-foot UFC cage or the smaller 25-foot Apex cage.
+30. Ground-and-pound frequency: Total significant strikes landed on the ground per minute of ground control time.
+31. Clinch strike percentage: Ratio of a fighter's total strikes that are landed inside the clinch vs. at distance.
+32. Leg kick volume: Total low kicks landed per round to measure potential degradation of an opponent's movement.
+33. Short-notice fight flag: A binary indicator tracking if a fighter took the bout on less than 4 weeks' notice.
+34. Consecutive win/loss streaks: The current momentum of the fighter entering the Octagon (e.g., number of consecutive wins or losses).
+35. Body strike absorption: Total significant strikes absorbed to the midsection, used to gauge potential cardio depletion.
+36. Takedown entry efficiency: The ratio of successful takedowns relative to total takedown attempts.
+37. Guard pass frequency: The number of times a fighter improves their grappling position on the ground per round.
+38. Head strike vulnerability: The percentage of an opponent’s head strikes that successfully land, measuring defensive head movement.
+39. Fighter career peak curve: A non-linear regression variable mapping a fighter's trajectory based on total professional fights (e.g., peak at 15–25 fights).
+40. Betting line movement: The delta between the opening odds and the closing odds to capture sharp market money.
+41. Ref stoppage tendencies: Historical disqualification, point deduction, or early/late stoppage metrics of the assigned referee.
+42. Submission defense rate: The percentage of submission attempts from opponents that a fighter successfully escapes or neutralises.
+43. Weight-miss history: A penalty variable tracking how many times a fighter has failed to make weight in their career.
+44. Striking-to-grappling transition ratio: How often a fighter throws a strike immediately followed by a takedown attempt to measure disguised entries.
+45. First-round finish dependency: The ratio of a fighter's total wins that occur in the first 5 minutes (flagging front-runners).
+46. Fighter hometown/country bias: Scorecard tracking of whether international judges favour fighters from their own native countries.
+47. Southpaw liver-kick vulnerability: An interaction variable modeling an Orthodox fighter's liver vulnerability against a Southpaw's rear left kick.
+48. Average fight time (AFT): The statistical mean duration of a fighter's past bouts to evaluate pacing and endurance.
+49. Post-injury layoff performance: A specific decay metric applied if a fighter is returning from a known major structural surgery (e.g., ACL tear).
+50. Distance striking volume: Total significant strikes thrown from the outside, excluding clinch and ground strikes, to isolate pure kickboxing output.

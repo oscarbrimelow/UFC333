@@ -1,0 +1,139 @@
+Chapter 1: Intro
+0:000 secondsSo UFC 333 is around the corner and I am back here to not only give my personal thoughts, but now we can look at what my
+0:077 secondsmachine learning model has predicted as well as the ELO for both the fighters.
+0:1111 seconds[music] I'm kind of happy to be back doing these predictions and buy card smaller videos. It's always just nice to kind of yap about my thoughts on the
+0:1818 secondsfights and the card. And yeah, I mean I hope you guys are also enjoy getting back to this regularly scheduled programming kind of thing in between my
+0:2626 secondsbigger videos. If you do enjoy the video, the best way you guys can support me is by liking the video and subscribing for my more technical and
+0:3333 secondsdata related sport and UFC content. And if you really want to be a part of my community, I recently overhauled my Discord. So, if you want to join that
+0:4141 secondsand just yap [music] about sports and or UFC, the NBA, whatever is going on and whatever, make sure to check that out in the description [music] down below. So,
+0:4949 secondsthe UFC 333 prelims. I'm going to run through these a bit quicker uh just because I have more notes about the larger fights on this card. So uh yeah,
+Chapter 2: Iasmin Lucindo vs Nicolle Caliari
+0:5858 secondsI'm just going to run through these a bit faster. To begin the night, my model predicts Jasmine Lucindo to win over Nicole Callerie with a larger 66%
+1:061 minute, 6 secondschance. In a larger test set than what I used in my last video, from every fight 2024 through present day, when the model
+1:131 minute, 13 secondsgave a fighter a 66 or higher chance of winning, it was right about 77% of the time, winning 217 out of 280 fights. The
+1:231 minute, 23 secondsmodel also favors her in this way because she is the younger fighter. She has the higher ELO and yeah, overall, Jasmine just has the better statistics
+1:311 minute, 31 secondscompared to her opponent. Next up, we have Cody Steel versus Noah Gungnan, where the model predicts Noah Gungnan with a 51% chance. [music] So, more of a
+Chapter 3: Kody Steele vs Noah Gugnon
+1:391 minute, 39 secondstossup. What is interesting is my gradient boosting model disagrees and does pick Cody Steel. In the 81 cases in
+1:481 minute, 48 secondsmy test set where this happens, where [music] logistic regression, random forest, support vector machine, my overall model, and the gradient boosting
+1:571 minute, 57 secondsis the soul to disagree. The overall pick is only right 53% of the time. and gradient picking the other guy is at
+2:032 minutes, 3 seconds47%. So overall, again, this is more of a coin flip, but the final prediction stands going with Noah Gungan. Bellagio
+2:112 minutes, 11 secondsKey versus Daniel Santos. The model gives Daniel Santos a 56% chance of winning. Not much to comment on here.
+Chapter 4: Daniel Santos vs Bolaji Oki
+2:182 minutes, 18 secondsAll of their stats [music] are kind of a wash. Daniel Santos has the higher ELO, so that's basically how the model makes
+2:252 minutes, 25 secondsits decision here. Koshi also agrees, giving Santos the edge. So yeah, not too much here. I have Santos winning. Abu
+2:322 minutes, 32 secondsBaker versus Jacob. The model predicts Jacob with a 63% chance of winning. This actually goes against Koshi, which
+Chapter 5: Jacob Malkoun vs Abubakar Vagaev
+2:402 minutes, 40 secondscurrently has Abu Baker at a 60% chance of winning. So, why does the model like Jacob? It's actually not one thing specifically. Jacob is ahead on elo,
+2:482 minutes, 48 secondsstrikes landed per minute, takedowns, age, and [music] win streak, and they kind of just all stack up in his favor.
+2:552 minutes, 55 secondsHowever, there is a catch. Abu [music] Baker only has one fight in the UFC, so his stats are coming from a single fight. Malcoun's stats obviously come
+3:033 minutes, 3 secondsfrom nine fights in the UFC. [music] And so, yeah, the model takes this one fight at face value. And this is a spot where Koshi actually has been pretty reliable.
+3:113 minutes, 11 secondsWhen Koshi has a favorite around 60% 3 days out from a fight and the model picks the other guy, the favorite still [music] wins about 62% of the time,
+3:213 minutes, 21 secondswhich has happened in 61 fights. So, the model disagreeing hasn't really meant much. Look, I still trust my model. Uh,
+3:283 minutes, 28 secondsobviously Jacob is being undervalued. I think that's kind of what my model is saying. So, so yeah, I would have Jacob to maybe go back up in price a little
+3:353 minutes, 35 secondsbit or something like that, but that's that's really all I have to say about that one. KBY [music] Thick Nessie versus Isaf Chapurov here. The model
+3:433 minutes, 43 secondsheavily favors Thick Nessie at 67%,
+Chapter 6: Colby Thicknesse vs Asaf Chopurov
+3:453 minutes, 45 seconds[music]
+3:463 minutes, 46 secondsbut Koshi once again disagrees and gives Choparov an 83% chance. Since 2015, a veteran with two to three fights in the
+3:553 minutes, 55 secondsUFC [music] on a two-fight win streak beats a UFC debutant 70% of the time.
+3:593 minutes, 59 secondsAnd when the model has no UFC data on a debutant, it's pretty much always leaning towards the veteran. But that 70% is mostly veterans beating older
+4:074 minutes, 7 secondsguys with losses already or fighters taking on a fight on a few days notice.
+4:114 minutes, 11 secondsChopper obviously isn't that. He's 24, 11-0 with 10 finishes, a regional champ, and presumably had a full camp for this
+4:204 minutes, 20 secondscard. When the debut end actually looks like that, in this case, undefeated, eight plus wins, not a lastminute replacement, the veteran is only three
+4:284 minutes, 28 secondsand three, basically a coin flip, although that's only a six fight [music] sample size. So, and the model can't see any of that because it doesn't look at
+4:354 minutes, 35 secondspre UFC [music] records. So, if you ask me, personal opinion, I'm going to lean more towards ASAP, and I wouldn't
+4:424 minutes, 42 secondsnecessarily trust the model here, but once again, [music] I would say thickness is severely undervalued. He probably should be worth more than 17%.
+4:514 minutes, 51 secondsGrant Dawson versus Nurulo Aliv. The model picks a leave with a 52.7% chance, so barely edging out Dawson. This again
+Chapter 7: Grant Dawson vs Nurullo Aliev
+4:594 minutes, 59 secondsdiffers from Koshi, which gives Dawson [music] a 54% chance. Dawson does have the higher ELO, but Dawson is 32 and
+5:065 minutes, 6 secondsAliv is 25 and Aliv is 4 and0 in the UFC. Age is one of the biggest things the [music] model looks at, so that's kind of what tips it to a leave. And
+5:155 minutes, 15 secondsfunny enough, the history [music] also backs this up. Since 2018, when an older, higher elo fighter faces a younger guy on a threeight win streak,
+5:245 minutes, 24 secondsthe veteran has only won 28% of the time across 58 fights. So again, [music] this probably will be a close fight, but
+5:315 minutes, 31 secondsI'm going to trust my model and go with a leave here. Abus Magamed versus Cam Rousein. The model picks Cam Rouse with a 60% [music]
+Chapter 8: Abus Magomedov vs Cam Rowston
+5:395 minutes, 39 secondschance of winning. Rston does beat out Magomedov on most of the big stuff. He's younger, 31 versus 36. He absorbs fewer
+5:475 minutes, 47 secondsstrikes per minute, 2.1 versus 3.3, and he's on a fouright win streak. Their ELO is dead even, so it's really just age [music] and striking carrying this case.
+5:565 minutes, 56 secondsBut Magomedov's real case is obviously his wrestling. He's stopped every takedown attempt against him. And Rousson has been taken down on about six
+6:046 minutes, 4 secondsof [music] nine attempts, which the model doesn't weigh much. Kawoshi actually goes the other way and has Mago Medov at 55%. But once again, I'm going
+6:126 minutes, 12 secondsto go with my model. It's pretty confident. I tend to also just personally favor younger fighters anyway. So yeah, I'm going to go with Cam Rustin here. All right. And now
+6:206 minutes, 20 secondswe're on the main card. These may be a bit longer, so just want to strap you guys in for that. [music] And yeah, I mean, hope you guys still are enjoying
+6:286 minutes, 28 secondsthe video and yeah, I mean, if you guys are here already, just, you know, of [music] course, make sure to like the video and subscribe and all that. Nikita Kryaw versus Abdul Rockman Yakv. The
+Chapter 9: Nikita Krylov vs Abdul Rakhman Yakhyaev
+6:376 minutes, 37 secondsmodel really likes Abdul here at a 76%
+6:396 minutes, 39 seconds[music]
+6:406 minutes, 40 secondswith logistic regression specifically going as high as 84%. And like I mentioned earlier, when the model gives a fighter a 66% [music]
+6:486 minutes, 48 secondschance or higher, it's been right 77% of the time. The big reasons here are age.
+6:536 minutes, 53 secondsNikita [music] Kryov is 34 and Abdul is at 25. Takedowns 11.1 per 15 [music] minutes per Nick Kryov's 2.2. Their ELO is basically equal at 1054 versus 1051.
+7:067 minutes, 6 secondsThere is one caveat though. All three of Abdul's UFC wins were first round finishes. [music] So his stats come from a very few minutes of fighting. Koshi
+7:147 minutes, 14 secondshas Abdul at an 82% chance. So the market agrees and is even more confident. And Kryav is also one and
+7:217 minutes, 21 secondsthree in his last four. So yeah, I think this is an easy selection. Going with Abdul here. Azimat versus Dominic Reyes.
+Chapter 10: Dominick Reyes vs Azamat Murzakanov
+7:287 minutes, 28 secondsI think this one's going to be a fun one to be honest. The model picks Reyes with a 53% chance. So already pretty close.
+7:357 minutes, 35 secondsIf we're looking at model by model, the random forest is the only model that deviates and goes with Azimat and only
+7:427 minutes, 42 secondsbarely at 51% chance. When this happens, the random forest is wrong about six [music] times out of 10. In the 83 fights since 2024 where the random
+7:507 minutes, 50 secondsforest model was on one side, [music] it was right just 41% of the time and the other three models were right 59% of the time. Funny enough, Random Forest has
+8:008 minutesactually been the lone model against Reyes twice [music] before and against Azimat once and well it lost all three fights. And in terms of why the models
+8:088 minutes, 8 secondsactually favor [music] Reyes, there's not really much behind this pick. Both fighters are 36 and 37. Their ELO is close. They're both southpaw strikers
+8:168 minutes, 16 secondswho don't really wrestle much. The biggest thing the model actually sees [music] is Ray has a 6 inch reach advantage and reach is something that the model actually doesn't really care
+8:258 minutes, 25 secondsmuch about. Koshi has Aszmat at a 67% chance. So this is [music] a big 20 point disagreement. When there is this
+8:338 minutes, 33 secondsdisagreement, Koshi is right about two times out of three [music] out of 47 fights since May 2025.
+8:408 minutes, 40 secondsThat's barely any worse than Koshi's normal 69% correct rate. So, the model disagreeing doesn't really move the needle much. And Asabat is also the home
+8:488 minutes, 48 secondsregion fighter, which is something to think about at Abu Dhabi. And my model doesn't train off of the location or where a fighter is from. So, there could
+8:578 minutes, 57 secondsbe an argument for that having an impact. So, yeah, I think overall I'm going with Aszmat here. Aaron Pico [music] versus Kea. The model picks Aaron Pico at 55%.
+Chapter 11: Aaron Pico vs Losene Keita
+9:079 minutes, 7 secondsThe whole pick is basically Pico's wrestling. He averages 6.5 takedowns per 15 minutes and [music] Kea averages zero. However, both guys have only had
+9:169 minutes, 16 secondstwo UFC fights. So, the model of course is working with very little data on either of these guys. Pico got KO'ed on his debut. Then he beat Pit Bull.
+9:249 minutes, 24 seconds[music] Kea also lost and has debuted to Nathaniel Wood and then finished Naimov in the first round. Kelshi has Pico at 54%. So, the model and market are almost
+9:339 minutes, 33 secondson the exactly same page. This could go either way, of course. It's not exactly the highest percentage, but I will go with my selection of Aaron Pico.
+9:429 minutes, 42 secondsAlexander Vulkov versus Rizvan Kinv. The model picks Volkov at 56%. Logistic regression and support vector machine
+Chapter 12: Alexander Volkov vs Rizvan Kuniev
+9:519 minutes, 51 secondsboth rate Volkov at about 64% [music] which is kind of high, but funny enough, random force actually goes the other way and picks Reezbond at 56%. Which pulls
+10:0010 minutesthe overall uh model number down. And the whole case for Volkov is essentially his ELO. He's 141 points ahead. And if
+10:0810 minutes, 8 secondsyou take that away, the model would actually flip to Rizv. [music] Age hurts Vulov a bit at 38 to 34.
+10:1610 minutes, 16 secondsVolkov is 6 to1 [music] in his last seven with his only loss being to Gone.
+10:2010 minutes, 20 secondsAnd look, I'm kind of a Volkov fan. I think his submission over Bam Bam was just genuinely crazy. Koshi has Vulov at
+10:2710 minutes, 27 seconds54%. So the model in the market agree I'm going with Alexander Vulov. Lonir Kavanaaugh versus Ramaza and Tamira.
+Chapter 13: Lone'er Kavanagh vs Ramazan Temirov
+10:3410 minutes, 34 secondsAnother fun matchup in my opinion. This one is a true coin flip as well. A lot of coin flips on this card. The model
+10:4110 minutes, 41 secondsbarely has Kavanaaugh at 50.2% and every individual model sits between 49% and 51%. [music] Logistic regression once
+10:5010 minutes, 50 secondsagain differs and picks Tamirov. So overall, the final model really has no lean here. Just to look at some stats,
+10:5610 minutes, 56 secondsKavanagh is younger, 27 versus 29, has 4 in of reach. Tamirov has the higher elo 1062 versus 1023 [music]
+11:0511 minutes, 5 secondsand is on a threeight win streak. Koshi leans towards Tamirrov but barely at 51%. I still like Lonier here though
+11:1211 minutes, 12 seconds[music] just uh from a more personal side. I believe the UFC is trying to push him. So yeah, give me Lonier in this fight. All right, the co-main Pota
+Chapter 14: Petr Yan vs Merab Dvalishvili
+11:2011 minutes, 20 secondsYan versus Morav Dewalish Willie. This is probably the fight I am most excited about because my gut feeling is [music] telling me this could go either way. I
+11:2811 minutes, 28 secondscould see reasons for both. I also think this is such a core fight for me to watch because I was actually at their first fight in Vegas a few years ago.
+11:3511 minutes, 35 secondsThe model picks Morab with a 53% chance.
+11:3811 minutes, 38 secondsRandom Forest once again differs and picks Yan at 54%. Overall for the model, Morab's takedowns and how few strikes he
+11:4511 minutes, 45 secondsabsorbs are what carries him and he also has the [music] ELO edge at 1210 versus 1170. Yan is the younger fighter of the
+11:5211 minutes, 52 secondstwo, 33 versus 35 and is on a four-fight win streak. [music] And Koshi actually has Yan at 61%. I think the only problem
+11:5911 minutes, 59 secondsfor me here is I actually like both fighters. So, I can't really lean a certain way from personal biases. I used to like Yan more. I was rooting for him
+12:0812 minutes, 8 secondsin the first fight, but I've also become a really big fan of Morab lately. So, although Peter did dominate in their last fight, I think I'm going to go with my model and say that Morab wins this
+12:1712 minutes, 17 secondsfight. I don't know, maybe this is a Mareno Figgy kind of [music] situation.
+12:2112 minutes, 21 secondsSet up a tetrology. Like, I'm I'm just excited for this one. And finally for the main [music] event, Alexander Vulcganowski versus Mosvar Abelov. And
+Chapter 15: Alexander Volkanovski vs Movsar Evloev
+12:2912 minutes, 29 secondsman, I got a lot more to say here. And all right, first let me say I do want Vulk to win this fight. Trust me, I I
+12:3712 minutes, 37 secondslove Vulcganowski. I mean, like I think everyone is rooting for Vulk to win this. However, in terms of not only the
+12:4412 minutes, 44 secondsdata, but my own gut feeling, [music] it's swinging the other way. I I can't lie. I have to be honest. The model picks Avalov [music]
+12:5212 minutes, 52 secondswith a 71% chance and all of the models agree. The two biggest reasons are age.
+12:5912 minutes, 59 secondsVulk is 38. Evalov [music] is 32 and Evalov is 10 and0 in the UFC. Evalov also takes people down way more. 4.8 per 15 minutes versus Vulk's [music] 1.6.
+13:1013 minutes, 10 secondsVulk obviously being more experienced has the slightly higher ELO at 1218 versus 1197 and lands more strikes. And historically, [music]
+13:1713 minutes, 17 secondswhen the older guy is 6 plus years older at around the same ELO and the younger guy is on a three plus fight win streak, the older guy actually only wins 31% of
+13:2613 minutes, 26 secondsthe time since 2018. Interestingly, Koshi has this dead even at 5151.
+13:3013 minutes, 30 seconds[music]
+13:3213 minutes, 32 secondsSo, this is the model's biggest disagreement on the whole card. In these kinds of situations [music] where the market is basically a coin flip and the
+13:3813 minutes, 38 secondsmodel is at 65% or higher, the model's pick has [music] actually won 22 out of 30 fights. So about 73% of the time,
+13:4613 minutes, 46 secondsusually when the model is at 20 points over the market, it's because the model likes an underdog Khi has at 35 [music] cents or 40%. And in those spots, the model only wins about 40% of the time.
+13:5713 minutes, 57 secondsHowever, this is the other case [music] where the market has no opinion and the model has a strong one. And that's where the model has looked good. And if we
+14:0614 minutes, 6 secondswant to, you know, I've been focusing on data this whole thing. I think another thing to look at too besides data is kind of maybe [music] where Vulk is at in terms of his career. Vulk has stated
+14:1514 minutes, 15 secondsthat he could consider hanging up the gloves if things [music] go poorly in his upcoming title defense or if a major double retirement fight comes up.
+14:2314 minutes, 23 secondsVulcganowski also has things going on outside of the UFC. Now, obviously [music] with the engaged fightear brand, he was just acting in Street Fighter. I
+14:3114 minutes, 31 secondsdon't know. I don't think Vulcanowski loses in dramatic fashion. Let me get that out there. I think if Mosvar wins, it's gonna be [music] another decision.
+14:4014 minutes, 40 secondsSo, I mean, just keep it a buck.
+14:4214 minutes, 42 secondsRealistically, I think Mosvar does have the higher chance of winning, but at the end of the day, I'm rooting for Vulcanowski. So, that's it. That's UFC
+Chapter 16: Conclusion
+14:5014 minutes, 50 seconds333. Very excited for this one, of course. Um, I know once again, I did not learn the names before recording this video. I just wanted to record this and
+14:5914 minutes, 59 secondsget this out there for you guys. So, yeah, let me know down in the comments who you guys have. If you enjoyed this video, make sure to like and subscribe and yeah, come hang out in the Discord link below. See you guys next time.
+
+Sync to video time

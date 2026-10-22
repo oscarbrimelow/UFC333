@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UFC 333: Volkanovski vs. Evloev | Betting Matrix & Calculator Dashboard</title>
+  <meta name="description" content="Comprehensive UFC 333 data analysis, consensus models, customizable bankroll allocator, interactive bet slips, and full 14-fight breakdown.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="container">
+      <div class="header-inner">
+        <div class="brand-section">
+          <div class="brand-badge">UFC 333</div>
+          <div class="brand-title">
+            <h1>Volkanovski vs. Evloev</h1>
+            <p>Intelligence Matrix &bull; 25+ Sources Compiled &bull; Salt Lake City, Utah &bull; Oct 24, 2026</p>
+          </div>
+        </div>
+        <div class="header-meta">
+          <button type="button" class="btn-gold" id="openCheatSheetBtn" style="padding: 6px 14px; font-size: 11px; font-weight: 700; white-space: nowrap;">
+            Fight Night Cheat Sheet
+          </button>
+          <div class="currency-selector-box" id="currencySelector" role="group" aria-label="Currency Selector">
+            <button type="button" class="currency-toggle-btn active" data-currency="ZAR" id="btnCurZar" title="Switch bankroll to South African Rand">R ZAR</button>
+            <button type="button" class="currency-toggle-btn" data-currency="USD" id="btnCurUsd" title="Switch bankroll to US Dollars">$ USD</button>
+          </div>
+          <div class="event-countdown" id="eventCountdown">
+            <span class="live-indicator"></span>
+            <span id="countdownText">FIGHT WEEK LIVE</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Dashboard Content -->
+  <main class="container">
+
+    <!-- Navigation Tabs -->
+    <nav class="tabs-nav" id="mainTabsNav" role="tablist">
+      <button type="button" class="tab-btn active" data-tab="tab-home" role="tab" id="tabBtnHome">
+        Event Home
+      </button>
+      <button type="button" class="tab-btn" data-tab="tab-builder" role="tab" id="tabBtnBuilder">
+        Parlay Builder
+      </button>
+      <button type="button" class="tab-btn" data-tab="tab-slips" role="tab" id="tabBtnSlips">
+        Bet Slips & Stakes <span class="tab-badge" id="slipsBadge">13</span>
+      </button>
+      <button type="button" class="tab-btn" data-tab="tab-comparison" role="tab" id="tabBtnComparison">
+        Model Comparison 🔒
+      </button>
+      <button type="button" class="tab-btn" data-tab="tab-apex50" role="tab" id="tabBtnApex50">
+        Apex 50 Matrix
+      </button>
+      <button type="button" class="tab-btn" data-tab="tab-quant" role="tab" id="tabBtnQuant">
+        Quant Differential
+      </button>
+      <button type="button" class="tab-btn" data-tab="tab-elo" role="tab" id="tabBtnElo">
+        AI Elo Engine
+      </button>
+      <button type="button" class="tab-btn" data-tab="tab-fights" role="tab" id="tabBtnFights">
+        14 Fight Cards
+      </button>
+      <button type="button" class="tab-btn" data-tab="tab-graphs" role="tab" id="tabBtnGraphs">
+        Visual Consensus
+      </button>
+      <button type="button" class="tab-btn" data-tab="tab-experts" role="tab" id="tabBtnExperts">
+        Expert Feed
+      </button>
+    </nav>
+
+    <!-- ================= TAB 0: EVENT HOME & MATCHUPS SHOWCASE ================= -->
+    <section class="tab-panel active" id="tab-home" role="tabpanel">
+      <!-- Event Hero Spotlight -->
+      <div class="home-hero-card">
+        <div class="home-hero-top">
+          <div class="home-hero-title">
+            <div class="bout-badge" style="background: rgba(245, 158, 11, 0.12); color: var(--primary); border: 1px solid rgba(245, 158, 11, 0.3); margin-bottom: 6px;">
+              OFFICIAL EVENT DASHBOARD
+            </div>
+            <h2>UFC 333: Volkanovski vs. Evloev</h2>
+            <p>Featherweight Championship &bull; Delta Center &bull; Salt Lake City, Utah &bull; Saturday, Oct 24, 2026</p>
+          </div>
+          <div class="home-quick-actions">
+            <button type="button" class="btn-gold" id="homeHeroBuilderBtn" style="padding: 8px 16px; font-size: 12px; font-weight: 700;">
+              Launch Parlay Builder
+            </button>
+            <button type="button" class="btn-secondary" id="homeHeroSlipsBtn" style="padding: 8px 14px; font-size: 12px;">
+              View 13 Portfolio Slips
+            </button>
+          </div>
+        </div>
+
+        <div class="home-stats-strip">
+          <div class="home-stat-box">
+            <div class="home-stat-label">Total Matchups</div>
+            <div class="home-stat-value">14 Bouts Scheduled</div>
+          </div>
+          <div class="home-stat-box">
+            <div class="home-stat-label">Consensus Locks</div>
+            <div class="home-stat-value" style="color: var(--success);">5 Bouts 🔒</div>
+          </div>
+          <div class="home-stat-box">
+            <div class="home-stat-label">Active Portfolio</div>
+            <div class="home-stat-value" style="color: var(--gold);">13 Sharp Slips</div>
+          </div>
+          <div class="home-stat-box">
+            <div class="home-stat-label">Analytics Engines</div>
+            <div class="home-stat-value" style="color: #60a5fa;">4 Quant Models</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Matchups Header & Filter Row -->
+      <div class="filter-row" style="margin-bottom: 16px;">
+        <div class="sub-chips" id="homeMatchupsFilter">
+          <button type="button" class="sub-chip active" data-cardgroup="all">All 14 Bouts</button>
+          <button type="button" class="sub-chip" data-cardgroup="locks">🔒 Locks Only (5)</button>
+          <button type="button" class="sub-chip" data-cardgroup="main">Main Card (5)</button>
+          <button type="button" class="sub-chip" data-cardgroup="prelims">Prelims (4)</button>
+          <button type="button" class="sub-chip" data-cardgroup="early">Early Prelims (5)</button>
+        </div>
+        <div style="font-size: 12px; color: var(--text-muted);">
+          Click any matchup below to inspect all parlays featuring that fight
+        </div>
+      </div>
+
+      <!-- Home Matchups Grid -->
+      <div class="home-matchups-grid" id="homeMatchupsGrid">
+        <!-- Dynamically populated by app.js -->
+      </div>
+    </section>
+
+    <!-- ================= TAB: DEDICATED PARLAY BUILDER ================= -->
+    <section class="tab-panel" id="tab-builder" role="tabpanel">
+      <div class="comp-header-bar" style="margin-bottom: 20px;">
+        <div class="comp-title-row" style="margin-bottom: 10px;">
+          <div>
+            <div class="bout-badge" style="background: rgba(245, 158, 11, 0.12); color: var(--primary); border: 1px solid rgba(245, 158, 11, 0.3); margin-bottom: 6px;">
+              CUSTOM TICKET WORKSHOP
+            </div>
+            <h2 style="font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 4px;">
+              Interactive Parlay Builder
+            </h2>
+            <p style="color: var(--text-secondary); font-size: 12px; margin: 0;">
+              Pick fighters or props across all 14 bouts. Live mathematical odds, potential profit, and Kelly-optimized staking.
+            </p>
+          </div>
+
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <button type="button" class="ensemble-preset-btn active" id="builderPresetLocks">
+              🔒 Add 5 Unanimous Locks
+            </button>
+            <button type="button" class="ensemble-preset-btn" id="builderPresetMain">
+              Add Main Card Favorites
+            </button>
+            <button type="button" class="ensemble-preset-btn" id="builderClearAllBtn">
+              Clear All Legs
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="parlay-builder-container">
+        
+        <!-- Left: Matchups Board -->
+        <div class="builder-board-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+            <h3 style="font-size: 15px; font-weight: 700; color: #fff; margin: 0;">Available Bout Odds (14 Matches)</h3>
+            <span style="font-size: 11px; color: var(--text-muted);">Click any button to toggle leg on ticket</span>
+          </div>
+
+          <div id="builderMatchupsContainer">
+            <!-- Dynamically populated by app.js -->
+          </div>
+        </div>
+
+        <!-- Right: Sticky Live Parlay Ticket -->
+        <aside class="builder-ticket-card" id="builderTicketCard">
+          <div class="ticket-header">
+            <div class="ticket-title">
+              <span>Your Parlay Ticket</span>
+              <span class="ticket-leg-count-badge" id="ticketLegsBadge">0 Legs</span>
+            </div>
+            <button type="button" class="btn-secondary" id="btnResetTicket" style="padding: 4px 8px; font-size: 11px;">
+              Reset
+            </button>
+          </div>
+
+          <!-- Legs Container -->
+          <div class="ticket-legs-list" id="ticketLegsList">
+            <!-- Dynamically populated or empty message -->
+          </div>
+
+          <!-- Math & Multiplier Bar -->
+          <div class="ticket-math-bar">
+            <div class="ticket-math-row">
+              <span style="color: var(--text-muted);">Combined Multiplier:</span>
+              <strong style="color: var(--gold); font-family: var(--font-mono); font-size: 14px;" id="ticketCombinedOdds">1.00x (+100)</strong>
+            </div>
+            <div class="ticket-math-row">
+              <span style="color: var(--text-muted);">Implied Win Probability:</span>
+              <strong style="color: #fff; font-family: var(--font-mono);" id="ticketImpliedProb">100.0%</strong>
+            </div>
+            <div class="ticket-math-row">
+              <span style="color: var(--text-muted);">Conviction Status:</span>
+              <span id="ticketConvictionTier" style="font-size: 11px; font-weight: 700; color: var(--text-muted);">Empty Ticket</span>
+            </div>
+          </div>
+
+          <!-- Stake Input -->
+          <div class="ticket-stake-group">
+            <label style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--text-secondary);">
+              Stake Amount (<span id="ticketCurrencyLabel">ZAR</span>):
+            </label>
+            <div class="ticket-stake-input-box">
+              <span style="font-family: var(--font-mono); font-weight: 700; color: var(--gold);" id="ticketCurrencySym">R</span>
+              <input type="number" id="ticketStakeInput" class="ticket-stake-input" value="50" min="1" step="5" aria-label="Stake for custom parlay">
+            </div>
+            <div class="ticket-chips-row" id="ticketStakeChips">
+              <button type="button" class="ticket-chip-btn" data-stake="10">+10</button>
+              <button type="button" class="ticket-chip-btn" data-stake="20">+20</button>
+              <button type="button" class="ticket-chip-btn" data-stake="50">+50</button>
+              <button type="button" class="ticket-chip-btn" data-stake="100">+100</button>
+              <button type="button" class="ticket-chip-btn" data-stake="200">+200</button>
+            </div>
+          </div>
+
+          <!-- Payout Box -->
+          <div class="ticket-payout-box">
+            <div>
+              <div style="font-size: 10px; font-weight: 800; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.5px;">
+                Potential Payout
+              </div>
+              <div class="ticket-payout-val" id="ticketPayoutVal">R50.00</div>
+              <div style="font-size: 11px; color: var(--text-muted); font-family: var(--font-mono);" id="ticketProfitVal">
+                Net Profit: +R0.00
+              </div>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <button type="button" class="btn-gold" id="ticketSaveSlipBtn" style="padding: 10px; font-size: 13px; font-weight: 700; width: 100%;">
+              Save as Permanent Bet Slip
+            </button>
+            <button type="button" class="btn-secondary" id="ticketCopyTextBtn" style="padding: 8px; font-size: 11px; width: 100%;">
+              Copy Clean Slip for Bookmaker
+            </button>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- ================= TAB 1: BET CALCULATOR & SLIPS ================= -->
+    <section class="tab-panel" id="tab-slips" role="tabpanel">
+
+      <!-- Bankroll & Allocation Hero Section -->
+      <section class="bankroll-hero" id="bankrollHero" aria-label="Bankroll Allocation System">
+        <div class="bankroll-top">
+          <div class="bankroll-input-box">
+            <div>
+              <div class="bankroll-label">Total Betting Bankroll</div>
+              <div class="bankroll-control">
+                <span class="currency-symbol" id="currencySymbolDisplay">R</span>
+                <input type="number" id="bankrollInput" class="bankroll-input" value="350" min="10" max="100000" step="10" aria-label="Total bankroll in Rand">
+              </div>
+            </div>
+            <div class="preset-chips">
+              <button type="button" class="chip-btn" data-preset="200">R200</button>
+              <button type="button" class="chip-btn" data-preset="300">R300</button>
+              <button type="button" class="chip-btn active" data-preset="350">R350</button>
+              <button type="button" class="chip-btn" data-preset="500">R500</button>
+              <button type="button" class="chip-btn" data-preset="1000">R1,000</button>
+            </div>
+          </div>
+
+          <div class="action-buttons">
+            <button type="button" class="btn-secondary" id="resetBankrollBtn" title="Reset stakes to default distribution">
+              Reset Slips
+            </button>
+            <button type="button" class="btn-gold" id="exportBetsBtn" title="Copy clean bet slips to clipboard">
+              Copy Slips for Bookie
+            </button>
+          </div>
+        </div>
+
+        <!-- Kelly Criterion & Staking Strategy Bar -->
+        <div class="staking-mode-bar" id="stakingModeBar">
+          <span class="staking-mode-label">STAKING ALGORITHM:</span>
+          <button type="button" class="staking-mode-btn active" data-staking="flat" id="stakeBtnFlat">Flat Bankroll Scaling</button>
+          <button type="button" class="staking-mode-btn" data-staking="quarter_kelly" id="stakeBtnQuarter">Quarter Kelly (0.25x +EV)</button>
+          <button type="button" class="staking-mode-btn" data-staking="half_kelly" id="stakeBtnHalf">Half Kelly (0.50x +EV)</button>
+          <span style="font-size: 11px; color: var(--text-muted); margin-left: auto;" id="stakingModeHint">Linear allocation proportional to target multiplier</span>
+        </div>
+
+        <!-- Strategy Distribution Bar -->
+        <div class="allocation-breakdown-bar">
+          <div class="allocation-track" id="allocationTrack">
+            <div class="alloc-segment locks" id="barLocks" style="width: 57.1%;" title="Locks: ~57.1%"></div>
+            <div class="alloc-segment mediums" id="barMediums" style="width: 28.6%;" title="Mediums: ~28.6%"></div>
+            <div class="alloc-segment longshots" id="barLongshots" style="width: 14.3%;" title="Longshots: ~14.3%"></div>
+          </div>
+          <div class="allocation-legend">
+            <div class="legend-item">
+              <span class="legend-dot locks"></span>
+              <span>🔒 <strong>Locks Tier:</strong> <span id="legLocksVal">R200</span> (<span id="legLocksPct">57.1%</span>) &bull; <em>High-confidence anchors</em></span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-dot mediums"></span>
+              <span><strong>Mediums:</strong> <span id="legMedVal">R100</span> (<span id="legMedPct">28.6%</span>) &bull; <em>Value plays & doubles</em></span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-dot longshots"></span>
+              <span><strong>Longshots:</strong> <span id="legLongVal">R50</span> (<span id="legLongPct">14.3%</span>) &bull; <em>R5-R10 mega parlays</em></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Portfolio KPIs -->
+        <div class="kpi-grid">
+          <div class="kpi-card staked">
+            <span class="kpi-title">Total Active Stake</span>
+            <span class="kpi-value" id="kpiTotalStake">R350.00</span>
+            <span class="kpi-sub" id="kpiActiveSlipsCount">13 active slips configured</span>
+          </div>
+          <div class="kpi-card payout">
+            <span class="kpi-title">Max Potential Payout</span>
+            <span class="kpi-value" id="kpiMaxPayout">R4,867.35</span>
+            <span class="kpi-sub">Across all winning tickets</span>
+          </div>
+          <div class="kpi-card profit">
+            <span class="kpi-title">Potential Net Profit</span>
+            <span class="kpi-value" id="kpiMaxProfit">+R4,517.35</span>
+            <span class="kpi-sub">Total Payout minus initial stake</span>
+          </div>
+          <div class="kpi-card roi">
+            <span class="kpi-title">Max Multiplier</span>
+            <span class="kpi-value" id="kpiMaxROI">13.9x</span>
+            <span class="kpi-sub">Anchor safety floor: ~100% recoup</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sub-filter chips -->
+      <div class="filter-row">
+        <div class="sub-chips" id="slipCategoryFilter">
+          <button type="button" class="sub-chip active" data-category="all">All Slips (13)</button>
+          <button type="button" class="sub-chip" data-category="locks">🔒 Locks (2)</button>
+          <button type="button" class="sub-chip" data-category="mediums">Mediums (3)</button>
+          <button type="button" class="sub-chip" data-category="longshots">Longshots (8)</button>
+        </div>
+        <div class="action-buttons">
+          <button type="button" class="btn-secondary" id="openCustomBuilderBtn">
+            Build Custom Parlay Slip
+          </button>
+        </div>
+      </div>
+
+      <!-- Custom Parlay Builder Card (Collapsible) -->
+      <div class="builder-box" id="customBuilderBox" style="display: none;">
+        <div class="builder-header">
+          <h3>Interactive Custom Parlay Builder</h3>
+          <div class="action-buttons">
+            <button type="button" class="btn-secondary" id="clearBuilderLegsBtn">Clear All</button>
+            <button type="button" class="btn-secondary" id="closeBuilderBtn">Close</button>
+          </div>
+        </div>
+        <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 16px;">
+          Click the odds buttons (e.g. <strong>ML</strong> or <strong>Props</strong>) on any of the 14 fight cards below to add legs to this custom ticket.
+        </p>
+
+        <div class="builder-legs-container" id="builderLegsContainer">
+          <div class="empty-builder" id="emptyBuilderMsg">
+            No legs selected yet. Head to the <strong>Fight Cards</strong> tab or click "Add to Custom Slip" on any fighter below!
+          </div>
+        </div>
+
+        <div class="slip-calc" id="builderCalcBar" style="display: none;">
+          <div class="calc-row">
+            <span class="calc-label">Total Legs:</span>
+            <span class="calc-val" id="builderLegCount">0 legs</span>
+          </div>
+          <div class="calc-row">
+            <span class="calc-label">Combined Multiplier:</span>
+            <span class="calc-val odds" id="builderCombinedOdds">1.00 (+100)</span>
+          </div>
+          <div class="calc-row">
+            <span class="calc-label">Stake Amount:</span>
+            <div class="stake-input-group">
+              <span>R</span>
+              <input type="number" id="builderStakeInput" class="stake-input" value="10" min="1" step="5">
+            </div>
+          </div>
+          <div class="calc-row" style="margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border-subtle);">
+            <span class="calc-label" style="font-weight: 700; color: #fff;">Estimated Payout:</span>
+            <span class="calc-val payout" id="builderEstimatedPayout">R10.00</span>
+          </div>
+          <div style="margin-top: 16px; display: flex; justify-content: flex-end;">
+            <button type="button" class="btn-gold" id="saveCustomSlipBtn">
+              Save as Permanent Slip
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slips Grid -->
+      <div class="slips-grid" id="slipsContainer">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </section>
+
+    <!-- ================= TAB 2: VISUAL ANALYTICS & CONSENSUS ================= -->
+    <section class="tab-panel" id="tab-graphs" role="tabpanel">
+      <div class="charts-grid">
+        
+        <!-- Chart 1: Consensus Win Probabilities -->
+        <div class="chart-card">
+          <div class="chart-header">
+            <h3>3-Model Win Probability Comparison</h3>
+            <p>Comparing Dratings AI vs Tapology Fan Consensus vs <strong>UFC-Elo-Engine (GitHub)</strong></p>
+          </div>
+          <div class="chart-viewport" id="chartProbabilities">
+            <svg id="svgProbabilities" width="100%" height="390" viewBox="0 0 540 390"></svg>
+          </div>
+        </div>
+
+        <!-- Chart 2: Method of Victory Distribution -->
+        <div class="chart-card">
+          <div class="chart-header">
+            <h3>Expected Method of Victory</h3>
+            <p>Percentage likelihood of KO/TKO vs Submission vs Judges' Decision</p>
+          </div>
+          <div class="chart-viewport" id="chartMethodDistribution">
+            <div id="methodDistBars" style="width: 100%;"></div>
+          </div>
+        </div>
+
+        <!-- Chart 3: Distance vs Finish Probability -->
+        <div class="chart-card">
+          <div class="chart-header">
+            <h3>Market Distance Breakdown</h3>
+            <p>Market probability of each bout going to decision (Full 15/25 mins) vs ending early</p>
+          </div>
+          <div class="chart-viewport" id="chartDistance">
+            <svg id="svgDistance" width="100%" height="340" viewBox="0 0 540 340"></svg>
+          </div>
+        </div>
+
+        <!-- Chart 4: Public Betting Volume (Pikkit Data) -->
+        <div class="chart-card">
+          <div class="chart-header">
+            <h3>Pikkit Public Ticket Volume</h3>
+            <p>Total bet slips logged across 10,000+ community bettors for top card fighters</p>
+          </div>
+          <div class="chart-viewport" id="chartPikkit">
+            <svg id="svgPikkit" width="100%" height="340" viewBox="0 0 540 340"></svg>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= TAB 3: FIGHT CARDS & DEEP PROFILES ================= -->
+    <section class="tab-panel" id="tab-fights" role="tabpanel">
+      <!-- Fight Filter Bar -->
+      <div class="filter-row">
+        <div class="sub-chips" id="fightCardFilter">
+          <button type="button" class="sub-chip active" data-fgroup="all">All 14 Bouts</button>
+          <button type="button" class="sub-chip" data-fgroup="locks">🔒 Confirmed Locks Only (6)</button>
+          <button type="button" class="sub-chip" data-fgroup="main">Main Card (5)</button>
+          <button type="button" class="sub-chip" data-fgroup="prelims">Prelims (4)</button>
+          <button type="button" class="sub-chip" data-fgroup="early">Early Prelims (5)</button>
+        </div>
+      </div>
+
+      <div class="fights-container" id="fightsListContainer">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </section>
+
+    <!-- ================= TAB 4: EXPERTS INTELLIGENCE FEED ================= -->
+    <section class="tab-panel" id="tab-experts" role="tabpanel">
+      <div class="chart-header" style="margin-bottom: 24px;">
+        <h2 style="font-family: var(--font-heading); font-size: 32px; letter-spacing: 1px; color: #fff;">
+          Aggregated Source Intelligence
+        </h2>
+        <p style="color: var(--text-muted); font-size: 14px;">
+          Compiled data across 25+ verified YouTube analysts, UFC champions, podcasts, Reddit betting syndicates, and Verdict MMA top leaderboard records.
+        </p>
+      </div>
+
+      <div class="experts-grid" id="expertsGrid">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </section>
+
+    <!-- ================= TAB 5: AI ELO ENGINE ================= -->
+    <section class="tab-panel" id="tab-elo" role="tabpanel">
+      <!-- Elo Header & Model Architecture Banner -->
+      <div class="elo-banner-card" style="margin-bottom: 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px;">
+          <div>
+            <div class="bout-badge" style="background: rgba(245, 158, 11, 0.12); color: var(--primary); border: 1px solid rgba(245, 158, 11, 0.3); margin-bottom: 8px;">
+              GITHUB REPO: NBAtrev/UFC-Elo-Engine
+            </div>
+            <h2 style="font-family: var(--font-sans); font-size: 24px; font-weight: 800; color: #fff; margin-bottom: 8px;">
+              UFC Algorithmic Elo Rating & Win Probability Engine
+            </h2>
+            <p style="color: var(--text-secondary); max-width: 820px; font-size: 13px; line-height: 1.6;">
+              Trained on complete official UFC historical bout records from 1993 to 2026. Uses a dynamic logistic scoring function with dynamic <strong>+15% finish bonus weighting (K=46 for KO/Sub vs K=40 for Decision)</strong>. Model outputs expected win probability: <code>P_A = 1 / (1 + 10^((Elo_B - Elo_A)/400))</code>.
+            </p>
+          </div>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <div style="background: var(--bg-inset); border: 1px solid var(--border-default); padding: 12px 16px; border-radius: var(--radius-sm); text-align: center;">
+              <div style="font-size: 11px; text-transform: uppercase; color: var(--text-secondary); font-weight: 700;">Top Card Elo</div>
+              <div style="font-family: var(--font-mono); font-size: 20px; font-weight: 800; color: var(--primary);">1227.6</div>
+              <div style="font-size: 11px; color: var(--text-muted);">A. Volkanovski</div>
+            </div>
+            <div style="background: var(--bg-inset); border: 1px solid var(--border-default); padding: 12px 16px; border-radius: var(--radius-sm); text-align: center;">
+              <div style="font-size: 11px; text-transform: uppercase; color: var(--text-secondary); font-weight: 700;">Largest Edge</div>
+              <div style="font-family: var(--font-mono); font-size: 20px; font-weight: 800; color: var(--success);">+153.1 &Delta;</div>
+              <div style="font-size: 11px; color: var(--text-muted);">Volkov vs. Kuniev</div>
+            </div>
+            <div style="background: var(--bg-inset); border: 1px solid var(--border-default); padding: 12px 16px; border-radius: var(--radius-sm); text-align: center;">
+              <div style="font-size: 11px; text-transform: uppercase; color: var(--text-secondary); font-weight: 700;">Top Underdog Value</div>
+              <div style="font-family: var(--font-mono); font-size: 20px; font-weight: 800; color: var(--accent);">50.3% Elo</div>
+              <div style="font-size: 11px; color: var(--text-muted);">Cam Rowston (+115)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- YouTube ML Ensemble vs Public GitHub Elo Notice -->
+      <div style="background: var(--bg-card); border: 1px solid var(--border-default); border-left: 3px solid var(--primary); padding: 14px 18px; border-radius: var(--radius-sm); margin-bottom: 20px; font-size: 13px; line-height: 1.6;">
+        <div style="font-weight: 700; color: #fff; margin-bottom: 4px;">
+          Technical Architecture Note: Public GitHub Repo (Pure Elo) vs. Creator's YouTube ML Ensemble
+        </div>
+        <p style="color: var(--text-secondary); margin: 0 0 6px 0;">
+          The numbers below are the exact algorithmic outputs generated directly from the public <code>NBAtrev/UFC-Elo-Engine</code> repository code (using the standard logistic Elo formula <code>P_A = 1 / (1 + 10^(&Delta;Elo/400))</code>).
+        </p>
+        <p style="color: var(--text-secondary); margin: 0;">
+          In his YouTube video, creator NBAtrev presents outputs from a <strong>private 5-model Machine Learning Ensemble</strong> (Logistic Regression, Random Forest, SVM, Gradient Boosting, and a Meta-Classifier) that ingests <em>Chronological Age, Takedowns/15m, Strike Output, Reach Advantage, and Win Streaks</em>, with Elo as just one feature. For example, in <strong>Volkanovski vs. Evloev</strong>, pure Elo gives Volkanovski 54.1% due to his higher career rating (1227.6 vs 1198.9), whereas the YouTube ML model gives Evloev 71% due to the 6-year age advantage (32 vs 38) and heavy wrestling volume (4.8 takedowns/15m).
+        </p>
+      </div>
+
+      <!-- Elo Simulator & Matchup Predictor Card -->
+      <div class="elo-sim-card" style="margin-bottom: 24px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+          <div>
+            <h3 style="font-size: 16px; font-weight: 700; color: #fff;">Live Matchup & Head-to-Head Probability Simulator</h3>
+            <p style="font-size: 12px; color: var(--text-secondary);">Select any two fighters on the UFC 333 card to dynamically calculate model win probabilities, Elo rating delta, and fair odds.</p>
+          </div>
+          <span style="font-family: var(--font-mono); font-size: 11px; background: var(--bg-inset); color: var(--text-secondary); padding: 4px 8px; border-radius: var(--radius-sm); border: 1px solid var(--border-default);">
+            Dynamic Logistic Calculator
+          </span>
+        </div>
+
+        <div class="elo-sim-grid">
+          <div>
+            <label style="display: block; font-size: 11px; font-weight: 700; color: var(--text-secondary); margin-bottom: 6px; text-transform: uppercase;">Corner 1 (Red)</label>
+            <select id="simFighter1" class="elo-select-control"></select>
+            <div id="simFighter1Stats" style="margin-top: 8px; font-size: 12px; color: var(--text-secondary); font-family: var(--font-mono);"></div>
+          </div>
+
+          <div style="text-align: center; padding: 0 10px;">
+            <div style="font-family: var(--font-mono); font-size: 18px; font-weight: 800; color: var(--text-muted); margin-bottom: 4px;">VS</div>
+            <button type="button" class="btn-secondary" id="simCalculateBtn" style="font-size: 12px; padding: 6px 14px;">Simulate</button>
+          </div>
+
+          <div>
+            <label style="display: block; font-size: 11px; font-weight: 700; color: var(--text-secondary); margin-bottom: 6px; text-transform: uppercase;">Corner 2 (Blue)</label>
+            <select id="simFighter2" class="elo-select-control"></select>
+            <div id="simFighter2Stats" style="margin-top: 8px; font-size: 12px; color: var(--text-secondary); font-family: var(--font-mono); text-align: right;"></div>
+          </div>
+        </div>
+
+        <!-- Simulation Result Box -->
+        <div id="simResultBox" style="margin-top: 16px; background: var(--bg-inset); border: 1px solid var(--border-default); border-radius: var(--radius-sm); padding: 16px;">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+
+      <!-- Complete 14-Fight Elo Predictions Table -->
+      <div class="elo-table-card" style="margin-bottom: 24px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+          <div>
+            <h3 style="font-size: 16px; font-weight: 700; color: #fff;">UFC 333 Complete 14-Bout Elo Predictions</h3>
+            <p style="font-size: 12px; color: var(--text-secondary);">Direct algorithmic outputs from the UFC-Elo-Engine python runtime</p>
+          </div>
+          <div style="font-size: 12px; color: var(--text-secondary); font-family: var(--font-mono);">
+            Formula: P_A = 1 / (1 + 10^(&Delta;Elo/400))
+          </div>
+        </div>
+
+        <div style="overflow-x: auto;">
+          <table class="elo-table" id="eloPredictionsTable">
+            <thead>
+              <tr>
+                <th>Bout</th>
+                <th>Fighter 1 (Red)</th>
+                <th>Rating</th>
+                <th>Fighter 2 (Blue)</th>
+                <th>Rating</th>
+                <th>Rating &Delta;</th>
+                <th>Elo Favorite</th>
+                <th>Model Win %</th>
+                <th>Model Fair Odds</th>
+                <th>Market Edge / Notes</th>
+              </tr>
+            </thead>
+            <tbody id="eloTableBody">
+              <!-- Rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- All-Time Card Fighter Elo Rankings Leaderboard -->
+      <div class="elo-table-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+          <div>
+            <h3 style="font-size: 16px; font-weight: 700; color: #fff;">UFC 333 Card Fighter All-Time Elo Standings</h3>
+            <p style="font-size: 12px; color: var(--text-secondary);">Ranking of all 28 competitors based on active career Elo ratings heading into UFC 333</p>
+          </div>
+        </div>
+
+        <div style="overflow-x: auto;">
+          <table class="elo-table" id="eloStandingsTable">
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Fighter</th>
+                <th>Current Elo</th>
+                <th>Peak Career Elo</th>
+                <th>Division / Bout</th>
+                <th>Rating Tier</th>
+              </tr>
+            </thead>
+            <tbody id="eloStandingsBody">
+              <!-- Rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TAB 6: QUANT DIFFERENTIAL & MONTE CARLO ENGINE ================= -->
+    <section class="tab-panel" id="tab-quant" role="tabpanel">
+      <!-- Quant Model Architecture & Differential Equations Banner -->
+      <div class="elo-banner-card" style="margin-bottom: 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px;">
+          <div>
+            <div class="bout-badge" style="background: rgba(245, 158, 11, 0.12); color: var(--primary); border: 1px solid rgba(245, 158, 11, 0.3); margin-bottom: 8px;">
+              MATHEMATICAL FRAMEWORK: STOCHASTIC DIFFERENTIAL & MARKOV-MONTE CARLO
+            </div>
+            <h2 style="font-family: var(--font-sans); font-size: 24px; font-weight: 800; color: #fff; margin-bottom: 8px;">
+              Octagon Quant Rating (OPR) & Differential State Engine
+            </h2>
+            <p style="color: var(--text-secondary); max-width: 860px; font-size: 13px; line-height: 1.6;">
+              Unlike single-dimension historical Elo, this model evaluates fight state transitions as a coupled system of differential damage rate equations: <code>dS_i/dt = - &lambda;_{j&rarr;i}(t) &middot; S_i(t) + &rho; &middot; R(t)</code> with biological aging cardio decay curves <code>&eta;(t) = exp(-&gamma; &middot; t)</code>, chin durability degradation, and 10,000-iteration Monte Carlo fight simulation.
+            </p>
+          </div>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <div style="background: var(--bg-inset); border: 1px solid var(--border-default); padding: 10px 14px; border-radius: var(--radius-sm); text-align: center;">
+              <div style="font-size: 11px; text-transform: uppercase; color: var(--text-secondary); font-weight: 700;">Top Quant OPR</div>
+              <div style="font-family: var(--font-mono); font-size: 18px; font-weight: 800; color: var(--primary);">97.7</div>
+              <div style="font-size: 11px; color: var(--text-muted);">Asaf Chopurov</div>
+            </div>
+            <div style="background: var(--bg-inset); border: 1px solid var(--border-default); padding: 10px 14px; border-radius: var(--radius-sm); text-align: center;">
+              <div style="font-size: 11px; text-transform: uppercase; color: var(--text-secondary); font-weight: 700;">Largest &Delta; OPR Edge</div>
+              <div style="font-family: var(--font-mono); font-size: 18px; font-weight: 800; color: var(--success);">+38.3 &Delta;</div>
+              <div style="font-size: 11px; color: var(--text-muted);">Yakhyaev vs. Krylov</div>
+            </div>
+            <div style="background: var(--bg-inset); border: 1px solid var(--border-default); padding: 10px 14px; border-radius: var(--radius-sm); text-align: center;">
+              <div style="font-size: 11px; text-transform: uppercase; color: var(--text-secondary); font-weight: 700;">Stoppage Hazard</div>
+              <div style="font-family: var(--font-mono); font-size: 18px; font-weight: 800; color: var(--danger);">88% Finish</div>
+              <div style="font-size: 11px; color: var(--text-muted);">Bout 7 Hazard</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Core Differential Equations Reference Card -->
+      <div class="chart-card" style="margin-bottom: 24px;">
+        <div class="chart-header">
+          <h3>Mathematical Formulations & Differential Equations</h3>
+          <p>The four foundational mathematical laws governing the Octagon Performance Rating and simulation dynamics</p>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px;">
+          <div style="background: var(--bg-inset); border: 1px solid var(--border-default); padding: 12px; border-radius: var(--radius-sm);">
+            <div style="font-size: 11px; font-weight: 700; color: var(--primary); text-transform: uppercase; margin-bottom: 4px;">
+              1. Coupled Damage Differential Rate
+            </div>
+            <div style="font-family: var(--font-mono); font-size: 12px; color: #fff; background: var(--bg-surface); padding: 8px; border-radius: 4px; margin-bottom: 6px;">
+              dS_1/dt = - &lambda;_{2&rarr;1}(t) &middot; S_1(t) + &rho;_1 &middot; R(t)
+            </div>
+            <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.4;">
+              Models real-time structural health degradation. &lambda;(t) incorporates effective strike landing frequency and takedown impact.
+            </div>
+          </div>
+
+          <div style="background: var(--bg-inset); border: 1px solid var(--border-default); padding: 12px; border-radius: var(--radius-sm);">
+            <div style="font-size: 11px; font-weight: 700; color: var(--primary); text-transform: uppercase; margin-bottom: 4px;">
+              2. Biological Aging & Cardio Decay
+            </div>
+            <div style="font-family: var(--font-mono); font-size: 12px; color: #fff; background: var(--bg-surface); padding: 8px; border-radius: 4px; margin-bottom: 6px;">
+              &eta;(t) = exp(-&gamma; &middot; t) &middot; max(0.78, 1 - 0.0035 &middot; (Age - 30)^2)
+            </div>
+            <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.4;">
+              Applies non-linear athletic depreciation over age 30, explaining championship attrition over 25 scheduled minutes.
+            </div>
+          </div>
+
+          <div style="background: var(--bg-inset); border: 1px solid var(--border-default); padding: 12px; border-radius: var(--radius-sm);">
+            <div style="font-size: 11px; font-weight: 700; color: var(--primary); text-transform: uppercase; margin-bottom: 4px;">
+              3. Markov Discrete Fight State Matrix
+            </div>
+            <div style="font-family: var(--font-mono); font-size: 12px; color: #fff; background: var(--bg-surface); padding: 8px; border-radius: 4px; margin-bottom: 6px;">
+              P_{i,j} = Matrix(Stand &rarr; Clinch &rarr; Ground &rarr; Stoppage)
+            </div>
+            <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.4;">
+              Transitions between standing distance, cage clinch, and mat control based on takedown accuracy vs defense ratios.
+            </div>
+          </div>
+
+          <div style="background: var(--bg-inset); border: 1px solid var(--border-default); padding: 12px; border-radius: var(--radius-sm);">
+            <div style="font-size: 11px; font-weight: 700; color: var(--primary); text-transform: uppercase; margin-bottom: 4px;">
+              4. Composite Octagon Rating (OPR)
+            </div>
+            <div style="font-family: var(--font-mono); font-size: 12px; color: #fff; background: var(--bg-surface); padding: 8px; border-radius: 4px; margin-bottom: 6px;">
+              OPR = 1.15 &middot; (SDR_Score + Grapple_Score + Durability) &middot; A(t)
+            </div>
+            <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.4;">
+              Scaled 0 to 100 benchmark metric combining strike efficiency, takedown generation, chin resilience, and age prime curve.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive 10,000-Iteration Monte Carlo Fight Simulator -->
+      <div class="elo-sim-card" style="margin-bottom: 24px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+          <div>
+            <h3 style="font-size: 16px; font-weight: 700; color: #fff;">Interactive 10,000-Iteration Monte Carlo Simulator</h3>
+            <p style="font-size: 12px; color: var(--text-secondary);">Select any UFC 333 matchup and execute a 10,000-iteration stochastic round-by-round simulation</p>
+          </div>
+          <button type="button" class="btn-gold" id="btnRunMonteCarlo" style="font-size: 12px; padding: 6px 14px;">
+            Run 10,000 Simulations
+          </button>
+        </div>
+
+        <div class="elo-sim-grid">
+          <div>
+            <label style="display: block; font-size: 11px; font-weight: 700; color: var(--text-secondary); margin-bottom: 6px; text-transform: uppercase;">Corner 1 (Red)</label>
+            <select id="quantFighter1" class="elo-select-control"></select>
+            <div id="quantFighter1Stats" style="margin-top: 8px; font-size: 12px; color: var(--text-secondary); font-family: var(--font-mono);"></div>
+          </div>
+
+          <div style="text-align: center; padding: 0 10px;">
+            <div style="font-family: var(--font-mono); font-size: 18px; font-weight: 800; color: var(--text-muted); margin-bottom: 4px;">VS</div>
+            <div style="font-size: 11px; color: var(--text-muted);">Markov Transitions</div>
+          </div>
+
+          <div>
+            <label style="display: block; font-size: 11px; font-weight: 700; color: var(--text-secondary); margin-bottom: 6px; text-transform: uppercase;">Corner 2 (Blue)</label>
+            <select id="quantFighter2" class="elo-select-control"></select>
+            <div id="quantFighter2Stats" style="margin-top: 8px; font-size: 12px; color: var(--text-secondary); font-family: var(--font-mono); text-align: right;"></div>
+          </div>
+        </div>
+
+        <!-- Simulation Result Output Box -->
+        <div id="quantResultBox" style="margin-top: 16px; background: var(--bg-inset); border: 1px solid var(--border-default); border-radius: var(--radius-sm); padding: 16px;">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+
+      <!-- Complete 14-Bout Quant Mathematical Rankings Table -->
+      <div class="elo-table-card" style="margin-bottom: 24px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+          <div>
+            <h3 style="font-size: 16px; font-weight: 700; color: #fff;">UFC 333 Quant Mathematical Win Predictions</h3>
+            <p style="font-size: 12px; color: var(--text-secondary);">Direct outputs from the Coupled Damage Differential Equation & Monte Carlo Engine</p>
+          </div>
+          <div style="font-size: 12px; color: var(--text-secondary); font-family: var(--font-mono);">
+            P_Win = 1 / (1 + exp(-0.115 &middot; &Delta;OPR))
+          </div>
+        </div>
+
+        <div style="overflow-x: auto;">
+          <table class="elo-table" id="quantPredictionsTable">
+            <thead>
+              <tr>
+                <th>Bout</th>
+                <th>Red Corner</th>
+                <th>Red OPR</th>
+                <th>Blue Corner</th>
+                <th>Blue OPR</th>
+                <th>&Delta; OPR Edge</th>
+                <th>Quant Projected Winner</th>
+                <th>Simulated Win %</th>
+                <th>Sim Fair Odds</th>
+                <th>Predicted Method & Duration</th>
+              </tr>
+            </thead>
+            <tbody id="quantTableBody">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Fighter OPR Composite Leaderboard Table -->
+      <div class="elo-table-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+          <div>
+            <h3 style="font-size: 16px; font-weight: 700; color: #fff;">UFC 333 Octagon Performance Rating (OPR) Leaderboard</h3>
+            <p style="font-size: 12px; color: var(--text-secondary);">Complete 28-fighter composite ranking integrating striking differential, grappling dominance, and chin durability</p>
+          </div>
+        </div>
+
+        <div style="overflow-x: auto;">
+          <table class="elo-table" id="oprStandingsTable">
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Fighter</th>
+                <th>OPR Rating</th>
+                <th>Striking Score (0-35)</th>
+                <th>Grappling Score (0-35)</th>
+                <th>Durability (0-15)</th>
+                <th>Age Multiplier</th>
+                <th>Classification</th>
+              </tr>
+            </thead>
+            <tbody id="oprStandingsBody">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TAB 7: APEX 50-VECTOR QUANTITATIVE MMA MODEL ================= -->
+    <section class="tab-panel" id="tab-apex50" role="tabpanel">
+      <!-- Apex 50 Banner Card -->
+      <div class="elo-banner-card" style="margin-bottom: 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px;">
+          <div>
+            <div class="bout-badge" style="background: rgba(245, 158, 11, 0.12); color: var(--primary); border: 1px solid rgba(245, 158, 11, 0.3); margin-bottom: 8px;">
+              MATHEMATICAL FRAMEWORK: 50-VECTOR QUANTITATIVE MMA SYNTHESIS
+            </div>
+            <h2 style="font-family: var(--font-sans); font-size: 24px; font-weight: 800; color: #fff; margin-bottom: 8px;">
+              Apex 50-Vector Quantitative MMA Model
+            </h2>
+            <p style="color: var(--text-secondary); max-width: 860px; font-size: 13px; line-height: 1.6;">
+              Synthesizes all 50 distinct quantitative methods specified in the intelligence matrix: striking differentials, takedown efficiency, ground control, physiological age decay, APE leverage index, Glicko-2 ratings, PageRank win-network centrality, layoff ring rust, Abu Dhabi travel distance, and sharp betting market movements.
+            </p>
+          </div>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <div style="background: var(--bg-inset); border: 1px solid var(--border-default); padding: 10px 14px; border-radius: var(--radius-sm); text-align: center;">
+              <div style="font-size: 11px; text-transform: uppercase; color: var(--text-secondary); font-weight: 700;">Vector Dimension</div>
+              <div style="font-family: var(--font-mono); font-size: 18px; font-weight: 800; color: var(--primary);">50 Features</div>
+              <div style="font-size: 11px; color: var(--text-muted);">6 Analytical Pillars</div>
+            </div>
+            <div style="background: var(--bg-inset); border: 1px solid var(--border-default); padding: 10px 14px; border-radius: var(--radius-sm); text-align: center;">
+              <div style="font-size: 11px; text-transform: uppercase; color: var(--text-secondary); font-weight: 700;">Highest Lock</div>
+              <div style="font-family: var(--font-mono); font-size: 18px; font-weight: 800; color: var(--success);">92.8% Win</div>
+              <div style="font-size: 11px; color: var(--text-muted);">A. Yakhyaev 🔒</div>
+            </div>
+            <div style="background: var(--bg-inset); border: 1px solid var(--border-default); padding: 10px 14px; border-radius: var(--radius-sm); text-align: center;">
+              <div style="font-size: 11px; text-transform: uppercase; color: var(--text-secondary); font-weight: 700;">Top Value Edge</div>
+              <div style="font-family: var(--font-mono); font-size: 18px; font-weight: 800; color: var(--accent);">71.5% Win</div>
+              <div style="font-size: 11px; color: var(--text-muted);">Ramazan Temirov</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Matchup Selector & Multi-Pillar Deep Dive -->
+      <div class="elo-sim-card" style="margin-bottom: 24px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+          <div>
+            <h3 style="font-size: 16px; font-weight: 700; color: #fff;">Interactive Matchup Multi-Pillar Inspector</h3>
+            <p style="font-size: 12px; color: var(--text-secondary);">Select any bout on the card to inspect its 6-pillar score balance, top 5 deciding factors, and complete 50-variable feature vector.</p>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <label for="apexBoutSelect" style="font-size: 12px; font-weight: 700; color: var(--text-secondary); text-transform: uppercase;">Select Bout:</label>
+            <select id="apexBoutSelect" class="elo-select-control" style="min-width: 280px;"></select>
+          </div>
+        </div>
+
+        <!-- Dynamic Bout Preview & Prediction Box -->
+        <div id="apexBoutHeaderBox" style="background: var(--bg-inset); border: 1px solid var(--border-default); border-radius: var(--radius-sm); padding: 18px; margin-bottom: 20px;">
+          <!-- Dynamically populated -->
+        </div>
+
+        <!-- Top-5 Deciding Drivers Box -->
+        <div style="margin-bottom: 20px;">
+          <h4 style="font-size: 13px; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px;">
+            Top-5 Deciding Drivers for this Bout
+          </h4>
+          <div id="apexTopDriversBox" style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+
+        <!-- 6-Pillar Radar / Progress Grid -->
+        <div style="margin-bottom: 20px;">
+          <h4 style="font-size: 13px; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">
+            6-Pillar Performance Balance (0-100 Scale)
+          </h4>
+          <div class="apex-pillar-grid" id="apexPillarsGrid">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+
+        <!-- Collapsible 50-Feature Inspection Matrix -->
+        <div style="border-top: 1px solid var(--border-default); padding-top: 14px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;" id="apexToggleFeaturesBtn">
+            <span style="font-size: 13px; font-weight: 700; color: var(--primary);">
+              Inspect All 50 Quantitative Feature Deltas
+            </span>
+            <span style="font-family: var(--font-mono); font-size: 12px; color: var(--text-secondary);" id="apexToggleFeaturesIndicator">[ Click to Expand ]</span>
+          </div>
+
+          <div id="apexFeaturesTableContainer" style="display: none; margin-top: 14px; overflow-x: auto;">
+            <table class="elo-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Pillar</th>
+                  <th>Quantitative Metric</th>
+                  <th id="apexThFighter1">Red Fighter</th>
+                  <th id="apexThFighter2">Blue Fighter</th>
+                  <th>Feature Delta</th>
+                  <th>Advantage</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody id="apexFeaturesTableBody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Complete 14-Bout Apex 50-Vector Predictions Table -->
+      <div class="elo-table-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+          <div>
+            <h3 style="font-size: 16px; font-weight: 700; color: #fff;">UFC 333 Complete 14-Bout Apex 50-Vector Predictions</h3>
+            <p style="font-size: 12px; color: var(--text-secondary);">Direct algorithmic outputs from the 50-dimensional L2-regularized logistic combat engine</p>
+          </div>
+          <div style="font-size: 12px; color: var(--text-secondary); font-family: var(--font-mono);">
+            Formula: P_1 = 1 / (1 + exp(-0.165 &middot; &sum; w_k &Delta;x_k))
+          </div>
+        </div>
+
+        <div style="overflow-x: auto;">
+          <table class="elo-table" id="apex50PredictionsTable">
+            <thead>
+              <tr>
+                <th>Bout</th>
+                <th>Red Corner</th>
+                <th>Model %</th>
+                <th>Blue Corner</th>
+                <th>Model %</th>
+                <th>Apex Favorite</th>
+                <th>Fair Odds</th>
+                <th>Top Deciding Driver</th>
+                <th>Confidence Tier</th>
+              </tr>
+            </thead>
+            <tbody id="apex50TableBody">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TAB 8: CROSS-MODEL COMPARISON MATRIX ================= -->
+    <section class="tab-panel" id="tab-comparison" role="tabpanel">
+
+      <!-- Streamlined Command Toolbar (Zero Clutter) -->
+      <div class="comp-header-bar" id="ensembleSelectorCard">
+        <div class="comp-title-row">
+          <div>
+            <div class="bout-badge" style="background: rgba(245, 158, 11, 0.12); color: var(--primary); border: 1px solid rgba(245, 158, 11, 0.3); margin-bottom: 6px;">
+              CROSS-MODEL CONSENSUS ENGINE
+            </div>
+            <h2 style="font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 4px;">
+              Model Comparison & Consensus Matrix
+            </h2>
+            <p style="color: var(--text-secondary); font-size: 12px; margin: 0; line-height: 1.4;">
+              Benchmark 4 predictive engines against Vegas market baseline. Toggle individual engines to dynamically reveal consensus locks 🔒 and value edges.
+            </p>
+          </div>
+
+          <!-- Live Dynamic Status Pill -->
+          <div class="comp-status-ticker" id="compStatusPill">
+            <span id="kpiActiveModelsCount" style="color: var(--primary); font-weight: 700;">4 Engines Active</span>
+            <span style="opacity: 0.4;">&bull;</span>
+            <span id="kpiActiveLocksCount" style="color: var(--success); font-weight: 700;">5 Bouts 🔒</span>
+            <span style="opacity: 0.4;">&bull;</span>
+            <span>Top Value: <strong id="kpiTopValueFighter" style="color: var(--gold);">Murzakanov</strong> (<span id="kpiTopValueEdge">+12.6%</span>)</span>
+            <span style="opacity: 0.4;">&bull;</span>
+            <span>Alignment: <strong id="kpiActiveAlignment" style="color: #fff;">78.6%</strong></span>
+            <!-- Hidden elements for app.js sync -->
+            <span id="kpiActiveModelsSub" style="display: none;"></span>
+            <span id="kpiActiveLocksSub" style="display: none;"></span>
+          </div>
+        </div>
+
+        <!-- Sleek Controls: Presets + Toggle Switches -->
+        <div class="comp-controls-row">
+          <div class="comp-presets-group">
+            <span class="comp-group-label">PRESETS:</span>
+            <div class="ensemble-presets-row" style="margin: 0; padding: 0; background: transparent; border: none;">
+              <button type="button" class="ensemble-preset-btn active" data-preset="all_models" id="presetAllModels">All 4 Models</button>
+              <button type="button" class="ensemble-preset-btn" data-preset="quant_stack" id="presetQuantStack">Modern Quant 🔒</button>
+              <button type="button" class="ensemble-preset-btn" data-preset="ml_focus" id="presetMLFocus">Machine Learning</button>
+              <button type="button" class="ensemble-preset-btn" data-preset="pure_elo" id="presetPureElo">Pure Elo</button>
+              <button type="button" class="ensemble-preset-btn" data-preset="all_five" id="presetAllFive">All 5 (+ Vegas)</button>
+            </div>
+          </div>
+
+          <div class="comp-models-group">
+            <span class="comp-group-label">ACTIVE ENGINES:</span>
+            <div class="ensemble-toggle-grid" id="ensembleToggleGrid" style="margin: 0; display: flex; flex-wrap: wrap; gap: 8px;">
+              <div class="model-toggle-card active" data-model="elo" id="toggleCardElo">
+                <input type="checkbox" class="model-toggle-checkbox" id="chkModelElo" checked>
+                <span class="model-toggle-title">GitHub Elo</span>
+              </div>
+              <div class="model-toggle-card active" data-model="youtube_ml" id="toggleCardYouTube">
+                <input type="checkbox" class="model-toggle-checkbox" id="chkModelYouTube" checked>
+                <span class="model-toggle-title">YouTube ML</span>
+              </div>
+              <div class="model-toggle-card active" data-model="quant_diff" id="toggleCardQuant">
+                <input type="checkbox" class="model-toggle-checkbox" id="chkModelQuant" checked>
+                <span class="model-toggle-title">Quant Diff</span>
+              </div>
+              <div class="model-toggle-card active" data-model="apex_50" id="toggleCardApex">
+                <input type="checkbox" class="model-toggle-checkbox" id="chkModelApex" checked>
+                <span class="model-toggle-title">Apex 50</span>
+              </div>
+              <div class="model-toggle-card inactive" data-model="market" id="toggleCardMarket">
+                <input type="checkbox" class="model-toggle-checkbox" id="chkModelMarket">
+                <span class="model-toggle-title">Vegas Market</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Clean Sub-View Navigation (Zero Clutter) -->
+      <div class="comp-view-tabs" id="compViewTabs">
+        <button type="button" class="comp-view-tab active" data-subview="table">Master Comparison Table (14)</button>
+        <button type="button" class="comp-view-tab" data-subview="cards">Dynamic Best Picks Cards</button>
+        <button type="button" class="comp-view-tab" data-subview="inspector">Head-to-Head Inspector</button>
+        <button type="button" class="comp-view-tab" data-subview="cases">Model Divergence Case Studies</button>
+      </div>
+
+      <!-- SUB-VIEW 1: MASTER COMPARISON TABLE (DEFAULT) -->
+      <div class="comp-subview active" id="compView_table">
+        <div class="elo-table-card" style="margin-bottom: 24px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 10px;">
+            <div>
+              <h3 style="font-size: 15px; font-weight: 700; color: #fff;">14-Bout Cross-Model Matrix</h3>
+              <p style="font-size: 11px; color: var(--text-secondary); margin: 0;">Side-by-side projected winner and probability across active models and Vegas baseline</p>
+            </div>
+            <div class="sub-chips" id="compTableFilter">
+              <button type="button" class="sub-chip active" data-filter="all">All Bouts (14)</button>
+              <button type="button" class="sub-chip" data-filter="locks">🔒 Active Locks</button>
+              <button type="button" class="sub-chip" data-filter="divergent">Model Divergences</button>
+              <button type="button" class="sub-chip" data-filter="coinflips">Coin Flips</button>
+            </div>
+          </div>
+
+          <div style="overflow-x: auto;">
+            <table class="elo-table" id="compMasterTable">
+              <thead>
+                <tr>
+                  <th>Bout</th>
+                  <th>Red Corner</th>
+                  <th>Blue Corner</th>
+                  <th>Pure GitHub Elo</th>
+                  <th>YouTube ML Stack</th>
+                  <th>Quant Differential</th>
+                  <th>Apex 50-Vector</th>
+                  <th>Market Baseline</th>
+                  <th>Active Consensus Pick</th>
+                  <th>Active Agreement</th>
+                </tr>
+              </thead>
+              <tbody id="compMasterTableBody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- SUB-VIEW 2: DYNAMIC BEST PICKS CARDS -->
+      <div class="comp-subview" id="compView_cards">
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-default); border-radius: var(--radius-sm); padding: 18px; margin-bottom: 24px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 10px;">
+            <div>
+              <h4 style="font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px;">
+                Active Ensemble Best Picks (14 Bouts)
+              </h4>
+              <p style="font-size: 11px; color: var(--text-secondary); margin: 0;">
+                Sorted by active model conviction. Cards update in real time as models are toggled.
+              </p>
+            </div>
+            <div class="sub-chips" id="ensemblePicksFilter">
+              <button type="button" class="sub-chip active" data-filter="all">All Bouts (14)</button>
+              <button type="button" class="sub-chip" data-filter="locks">🔒 Active Locks</button>
+              <button type="button" class="sub-chip" data-filter="value">+EV Value Bets</button>
+              <button type="button" class="sub-chip" data-filter="dogs">Underdogs</button>
+            </div>
+          </div>
+
+          <div class="ensemble-picks-grid" id="ensemblePicksGrid">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+      </div>
+
+      <!-- SUB-VIEW 3: HEAD-TO-HEAD INSPECTOR -->
+      <div class="comp-subview" id="compView_inspector">
+        <div class="elo-sim-card" style="margin-bottom: 24px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+            <div>
+              <h3 style="font-size: 15px; font-weight: 700; color: #fff;">Interactive Matchup Multi-Model Inspector</h3>
+              <p style="font-size: 11px; color: var(--text-secondary); margin: 0;">Detailed probability distribution and disagreement diagnostic for any matchup.</p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <label for="compBoutSelect" style="font-size: 11px; font-weight: 700; color: var(--text-secondary); text-transform: uppercase;">Select Bout:</label>
+              <select id="compBoutSelect" class="elo-select-control" style="min-width: 260px;"></select>
+            </div>
+          </div>
+
+          <!-- Dynamic Header Box -->
+          <div id="compBoutHeaderBox" style="background: var(--bg-inset); border: 1px solid var(--border-default); border-radius: var(--radius-sm); padding: 16px; margin-bottom: 18px;">
+            <!-- Dynamically populated -->
+          </div>
+
+          <!-- 5 Model Comparison Bars -->
+          <div style="margin-bottom: 18px;">
+            <h4 style="font-size: 12px; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px;">
+              Model Win Probability Comparison
+            </h4>
+            <div id="compModelBars">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <!-- Method of Victory & Round Prop Radar -->
+          <div id="compPropMatrixBox" class="prop-matrix-box">
+            <!-- Dynamically populated -->
+          </div>
+
+          <!-- Divergence Box -->
+          <div id="compDivergenceBox" class="comp-divergence-card">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+      </div>
+
+      <!-- SUB-VIEW 4: DIVERGENCE CASE STUDIES -->
+      <div class="comp-subview" id="compView_cases">
+        <div class="comp-case-grid" style="margin-top: 0; margin-bottom: 24px;">
+          <div class="comp-case-card">
+            <div style="font-size: 10px; text-transform: uppercase; color: var(--primary); font-weight: 700; margin-bottom: 6px;">
+              CASE STUDY 1: THE AGE & DECLINE DIVERGENCE
+            </div>
+            <h4 style="font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 8px;">
+              Volkanovski (38) vs. Evloev (32)
+            </h4>
+            <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 10px;">
+              Pure Elo picks <strong>Volkanovski (54.1%)</strong> because retrospective Elo rewards his 6 title defenses. Conversely, YouTube ML (<strong>71% Evloev</strong>) and Apex 50 (<strong>66.3% Evloev</strong>) penalize Volk's 38-year-old biological decline curve and recent knockout losses, factoring in Evloev's 4.8 takedowns/15m and 10-0 undefeated streak.
+            </p>
+            <div style="font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); border-top: 1px solid var(--border-default); padding-top: 6px;">
+              Outcome: Multi-factor models correctly capture aging physics that pure Elo misses.
+            </div>
+          </div>
+
+          <div class="comp-case-card">
+            <div style="font-size: 10px; text-transform: uppercase; color: var(--primary); font-weight: 700; margin-bottom: 6px;">
+              CASE STUDY 2: THE UFC DEBUTANT SCRAPER BLINDSPOT
+            </div>
+            <h4 style="font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 8px;">
+              Chopurov (11-0) & Yakhyaev (3 KOs)
+            </h4>
+            <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 10px;">
+              Because the official UFC stats scraper had zero prior octagon bouts for Chopurov and Yakhyaev, Pure Elo assigned baseline 1000.0, falsely making them underdogs. The Quant Differential and Apex 50 ingested actual ACA championship tape (5.4 SLpM, 11.1 TD/15m), accurately rating them as massive <strong>89.7% and 92.8% locks</strong>, matching Vegas (-550 and -800).
+            </p>
+            <div style="font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); border-top: 1px solid var(--border-default); padding-top: 6px;">
+              Outcome: Overcame tenure bias to identify the biggest betting locks on the card.
+            </div>
+          </div>
+
+          <div class="comp-case-card">
+            <div style="font-size: 10px; text-transform: uppercase; color: var(--primary); font-weight: 700; margin-bottom: 6px;">
+              CASE STUDY 3: LINEAR REACH VS. CHIN DURABILITY
+            </div>
+            <h4 style="font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 8px;">
+              Dominick Reyes vs. Azamat Murzakanov
+            </h4>
+            <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 10px;">
+              YouTube ML picked <strong>Reyes at 53%</strong> because its decision trees over-weighted Reyes's 6-inch reach advantage. However, Apex 50 (<strong>79.6% Murzakanov 🔒</strong>), Quant (<strong>76.5%</strong>), and Vegas (-330) recognized that Reyes's chin durability has severely degraded (4 KO losses) against Murzakanov's 1.40 KD/15m undefeated power.
+            </p>
+            <div style="font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); border-top: 1px solid var(--border-default); padding-top: 6px;">
+              Outcome: Durability and power metrics successfully override naive physical reach advantages.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p><strong>UFC 333: Volkanovski vs. Evloev Bet Intelligence Engine</strong> &bull; Custom Built for South African Rand (ZAR)</p>
+      <p style="color: var(--text-dim); font-size: 12px;">
+        Data synthesized from Dratings, Tapology, Kalshi, DraftKings, BetMGM, Reddit r/MMAbetting, Pikkit, and 25+ combat sports analysts.
+      </p>
+      <p style="color: var(--text-dim); font-size: 11px; margin-top: 10px;">
+        Disclaimer: Sports betting involves financial risk. Bet responsibly according to your personal bankroll.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Fight Night Cheat Sheet Modal -->
+  <div class="cheat-modal-overlay" id="cheatSheetModal" role="dialog" aria-modal="true" aria-labelledby="cheatModalTitle">
+    <div class="cheat-modal-content">
+      <div class="cheat-modal-header">
+        <div>
+          <div style="font-size: 10px; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px;">
+            UFC 333 EXECUTIVE BETTING TERMINAL
+          </div>
+          <h3 id="cheatModalTitle" style="font-size: 18px; font-weight: 800; color: #fff; margin-top: 2px;">
+            Official Fight Night Cheat Sheet (14 Bouts)
+          </h3>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <button type="button" class="cheat-btn-print" id="printCheatSheetBtn">Print / Save PDF</button>
+          <button type="button" class="cheat-btn-copy" id="copyCheatSheetBtn">Copy Clean Text</button>
+          <button type="button" class="cheat-btn-close" id="closeCheatSheetBtn" aria-label="Close Cheat Sheet">&times;</button>
+        </div>
+      </div>
+
+      <div class="cheat-modal-body">
+        <div style="display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+          <div class="kpi-card" style="flex: 1; min-width: 150px; padding: 8px 12px;">
+            <span class="kpi-title">Unanimous Locks</span>
+            <span class="kpi-value" style="color: var(--success); font-size: 15px;">5 Bouts 🔒</span>
+          </div>
+          <div class="kpi-card" style="flex: 1; min-width: 150px; padding: 8px 12px;">
+            <span class="kpi-title">Top Value (+EV)</span>
+            <span class="kpi-value" style="color: var(--gold); font-size: 15px;">Murzakanov (+12.6%)</span>
+          </div>
+          <div class="kpi-card" style="flex: 1; min-width: 150px; padding: 8px 12px;">
+            <span class="kpi-title">Underdog Value</span>
+            <span class="kpi-value" style="color: #60a5fa; font-size: 15px;">Aliev (+7.0%)</span>
+          </div>
+          <div class="kpi-card" style="flex: 1; min-width: 150px; padding: 8px 12px;">
+            <span class="kpi-title">Active Staking Mode</span>
+            <span class="kpi-value" id="cheatStakingModeLabel" style="font-size: 15px;">Flat Scaling</span>
+          </div>
+        </div>
+
+        <div style="overflow-x: auto;">
+          <table class="cheat-sheet-table" id="cheatSheetTable">
+            <thead>
+              <tr>
+                <th>Bout</th>
+                <th>Consensus Pick</th>
+                <th>Win Prob</th>
+                <th>Conviction / Lock</th>
+                <th>Vegas Odds</th>
+                <th>Projected Method Prop</th>
+                <th>Kelly Allocation</th>
+              </tr>
+            </thead>
+            <tbody id="cheatSheetTableBody">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bout Parlays Modal (Displays all slips featuring a clicked matchup) -->
+  <div class="bout-parlays-modal-overlay" id="boutParlaysModal" role="dialog" aria-modal="true" aria-labelledby="boutParlaysModalTitle">
+    <div class="bout-parlays-modal-content">
+      <div class="bout-parlays-modal-header">
+        <div>
+          <div style="font-size: 10px; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px;">
+            PORTFOLIO SLIPS FEATURING THIS FIGHT
+          </div>
+          <h3 id="boutParlaysModalTitle" style="font-size: 17px; font-weight: 800; color: #fff; margin-top: 2px;">
+            Matchup Parlays
+          </h3>
+        </div>
+        <button type="button" class="cheat-btn-close" id="closeBoutParlaysBtn" aria-label="Close Bout Parlays">&times;</button>
+      </div>
+
+      <div class="bout-parlays-modal-body" id="boutParlaysModalBody">
+        <!-- Dynamically populated by app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Toast Notifications -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- Scripts -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
