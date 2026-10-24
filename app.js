@@ -19,26 +19,27 @@
   let builderStake = 50;
   let currentStakingMode = 'flat'; // 'flat', 'quarter_kelly', 'half_kelly'
 
-  // Base proportion reference weights (calibrated to default R350 bankroll)
+  // Base proportion reference weights (calibrated to default bankroll)
   const baseWeights = {
-    'slip-1': 120 / 350,
-    'slip-2': 80 / 350,
-    'slip-3': 45 / 350,
-    'slip-4': 35 / 350,
-    'slip-5': 20 / 350,
-    'slip-6': 5 / 350,
-    'slip-7': 5 / 350,
-    'slip-8': 10 / 350,
-    'slip-9': 10 / 350,
-    'slip-10': 5 / 350,
-    'slip-11': 5 / 350,
-    'slip-12': 5 / 350,
-    'slip-13': 5 / 350
+    'slip-1': 120 / 355,
+    'slip-2': 80 / 355,
+    'slip-3': 45 / 355,
+    'slip-4': 35 / 355,
+    'slip-5': 20 / 355,
+    'slip-6': 5 / 355,
+    'slip-7': 5 / 355,
+    'slip-8': 10 / 355,
+    'slip-9': 10 / 355,
+    'slip-10': 5 / 355,
+    'slip-11': 5 / 355,
+    'slip-12': 5 / 355,
+    'slip-13': 5 / 355,
+    'slip-14': 5 / 355
   };
 
-  // Fractional Quarter Kelly weights (0.25x edge optimization - 66% into locks)
+  // Fractional Quarter Kelly weights (0.25x edge optimization)
   const quarterKellyWeights = {
-    'slip-1': 0.40,
+    'slip-1': 0.395,
     'slip-2': 0.26,
     'slip-3': 0.10,
     'slip-4': 0.06,
@@ -50,12 +51,13 @@
     'slip-10': 0.01,
     'slip-11': 0.01,
     'slip-12': 0.01,
-    'slip-13': 0.01
+    'slip-13': 0.01,
+    'slip-14': 0.005
   };
 
-  // Fractional Half Kelly weights (0.50x aggressive edge optimization - 78% into locks)
+  // Fractional Half Kelly weights (0.50x aggressive edge optimization)
   const halfKellyWeights = {
-    'slip-1': 0.48,
+    'slip-1': 0.475,
     'slip-2': 0.30,
     'slip-3': 0.07,
     'slip-4': 0.04,
@@ -67,7 +69,8 @@
     'slip-10': 0.005,
     'slip-11': 0.005,
     'slip-12': 0.005,
-    'slip-13': 0.005
+    'slip-13': 0.005,
+    'slip-14': 0.005
   };
 
   // DOM Elements
@@ -392,14 +395,17 @@
       card.innerHTML = `
         <div class="home-card-header">
           <span class="home-card-badge">${fight.card} &bull; ${fight.distance || '3 Rounds'}</span>
-          <div>${lockBadge}</div>
+          <div style="display: flex; gap: 4px; align-items: center;">
+            ${fight.weighInDrama ? '<span class="home-drama-pill">⚠️ CATCHWEIGHT</span>' : (fight.weighIn && fight.weighIn.bothMadeWeight ? '<span class="home-weight-pill">✓ On Weight</span>' : '')}
+            ${lockBadge}
+          </div>
         </div>
 
         <div class="home-fighters-row">
           <div class="home-fighter-col">
             <img src="${fight.red.image}" alt="${fight.red.name}" class="home-fighter-avatar" onerror="this.src='images/volkanovski.png'">
             <span class="home-fighter-name">${fight.red.name}</span>
-            <span class="home-fighter-record">${fight.red.record || ''} &bull; ${fight.red.age || ''}y</span>
+            <span class="home-fighter-record">${fight.red.record || ''} &bull; ${fight.red.age || ''}y &bull; <strong style="color:var(--text-primary); font-family:var(--font-mono);">${fight.red.officialWeight ? fight.red.officialWeight + ' lbs' : ''}</strong></span>
             <div><span class="home-fighter-odds" style="color: var(--danger);">${formatOdds(fight.red.decimalOdds || 1.95)}</span></div>
           </div>
 
@@ -410,7 +416,7 @@
           <div class="home-fighter-col blue">
             <img src="${fight.blue.image}" alt="${fight.blue.name}" class="home-fighter-avatar" onerror="this.src='images/evloev.png'">
             <span class="home-fighter-name">${fight.blue.name}</span>
-            <span class="home-fighter-record">${fight.blue.record || ''} &bull; ${fight.blue.age || ''}y</span>
+            <span class="home-fighter-record">${fight.blue.record || ''} &bull; ${fight.blue.age || ''}y &bull; <strong style="color:${fight.blue.weighInStatus === 'missed' ? 'var(--danger)' : 'var(--text-primary)'}; font-family:var(--font-mono);">${fight.blue.officialWeight ? fight.blue.officialWeight + ' lbs' : ''} ${fight.blue.weighInStatus === 'missed' ? '⚠️' : ''}</strong></span>
             <div><span class="home-fighter-odds" style="color: var(--corner-blue);">${formatOdds(fight.blue.decimalOdds || 1.98)}</span></div>
           </div>
         </div>
@@ -1052,6 +1058,15 @@
           </div>
 
           ${slip.rationale ? `<div class="slip-rationale"><strong>Strategy:</strong> ${slip.rationale}</div>` : ''}
+          ${slip.weighInImpact ? `
+            <div class="slip-weigh-in-box ${slip.id === 'slip-2' ? 'fortified' : (slip.id === 'slip-9' ? 'warning' : 'verified')}">
+              <div class="weigh-in-box-header">
+                <span class="weigh-in-box-icon">${slip.id === 'slip-2' ? '🔒' : (slip.id === 'slip-9' ? '⚠️' : '⚖️')}</span>
+                <span class="weigh-in-box-title">Weigh-In Calibration:</span>
+              </div>
+              <div class="weigh-in-box-text">${slip.weighInImpact}</div>
+            </div>
+          ` : ''}
         </div>
       `;
 
@@ -1151,16 +1166,31 @@
       const expertPicks = con.expertPicks || { red: 18, blue: 4, redPct: 81.8, bluePct: 18.2 };
       const totalCommunityPicks = (publicPicks.red + publicPicks.blue).toLocaleString();
 
+      const isCatchweight = fight.weighInDrama;
       card.innerHTML = `
         <div class="fight-card-header">
           <div>
             <span class="bout-badge">${fight.card} &bull; ${fight.distance}</span>
-            <div class="bout-weight">${fight.weightClass}</div>
+            <div class="bout-weight">
+              ${fight.weightClass}
+              ${isCatchweight ? '<span class="catchweight-flag">⚠️ CATCHWEIGHT (-30% Purse Fine)</span>' : ''}
+            </div>
           </div>
-          <div>
+          <div style="display: flex; gap: 6px; align-items: center; flex-wrap: wrap;">
+            ${(fight.consensus && fight.consensus.survey) ? `<span class="survey-pill-chip" title="${fight.consensus.survey.detail}">👥 Survey: <strong>${fight.consensus.survey.split}</strong></span>` : ''}
+            ${fight.weighIn && fight.weighIn.bothMadeWeight ? '<span class="weigh-in-cleared-pill">✓ Made Weight</span>' : '<span class="weigh-in-drama-pill">⚠️ Weight Missed (+4.5 lbs)</span>'}
             ${lockBadgeHTML}
           </div>
         </div>
+
+        ${isCatchweight ? `
+          <div class="bout-weigh-in-drama-alert">
+            <span style="font-size: 16px;">⚠️</span>
+            <div>
+              <strong>OFFICIAL WEIGH-IN DRAMA:</strong> Nicolle Caliari weighed in at 120.5 lbs, missing the strawweight non-title limit (116 lbs) by <strong>4.5 pounds</strong>. Iasmin Lucindo (115.0 lbs) accepted the bout at catchweight and receives <strong>30% of Caliari's fight purse</strong>. Compromised weight cut heavily damages Caliari's 3-round gas tank against Lucindo's physical wrestling control.
+            </div>
+          </div>
+        ` : ''}
 
         <div class="matchup-arena">
           <!-- Red Corner -->
@@ -1179,6 +1209,10 @@
                 <span>${red.weight}</span>
               </div>
               <div class="fighter-style-tag">${red.style}</div>
+              <div class="weigh-in-chip ${red.weighInStatus === 'missed' ? 'missed' : 'made'}">
+                <span>${red.weighInStatus === 'missed' ? '⚠️' : '✓'} Scale: <strong>${red.officialWeight ? red.officialWeight.toFixed(1) + ' lbs' : red.weight}</strong></span>
+                ${red.weighInStatus === 'missed' ? '<span class="miss-tag">MISSED (+4.5)</span>' : ''}
+              </div>
               <div class="last5-chips" title="Last 5 Fights">${redForm}</div>
               <div class="fighter-metrics-strip">
                 <div class="metric-pill">
@@ -1227,6 +1261,10 @@
                 <span>${blue.weight}</span>
               </div>
               <div class="fighter-style-tag">${blue.style}</div>
+              <div class="weigh-in-chip ${blue.weighInStatus === 'missed' ? 'missed' : 'made'}">
+                <span>${blue.weighInStatus === 'missed' ? '⚠️' : '✓'} Scale: <strong>${blue.officialWeight ? blue.officialWeight.toFixed(1) + ' lbs' : blue.weight}</strong></span>
+                ${blue.weighInStatus === 'missed' ? '<span class="miss-tag">MISSED (+4.5)</span>' : ''}
+              </div>
               <div class="last5-chips" title="Last 5 Fights">${blueForm}</div>
               <div class="fighter-metrics-strip">
                 <div class="metric-pill">
@@ -1450,7 +1488,11 @@
         const diffColor = diff > 0 ? 'var(--primary)' : 'var(--danger)';
 
         let edgeBadge = '';
-        if (p.bout_id === 'bout-4') {
+        if (p.bout_id === 'bout-1') {
+          edgeBadge = '<span class="elo-edge-badge" style="background: rgba(245, 158, 11, 0.15); color: var(--primary); border-color: var(--primary);">Vanderbilt AI: Volk 56% / Evloev 44%</span>';
+        } else if (p.bout_id === 'bout-2') {
+          edgeBadge = '<span class="elo-edge-badge" style="background: rgba(37, 99, 235, 0.15); color: #60a5fa; border-color: rgba(37, 99, 235, 0.4);">Vanderbilt AI: Merab Slight Fav (53%)</span>';
+        } else if (p.bout_id === 'bout-4') {
           edgeBadge = '<span class="elo-edge-badge">🔒 HUGE CARD LOCK (+153.1 &Delta;)</span>';
         } else if (p.bout_id === 'bout-8') {
           edgeBadge = '<span class="elo-edge-badge" style="background: rgba(251, 146, 60, 0.15); color: var(--accent); border-color: var(--accent);">VALUE DOG (Rowston)</span>';
@@ -2832,6 +2874,7 @@
     renderMethodDistribution();
     renderDistanceChart();
     renderPikkitChart();
+    renderSurveyDistribution();
   }
 
   function renderProbabilitiesChart() {
@@ -2839,8 +2882,8 @@
     if (!svg) return;
 
     const data = [
-      { name: "Volkanovski", dratings: 45.5, tapology: 34, elo: 54.1 },
-      { name: "Petr Yan", dratings: 61.2, tapology: 66, elo: 44.7 },
+      { name: "Volkanovski", dratings: 45.5, tapology: 34, elo: 56.0 },
+      { name: "Petr Yan", dratings: 61.2, tapology: 66, elo: 47.0 },
       { name: "A. Volkov", dratings: 64.0, tapology: 66, elo: 70.7 },
       { name: "A. Murzakanov", dratings: 72.5, tapology: 75, elo: 48.2 },
       { name: "A. Yakhyaev", dratings: 88.0, tapology: 96, elo: 41.4 },
@@ -2882,7 +2925,7 @@
         <rect x="120" y="0" width="10" height="10" rx="2" fill="#71717a"></rect>
         <text x="135" y="9" fill="#94a3b8" font-size="11">Tapology Public</text>
         <rect x="250" y="0" width="10" height="10" rx="2" fill="#22c55e"></rect>
-        <text x="265" y="9" fill="#94a3b8" font-size="11">UFC-Elo-Engine (GitHub)</text>
+        <text x="265" y="9" fill="#94a3b8" font-size="11">Vanderbilt UFC-Elo-Engine (GitHub)</text>
       </g>
     </g>`;
 
@@ -3019,6 +3062,67 @@
     });
 
     svg.innerHTML = svgHTML;
+  }
+
+  // Render 6-Person Consensus Survey
+  function renderSurveyDistribution() {
+    const container = document.getElementById('surveyBarsContainer');
+    if (!container) return;
+
+    if (typeof COMMUNITY_SURVEY_DATA === 'undefined' || !Array.isArray(COMMUNITY_SURVEY_DATA)) {
+      container.innerHTML = '<div style="color: var(--text-muted); font-size: 13px;">Survey data loading...</div>';
+      return;
+    }
+
+    let html = `<div class="survey-cards-grid">`;
+
+    COMMUNITY_SURVEY_DATA.forEach(s => {
+      const isRedFav = s.pct1 > s.pct2;
+      const isBlueFav = s.pct2 > s.pct1;
+
+      let verdictChipClass = 'survey-chip-split';
+      if (isRedFav) verdictChipClass = 'survey-chip-red';
+      if (isBlueFav) verdictChipClass = 'survey-chip-blue';
+
+      html += `
+        <div class="survey-bout-card">
+          <div class="survey-card-header">
+            <div>
+              <span class="survey-weight-label">${s.boutName}</span>
+              <div class="survey-bout-title">${s.f1} vs. ${s.f2}</div>
+            </div>
+            <span class="survey-verdict-badge ${verdictChipClass}">${s.splitStr} &bull; ${s.verdict}</span>
+          </div>
+
+          <div class="survey-head-to-head">
+            <div class="survey-fighter-block corner-red">
+              <span class="survey-fname">${s.f1}</span>
+              <span class="survey-fvotes">${s.votes1} / 6 Votes (<strong>${s.pct1}%</strong>)</span>
+            </div>
+            <div class="survey-fighter-block corner-blue">
+              <span class="survey-fname">${s.f2}</span>
+              <span class="survey-fvotes">${s.votes2} / 6 Votes (<strong>${s.pct2}%</strong>)</span>
+            </div>
+          </div>
+
+          <div class="survey-bar-track">
+            <div class="survey-bar-fill red" style="width: ${s.pct1}%;" title="${s.f1}: ${s.votes1} votes (${s.pct1}%)">
+              ${s.votes1 > 0 ? `${s.votes1} votes` : ''}
+            </div>
+            <div class="survey-bar-fill blue" style="width: ${s.pct2}%;" title="${s.f2}: ${s.votes2} votes (${s.pct2}%)">
+              ${s.votes2 > 0 ? `${s.votes2} votes` : ''}
+            </div>
+          </div>
+
+          <div class="survey-notes-text">
+            ${s.detail}
+          </div>
+        </div>
+      `;
+    });
+
+    html += `</div>`;
+    container.innerHTML = html;
   }
 
   // Switch Tab
@@ -3305,6 +3409,88 @@
     const ticketCopyTextBtn = document.getElementById('ticketCopyTextBtn');
     if (ticketCopyTextBtn) {
       ticketCopyTextBtn.addEventListener('click', copyBuilderParlayText);
+    }
+
+    // Official Weigh-In Modal Handlers & Initial Render
+    setupWeighInModalListeners();
+    renderWeighInDocket();
+  }
+
+  // ==========================================
+  // OFFICIAL WEIGH-IN DOCKET & MODAL HANDLERS
+  // ==========================================
+  function renderWeighInDocket() {
+    const tableBody = document.getElementById('weighInDocketTableBody');
+    if (!tableBody || typeof WEIGH_IN_DATA === 'undefined') return;
+
+    tableBody.innerHTML = '';
+
+    WEIGH_IN_DATA.results.forEach((r, idx) => {
+      const isDrama = r.boutId === 'bout-14';
+      const tr = document.createElement('tr');
+      if (isDrama) tr.style.background = 'rgba(225, 29, 72, 0.08)';
+
+      let impactText = 'Standard betting lines cleared on weight.';
+      if (r.boutId === 'bout-1') {
+        impactText = 'Volkanovski 0.5 lb under championship mark looking sharp; reinforces high pace 5-rd volume.';
+      } else if (r.boutId === 'bout-2') {
+        impactText = 'Yan and Merab hit 135.0 lbs cleanly; high cardio 25-minute championship war locked in.';
+      } else if (r.boutId === 'bout-4') {
+        impactText = 'Volkov (256.0 lbs) is 9 lbs leaner than Kuniev (265.0 lbs), providing speed and 15-minute range mobility.';
+      } else if (r.boutId === 'bout-12') {
+        impactText = 'Santos and Oki both hit 146.0 lbs for Featherweight (145 lbs non-title limit). Explosive striking matchup cleared.';
+      } else if (r.boutId === 'bout-14') {
+        impactText = 'FORTIFIED LOCK: Caliari missed by 4.5 lbs (120.5 lbs Catchweight, 30% fine). Cardio & conditioning severely compromised. Fortifies Lucindo ML (-350) as card anchor.';
+      }
+
+      tr.innerHTML = `
+        <td style="font-weight: 700; color: var(--text-muted); font-family: var(--font-mono);">${idx + 1}</td>
+        <td>
+          <strong style="color: #fff;">${r.f1} vs. ${r.f2}</strong>
+          <div style="font-size: 11px; color: var(--text-secondary);">${r.weightClass}</div>
+        </td>
+        <td style="font-family: var(--font-mono); color: var(--danger); font-weight: 700;">
+          ${r.w1 ? r.w1.toFixed(1) + ' lbs' : '--'}
+        </td>
+        <td style="font-family: var(--font-mono); color: ${isDrama ? 'var(--danger)' : 'var(--corner-blue)'}; font-weight: 700;">
+          ${r.w2 ? r.w2.toFixed(1) + ' lbs' : '--'}
+          ${isDrama ? '<span class="miss-tag" style="margin-left: 4px;">MISSED +4.5</span>' : ''}
+        </td>
+        <td>
+          ${isDrama 
+            ? '<span class="weigh-in-drama-pill">⚠️ CATCHWEIGHT (-30% Fine)</span>' 
+            : '<span class="weigh-in-cleared-pill">✓ Made Weight</span>'}
+        </td>
+        <td style="font-size: 11px; color: ${isDrama ? '#fca5a5' : 'var(--text-secondary)'};">
+          ${impactText}
+        </td>
+      `;
+      tableBody.appendChild(tr);
+    });
+  }
+
+  function setupWeighInModalListeners() {
+    const openHeaderBtn = document.getElementById('openWeighInHeaderBtn');
+    const openBannerBtn = document.getElementById('openWeighInModalBtn');
+    const closeBtn = document.getElementById('closeWeighInModalBtn');
+    const modal = document.getElementById('weighInModal');
+
+    const openModal = () => {
+      renderWeighInDocket();
+      if (modal) modal.classList.add('active');
+    };
+
+    const closeModal = () => {
+      if (modal) modal.classList.remove('active');
+    };
+
+    if (openHeaderBtn) openHeaderBtn.addEventListener('click', openModal);
+    if (openBannerBtn) openBannerBtn.addEventListener('click', openModal);
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (modal) {
+      modal.addEventListener('click', e => {
+        if (e.target === modal) closeModal();
+      });
     }
   }
 

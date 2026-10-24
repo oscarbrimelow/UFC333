@@ -14,13 +14,27 @@ Built completely with vanilla HTML5, CSS3, and modern JavaScript (ES6+), the das
 
 ---
 
+---
+
 ## Attribution and Credits
 
-Special credit and appreciation to **NBAtrev** for creating the foundational UFC Elo Engine and sharing the historical fight scraper:
+Special credit and appreciation to **NBAtrev** (Vanderbilt University) for creating the foundational UFC Elo Engine and sharing the historical fight dataset:
 
 * **Original Repository**: [NBAtrev/UFC-Elo-Engine](https://github.com/NBAtrev/UFC-Elo-Engine) by NBAtrev
+* **Creator Background**: Vanderbilt University AI researcher who built an algorithmic Elo system figuring in every single bout in UFC history (from UFC 1 in 1993 through present day).
+* **Calibrated Model Projections**:
+  * **Alexander Volkanovski vs. Movsar Evloev**: Volkanovski is favored at **56.0%** (vs. Evloev at **44.0%**).
+  * **Petr Yan vs. Merab Dvalishvili**: Merab Dvalishvili is rated as a slight favorite at **53.0%** (vs. Yan at **47.0%**).
 * **YouTube Video & Demonstration**: [UFC Elo Prediction Video](https://www.youtube.com/watch?v=PLwhzlyjEgU)
 * **Foundation Details**: The historical fight web-scraping architecture for `ufcstats.com` and the chess-style Elo rating engine benchmarked in this application (Tab 5 and the Cross-Model Consensus Matrix) are based on the work from NBAtrev's `UFC-Elo-Engine`.
+
+### 6-Person Community Consensus Survey
+A live focus group survey of 6 knowledgeable bettors was conducted on the marquee matchups of UFC 333:
+1. **Alexander Volkanovski vs. Movsar Evloev**: **3-3 Split** (50.0% / 50.0% Deadlock)
+2. **Petr Yan vs. Merab Dvalishvili**: **5-1 Yan** (83.3% Yan / 16.7% Merab — Heavy Yan Consensus)
+3. **Lone'er Kavanagh vs. Ramazan Temirov**: **3-3 Split** (50.0% / 50.0% Deadlock)
+4. **Alexander Volkov vs. Rizvan Kuniev**: **4-2 Kuniev** (66.7% Kuniev Underdog Lean / 33.3% Volkov)
+5. **Aaron Pico vs. Losene Keita**: **3-3 Split** (50.0% / 50.0% Deadlock)
 
 ### Additional Data and Market Sources
 * **Official Bout Records**: [UFC Stats](http://ufcstats.com/)
@@ -41,7 +55,7 @@ Special credit and appreciation to **NBAtrev** for creating the foundational UFC
   2. Random Forest (Non-linear decision tree ensemble)
   3. Support Vector Machine (SVM margin classifier)
   4. Gradient Boosting (Sequential error-weighted boosting)
-  5. Historical Elo Engine (Chess-style Elo system by NBAtrev)
+  5. Historical Elo Engine (Vanderbilt AI model by NBAtrev)
   6. Kalshi Prediction Market (Real-money crowd consensus)
 * **Model Filter Toggles**: Interactively check or uncheck any individual model in real time. The dashboard automatically recalculates consensus agreement percentages, confidence metrics, and edge spreads dynamically.
 * **Consensus Agreement Meter**: Instantly highlights unanimous picks (6/6 models, 100%), strong consensus (5/6, 83%), majority lean (4/6, 67%), and contested coin-flips (3/3 split).
@@ -53,10 +67,11 @@ Special credit and appreciation to **NBAtrev** for creating the foundational UFC
   * Calculates mathematically optimal wager sizing using the Kelly formula: `f* = (b*p - q) / b`
   * Supports Full Kelly, Half Kelly (Conservative), Quarter Kelly, and 1/8 Kelly risk-management profiles.
   * Live bankroll input field with instantaneous dollar stake and net profit projection updates.
-* **Curated System Slips**:
+* **Curated System Slips (14 Portfolio Tickets)**:
   * **Verified Lock Parlay 🔒**: High-probability core fighters with unanimous model consensus.
   * **Balanced Value Parlay**: Positive expected value (+EV) selections with model-to-market mispricings.
-  * **Longshot Degenerate Parlay**: High-multiplier lottery ticket across underdogs with favorable statistical edges.
+  * **Longshot Degenerate Parlays**: High-multiplier tickets across sharp underdogs.
+  * **Slip 14 ("Might Be Alr")**: 13-Leg Multi-Market accumulator (Volk ML, Yan ML, Temirov KO/Dec, Yakhyaev Dec/O2.5, Keita U2.5, Murzakanov KO, Rowston ML, Aliev O2.5, Chopurov U1.5, Vagaev Dec, Oki ML, Steele Sub/Dec, Lucindo ML) priced at **+202,568 (2,026.68x)**.
 * **Ticket Management**: Remove individual legs, clear tickets, export tickets to JSON, and formatted Print-to-PDF output.
 
 ### 4. Quantitative Differential Engine

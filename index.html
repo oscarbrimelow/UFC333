@@ -20,10 +20,13 @@
           <div class="brand-badge">UFC 333</div>
           <div class="brand-title">
             <h1>Volkanovski vs. Evloev</h1>
-            <p>Intelligence Matrix &bull; 25+ Sources Compiled &bull; Salt Lake City, Utah &bull; Oct 24, 2026</p>
+            <p>Intelligence Matrix &bull; 25+ Sources Compiled &bull; Etihad Arena, Abu Dhabi &bull; Oct 24, 2026</p>
           </div>
         </div>
         <div class="header-meta">
+          <button type="button" class="btn-weigh-in-header" id="openWeighInHeaderBtn" title="View Official UFC 333 Weigh-In Docket">
+            ⚖️ Weigh-Ins: 27/28 Made
+          </button>
           <button type="button" class="btn-gold" id="openCheatSheetBtn" style="padding: 6px 14px; font-size: 11px; font-weight: 700; white-space: nowrap;">
             Fight Night Cheat Sheet
           </button>
@@ -33,7 +36,7 @@
           </div>
           <div class="event-countdown" id="eventCountdown">
             <span class="live-indicator"></span>
-            <span id="countdownText">FIGHT WEEK LIVE</span>
+            <span id="countdownText">WEIGH-INS PASSED &bull; READY</span>
           </div>
         </div>
       </div>
@@ -42,6 +45,31 @@
 
   <!-- Main Dashboard Content -->
   <main class="container">
+
+    <!-- Official Weigh-In Intelligence Alert Banner -->
+    <aside class="weigh-in-alert-banner" id="weighInAlertBanner" aria-label="Official Weigh-In Status Banner">
+      <div class="weigh-in-banner-inner">
+        <div class="weigh-in-status-cluster">
+          <span class="weigh-in-live-badge">⚖️ OFFICIAL WEIGH-INS PASSED</span>
+          <span class="weigh-in-metric-chip">27/28 Made Weight</span>
+          <span class="weigh-in-metric-chip title-locked">Title Fights Locked</span>
+        </div>
+        <div class="weigh-in-banner-body">
+          <div class="weigh-in-banner-text">
+            <strong>Abu Dhabi Scales Cleared:</strong> Alexander Volkanovski (144.5 lbs, 0.5 lb under limit) & Movsar Evloev (145.0) greenlit for Featherweight title; Petr Yan (135.0) & Merab Dvalishvili (135.0) make trilogy title official.
+          </div>
+          <div class="weigh-in-banner-warning">
+            <span class="warning-icon">⚠️</span>
+            <span><strong>Catchweight Drama:</strong> Nicolle Caliari missed weight by 4.5 lbs (120.5 lbs vs 116 lbs limit). Bout proceeds at Catchweight; Caliari forfeits 30% purse to Iasmin Lucindo (115.0 lbs). All portfolio bets updated.</span>
+          </div>
+        </div>
+        <div class="weigh-in-banner-action">
+          <button type="button" class="btn-weigh-in-docket" id="openWeighInModalBtn">
+            View Weigh-In Docket & Bets
+          </button>
+        </div>
+      </div>
+    </aside>
 
     <!-- Navigation Tabs -->
     <nav class="tabs-nav" id="mainTabsNav" role="tablist">
@@ -52,7 +80,7 @@
         Parlay Builder
       </button>
       <button type="button" class="tab-btn" data-tab="tab-slips" role="tab" id="tabBtnSlips">
-        Bet Slips & Stakes <span class="tab-badge" id="slipsBadge">13</span>
+        Bet Slips & Stakes <span class="tab-badge" id="slipsBadge">14</span>
       </button>
       <button type="button" class="tab-btn" data-tab="tab-comparison" role="tab" id="tabBtnComparison">
         Model Comparison 🔒
@@ -87,14 +115,14 @@
               OFFICIAL EVENT DASHBOARD
             </div>
             <h2>UFC 333: Volkanovski vs. Evloev</h2>
-            <p>Featherweight Championship &bull; Delta Center &bull; Salt Lake City, Utah &bull; Saturday, Oct 24, 2026</p>
+            <p>Featherweight Championship &bull; Etihad Arena &bull; Abu Dhabi, UAE &bull; Saturday, Oct 24, 2026</p>
           </div>
           <div class="home-quick-actions">
             <button type="button" class="btn-gold" id="homeHeroBuilderBtn" style="padding: 8px 16px; font-size: 12px; font-weight: 700;">
               Launch Parlay Builder
             </button>
             <button type="button" class="btn-secondary" id="homeHeroSlipsBtn" style="padding: 8px 14px; font-size: 12px;">
-              View 13 Portfolio Slips
+              View 14 Portfolio Slips
             </button>
           </div>
         </div>
@@ -427,7 +455,7 @@
         <div class="chart-card">
           <div class="chart-header">
             <h3>3-Model Win Probability Comparison</h3>
-            <p>Comparing Dratings AI vs Tapology Fan Consensus vs <strong>UFC-Elo-Engine (GitHub)</strong></p>
+            <p>Comparing Dratings AI vs Tapology Fan Consensus vs <strong>Vanderbilt UFC-Elo-Engine (GitHub)</strong></p>
           </div>
           <div class="chart-viewport" id="chartProbabilities">
             <svg id="svgProbabilities" width="100%" height="390" viewBox="0 0 540 390"></svg>
@@ -464,6 +492,22 @@
           </div>
           <div class="chart-viewport" id="chartPikkit">
             <svg id="svgPikkit" width="100%" height="340" viewBox="0 0 540 340"></svg>
+          </div>
+        </div>
+
+        <!-- Chart 5: 6-Person Focus Group Consensus Survey -->
+        <div class="chart-card" style="grid-column: 1 / -1;">
+          <div class="chart-header" style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px;">
+            <div>
+              <h3>6-Person Community Consensus Survey (N=6)</h3>
+              <p>Direct vote tallies, percentage splits, and sentiment distribution surveyed across 6 knowledgeable bettors on key UFC 333 matchups</p>
+            </div>
+            <span class="weigh-in-metric-chip" style="background: rgba(245, 158, 11, 0.15); color: var(--primary); border: 1px solid rgba(245, 158, 11, 0.3);">
+              Focus Group Poll (N=6)
+            </span>
+          </div>
+          <div class="survey-bars-container" id="surveyBarsContainer">
+            <!-- Rendered dynamically by app.js -->
           </div>
         </div>
 
@@ -511,13 +555,13 @@
         <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px;">
           <div>
             <div class="bout-badge" style="background: rgba(245, 158, 11, 0.12); color: var(--primary); border: 1px solid rgba(245, 158, 11, 0.3); margin-bottom: 8px;">
-              GITHUB REPO: NBAtrev/UFC-Elo-Engine
+              GITHUB REPO: NBAtrev/UFC-Elo-Engine (Vanderbilt AI Model)
             </div>
             <h2 style="font-family: var(--font-sans); font-size: 24px; font-weight: 800; color: #fff; margin-bottom: 8px;">
               UFC Algorithmic Elo Rating & Win Probability Engine
             </h2>
             <p style="color: var(--text-secondary); max-width: 820px; font-size: 13px; line-height: 1.6;">
-              Trained on complete official UFC historical bout records from 1993 to 2026. Uses a dynamic logistic scoring function with dynamic <strong>+15% finish bonus weighting (K=46 for KO/Sub vs K=40 for Decision)</strong>. Model outputs expected win probability: <code>P_A = 1 / (1 + 10^((Elo_B - Elo_A)/400))</code>.
+              Engineered by Vanderbilt researcher NBAtrev: calculated across every single official UFC fight from 1993 to 2026 with a dynamic Elo rating system. Dynamic finish weighting: <strong>+15% bonus for KO/Sub (K=46 vs K=40 for Decision)</strong>. Model outputs expected win probability: <code>P_A = 1 / (1 + 10^((Elo_B - Elo_A)/400))</code>.
             </p>
           </div>
           <div style="display: flex; gap: 12px; flex-wrap: wrap;">
@@ -543,13 +587,13 @@
       <!-- YouTube ML Ensemble vs Public GitHub Elo Notice -->
       <div style="background: var(--bg-card); border: 1px solid var(--border-default); border-left: 3px solid var(--primary); padding: 14px 18px; border-radius: var(--radius-sm); margin-bottom: 20px; font-size: 13px; line-height: 1.6;">
         <div style="font-weight: 700; color: #fff; margin-bottom: 4px;">
-          Technical Architecture Note: Public GitHub Repo (Pure Elo) vs. Creator's YouTube ML Ensemble
+          Technical Architecture Note: Vanderbilt AI Model (Pure Elo Engine) vs. Multi-Model Ensemble
         </div>
         <p style="color: var(--text-secondary); margin: 0 0 6px 0;">
-          The numbers below are the exact algorithmic outputs generated directly from the public <code>NBAtrev/UFC-Elo-Engine</code> repository code (using the standard logistic Elo formula <code>P_A = 1 / (1 + 10^(&Delta;Elo/400))</code>).
+          The Elo ratings and probabilities below are generated directly from the Vanderbilt researcher's algorithm (covering every UFC fight in history). In his primary model calibration: <strong>Alexander Volkanovski is rated at 56% win probability (vs. Movsar Evloev at 44%)</strong>, and <strong>Merab Dvalishvili is projected as a slight favorite (53% vs. Petr Yan 47%)</strong>.
         </p>
         <p style="color: var(--text-secondary); margin: 0;">
-          In his YouTube video, creator NBAtrev presents outputs from a <strong>private 5-model Machine Learning Ensemble</strong> (Logistic Regression, Random Forest, SVM, Gradient Boosting, and a Meta-Classifier) that ingests <em>Chronological Age, Takedowns/15m, Strike Output, Reach Advantage, and Win Streaks</em>, with Elo as just one feature. For example, in <strong>Volkanovski vs. Evloev</strong>, pure Elo gives Volkanovski 54.1% due to his higher career rating (1227.6 vs 1198.9), whereas the YouTube ML model gives Evloev 71% due to the 6-year age advantage (32 vs 38) and heavy wrestling volume (4.8 takedowns/15m).
+          In contrast, his multi-feature ensemble (incorporating age differential, takedown volume, and strike absorption) flips Evloev to 71% purely due to the 6-year youth advantage (32 vs. 38) and 4.8 takedowns/15m pace. This divergence is benchmarked in full in the <a href="#" onclick="switchTab('tab-comparison'); return false;" style="color: var(--primary); text-decoration: underline;">Model Comparison tab</a>.
         </p>
       </div>
 
@@ -1324,6 +1368,96 @@
 
       <div class="bout-parlays-modal-body" id="boutParlaysModalBody">
         <!-- Dynamically populated by app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Official Weigh-In Docket & Bets Impact Modal -->
+  <div class="weigh-in-modal-overlay" id="weighInModal" role="dialog" aria-modal="true" aria-labelledby="weighInModalTitle">
+    <div class="weigh-in-modal-content">
+      <div class="weigh-in-modal-header">
+        <div>
+          <div style="font-size: 10px; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px;">
+            UFC 333 ABU DHABI OFFICIAL WEIGH-IN INTELLIGENCE & BETS CALIBRATION
+          </div>
+          <h2 id="weighInModalTitle" style="font-size: 19px; font-weight: 800; color: #fff; margin-top: 4px;">
+            Official Scale Results & Catchweight Impact
+          </h2>
+          <p style="font-size: 12px; color: var(--text-secondary); margin-top: 2px;">
+            Etihad Arena, Abu Dhabi &bull; 27 of 28 Fighters Made Weight &bull; Both Title Bouts Locked
+          </p>
+        </div>
+        <button type="button" class="cheat-btn-close" id="closeWeighInModalBtn" aria-label="Close Weigh-In Modal">&times;</button>
+      </div>
+
+      <div class="weigh-in-modal-body">
+        <!-- Weigh-In Summary Metric Cards -->
+        <div class="weigh-in-stats-grid">
+          <div class="weigh-in-stat-card">
+            <span class="stat-card-title">Main Event</span>
+            <div class="stat-card-val" style="color: var(--primary);">144.5 vs 145.0</div>
+            <div class="stat-card-sub">Volk 0.5 lb under limit; Evloev on mark</div>
+          </div>
+          <div class="weigh-in-stat-card">
+            <span class="stat-card-title">Co-Main Title</span>
+            <div class="stat-card-val" style="color: #60a5fa;">135.0 vs 135.0</div>
+            <div class="stat-card-sub">Yan & Merab championship official</div>
+          </div>
+          <div class="weigh-in-stat-card">
+            <span class="stat-card-title">Card Clearance</span>
+            <div class="stat-card-val" style="color: var(--success);">27 / 28 Made</div>
+            <div class="stat-card-sub">96.4% Scale compliance</div>
+          </div>
+          <div class="weigh-in-stat-card warning">
+            <span class="stat-card-title">Catchweight Drama</span>
+            <div class="stat-card-val" style="color: var(--danger);">120.5 lbs (+4.5)</div>
+            <div class="stat-card-sub">Caliari fined 30% purse to Lucindo</div>
+          </div>
+        </div>
+
+        <!-- Caliari Missed Weight Intelligence Deep Dive -->
+        <div class="weigh-in-drama-deep-dive">
+          <div class="deep-dive-header">
+            <span class="deep-dive-badge">CRITICAL WEIGH-IN BETTING ALERT</span>
+            <h4 style="font-size: 14px; font-weight: 800; color: #fff;">Bout 14: Iasmin Lucindo (115.0) vs. Nicolle Caliari (120.5) Catchweight Impact</h4>
+          </div>
+          <div class="deep-dive-grid">
+            <div class="deep-dive-item">
+              <span class="item-title">What Happened at Scale:</span>
+              <p>Nicolle Caliari weighed in at <strong>120.5 lbs</strong>, missing the non-title strawweight ceiling (116.0 lbs) by <strong>4.5 pounds</strong>. Lucindo made weight cleanly at 115.0 lbs. Lucindo accepted the bout at catchweight, receiving <strong>30% of Caliari's fight purse</strong>.</p>
+            </div>
+            <div class="deep-dive-item">
+              <span class="item-title">Cardio & Physical Impact:</span>
+              <p>Missing by 4.5 lbs reflects a severe weight-cut failure or early shutdown. Caliari's 3-round gas tank, muscular recovery, and cognitive resilience are compromised against Lucindo's relentless grappling pace and clinch control.</p>
+            </div>
+            <div class="deep-dive-item">
+              <span class="item-title">Portfolio Slip Impact:</span>
+              <p><strong>Slip 2 (The Golden Triad Lock):</strong> Lucindo ML (-350) is <strong>heavily fortified</strong> as an anchor. <strong>Slip 9 (Tactical Decisions):</strong> Lucindo Decision remains strong (66%), but watch for late round-3 stoppage hazard as Caliari gasses. <strong>Underdog Bet Alert:</strong> We Want Picks' +284 Caliari dog play is compromised.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Complete 14-Bout Official Docket Table -->
+        <div style="margin-top: 16px;">
+          <h4 style="font-size: 14px; font-weight: 800; color: #fff; margin-bottom: 8px;">Official 14-Bout Abu Dhabi Weigh-In Docket</h4>
+          <div class="cheat-table-wrapper" style="max-height: 380px;">
+            <table class="cheat-table">
+              <thead>
+                <tr>
+                  <th>Bout #</th>
+                  <th>Matchup & Division</th>
+                  <th>Red Corner Weight</th>
+                  <th>Blue Corner Weight</th>
+                  <th>Scale Status</th>
+                  <th>Betting Impact</th>
+                </tr>
+              </thead>
+              <tbody id="weighInDocketTableBody">
+                <!-- Dynamically populated or rendered -->
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
   </div>

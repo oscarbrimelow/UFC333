@@ -47,8 +47,11 @@ const FIGHTS_DATA = [
       ],
       "elo": 1227.6,
       "peakElo": 1252.0,
-      "eloProb": 54.1,
-      "eloOdds": "-118"
+      "eloProb": 56.0,
+      "eloOdds": "-127",
+      "officialWeight": 144.5,
+      "weighInStatus": "made",
+      "weighInNote": "144.5 lbs (0.5 lb under championship limit, looking sharp and energized)"
     },
     "blue": {
       "id": "evloev",
@@ -91,8 +94,11 @@ const FIGHTS_DATA = [
       ],
       "elo": 1198.9,
       "peakElo": 1198.9,
-      "eloProb": 45.9,
-      "eloOdds": "+118"
+      "eloProb": 44.0,
+      "eloOdds": "+127",
+      "officialWeight": 145.0,
+      "weighInStatus": "made",
+      "weighInNote": "145.0 lbs (championship limit made on the dot)"
     },
     "consensus": {
       "favorite": "Alexander Volkanovski",
@@ -126,12 +132,22 @@ const FIGHTS_DATA = [
       "primaryProp": "Volkanovski via Decision (+130)",
       "verdict": "Volkanovski holds overwhelming championship pedigree, defensive wrestling, and striking volume against Evloev's pure chain grappling.",
       "eloFavorite": "Alexander Volkanovski",
-      "eloFavProb": 54.1,
+      "eloFavProb": 56.0,
       "eloDiff": 28.7,
       "likelyWinner": "Alexander Volkanovski",
       "predictedMethod": "Unanimous Decision (77% Decision Consensus)",
       "lockStatus": "HIGH LEAN",
       "lockBadge": "CHAMPION LEAN (82.6% Public)",
+      "survey": {
+        "sample": 6,
+        "split": "3-3 Split",
+        "v1": 3,
+        "v2": 3,
+        "pct1": 50.0,
+        "pct2": 50.0,
+        "verdict": "Even 50/50 Split",
+        "detail": "6-person bettor focus group produced an even 3-3 deadlock between Volkanovski and Evloev."
+      },
       "publicPicks": {
         "red": 1934,
         "blue": 408,
@@ -145,6 +161,11 @@ const FIGHTS_DATA = [
         "bluePct": 21.4
       },
       "pickTallySummary": "1,934 users pick Volkanovski vs 408 for Evloev (82.6% community consensus)"
+    },
+    "weighIn": {
+      "status": "Official",
+      "bothMadeWeight": true,
+      "summary": "Both fighters made championship weight. Volkanovski 144.5 lbs (0.5 lb under limit, peak condition) vs Evloev 145.0 lbs on the dot."
     }
   },
   {
@@ -193,8 +214,11 @@ const FIGHTS_DATA = [
       ],
       "elo": 1181.5,
       "peakElo": 1181.5,
-      "eloProb": 44.7,
-      "eloOdds": "+123"
+      "eloProb": 47.0,
+      "eloOdds": "+113",
+      "officialWeight": 135.0,
+      "weighInStatus": "made",
+      "weighInNote": "135.0 lbs (championship limit made cleanly)"
     },
     "blue": {
       "id": "dvalishvili",
@@ -237,8 +261,11 @@ const FIGHTS_DATA = [
       ],
       "elo": 1218.1,
       "peakElo": 1243.0,
-      "eloProb": 55.3,
-      "eloOdds": "-123"
+      "eloProb": 53.0,
+      "eloOdds": "-113",
+      "officialWeight": 135.0,
+      "weighInStatus": "made",
+      "weighInNote": "135.0 lbs (championship limit made cleanly)"
     },
     "consensus": {
       "favorite": "Petr Yan",
@@ -272,12 +299,22 @@ const FIGHTS_DATA = [
       "primaryProp": "Petr Yan via Decision (-110)",
       "verdict": "Trilogy showdown. Analysts anticipate Yan targeting body damage and technical adjustments to dismantle Merab's cardio engine.",
       "eloFavorite": "Merab Dvalishvili",
-      "eloFavProb": 55.3,
-      "eloDiff": -36.6,
+      "eloFavProb": 53.0,
+      "eloDiff": -21.4,
       "likelyWinner": "Petr Yan",
       "predictedMethod": "Unanimous Decision (74% Decision Consensus)",
       "lockStatus": "STRONG LEAN",
       "lockBadge": "STRONG LEAN (65.8% Public)",
+      "survey": {
+        "sample": 6,
+        "split": "5-1 Yan",
+        "v1": 5,
+        "v2": 1,
+        "pct1": 83.3,
+        "pct2": 16.7,
+        "verdict": "Heavy Yan Majority",
+        "detail": "6-person bettor focus group overwhelmingly favored Petr Yan 5 to 1 over Merab Dvalishvili."
+      },
       "publicPicks": {
         "red": 1106,
         "blue": 574,
@@ -291,6 +328,11 @@ const FIGHTS_DATA = [
         "bluePct": 28.0
       },
       "pickTallySummary": "1,106 users pick Petr Yan vs 574 for Merab Dvalishvili (65.8% community consensus)"
+    },
+    "weighIn": {
+      "status": "Official",
+      "bothMadeWeight": true,
+      "summary": "Both fighters hit 135.0 lbs championship weight without issue. Trilogy co-main event locked in."
     }
   },
   {
@@ -340,7 +382,10 @@ const FIGHTS_DATA = [
       "elo": 1018.6,
       "peakElo": 1040.2,
       "eloProb": 43.0,
-      "eloOdds": "+133"
+      "eloOdds": "+133",
+      "officialWeight": 125.5,
+      "weighInStatus": "made",
+      "weighInNote": "125.5 lbs (made weight)"
     },
     "blue": {
       "id": "temirov",
@@ -384,7 +429,10 @@ const FIGHTS_DATA = [
       "elo": 1067.8,
       "peakElo": 1067.8,
       "eloProb": 57.0,
-      "eloOdds": "-133"
+      "eloOdds": "-133",
+      "officialWeight": 126.0,
+      "weighInStatus": "made",
+      "weighInNote": "126.0 lbs (hit non-title limit on dot)"
     },
     "consensus": {
       "favorite": "Ramazan Temirov",
@@ -424,6 +472,16 @@ const FIGHTS_DATA = [
       "predictedMethod": "KO/TKO Round 1 or 2 (58% KO Probability)",
       "lockStatus": "VALUE DOG",
       "lockBadge": "KO VALUE PICK (57.0% Elo Edge)",
+      "survey": {
+        "sample": 6,
+        "split": "3-3 Split",
+        "v1": 3,
+        "v2": 3,
+        "pct1": 50.0,
+        "pct2": 50.0,
+        "verdict": "Even 50/50 Split",
+        "detail": "6-person bettor focus group produced an even 3-3 deadlock split between Kavanagh and Temirov."
+      },
       "publicPicks": {
         "red": 194,
         "blue": 225,
@@ -437,6 +495,11 @@ const FIGHTS_DATA = [
         "bluePct": 56.0
       },
       "pickTallySummary": "225 users pick Temirov vs 194 for Kavanagh (53.7% community consensus + 57% Elo Edge)"
+    },
+    "weighIn": {
+      "status": "Official",
+      "bothMadeWeight": true,
+      "summary": "Both fighters made weight cleanly (Kavanagh 125.5 lbs vs Temirov 126.0 lbs)."
     }
   },
   {
@@ -486,7 +549,10 @@ const FIGHTS_DATA = [
       "elo": 1193.0,
       "peakElo": 1193.0,
       "eloProb": 70.7,
-      "eloOdds": "-241"
+      "eloOdds": "-241",
+      "officialWeight": 256.0,
+      "weighInStatus": "made",
+      "weighInNote": "256.0 lbs (made weight, 9 lbs leaner shape)"
     },
     "blue": {
       "id": "kuniev",
@@ -530,7 +596,10 @@ const FIGHTS_DATA = [
       "elo": 1039.9,
       "peakElo": 1039.9,
       "eloProb": 29.3,
-      "eloOdds": "+241"
+      "eloOdds": "+241",
+      "officialWeight": 265.0,
+      "weighInStatus": "made",
+      "weighInNote": "265.0 lbs (hit heavyweight limit on dot)"
     },
     "consensus": {
       "favorite": "Alexander Volkov",
@@ -569,7 +638,17 @@ const FIGHTS_DATA = [
       "likelyWinner": "Alexander Volkov",
       "predictedMethod": "Unanimous Decision (76% Decision Consensus)",
       "lockStatus": "UNANIMOUS LOCK",
-      "lockBadge": "\ud83d\udd12 UNANIMOUS LOCK (86% Experts / 70.7% Elo)",
+      "lockBadge": "🔒 UNANIMOUS LOCK (86% Experts / 70.7% Elo)",
+      "survey": {
+        "sample": 6,
+        "split": "4-2 Kuniev",
+        "v1": 2,
+        "v2": 4,
+        "pct1": 33.3,
+        "pct2": 66.7,
+        "verdict": "Kuniev Underdog Lean",
+        "detail": "6-person bettor focus group leaned toward underdog Rizvan Kuniev 4 to 2 over Alexander Volkov."
+      },
       "publicPicks": {
         "red": 260,
         "blue": 135,
@@ -583,6 +662,11 @@ const FIGHTS_DATA = [
         "bluePct": 14.3
       },
       "pickTallySummary": "260 users pick Volkov vs 135 for Kuniev (85.7% experts & +153.1 Elo advantage)"
+    },
+    "weighIn": {
+      "status": "Official",
+      "bothMadeWeight": true,
+      "summary": "Both fighters made weight. Volkov came in at 256.0 lbs (9 lbs leaner than Kuniev at 265.0 lbs max), giving him speed and cardio mobility."
     }
   },
   {
@@ -632,7 +716,10 @@ const FIGHTS_DATA = [
       "elo": 1008.4,
       "peakElo": 1008.4,
       "eloProb": 53.1,
-      "eloOdds": "-113"
+      "eloOdds": "-113",
+      "officialWeight": 145.5,
+      "weighInStatus": "made",
+      "weighInNote": "145.5 lbs (made weight)"
     },
     "blue": {
       "id": "keita",
@@ -676,7 +763,10 @@ const FIGHTS_DATA = [
       "elo": 986.6,
       "peakElo": 986.6,
       "eloProb": 46.9,
-      "eloOdds": "+113"
+      "eloOdds": "+113",
+      "officialWeight": 146.0,
+      "weighInStatus": "made",
+      "weighInNote": "146.0 lbs (hit non-title limit on dot)"
     },
     "consensus": {
       "favorite": "Losene Keita (Sharp Dog Lean)",
@@ -716,6 +806,16 @@ const FIGHTS_DATA = [
       "predictedMethod": "KO/TKO Round 2 (65% Finish Expectation)",
       "lockStatus": "VALUE DOG",
       "lockBadge": "LIVE UNDERDOG (+125 Value Dog)",
+      "survey": {
+        "sample": 6,
+        "split": "3-3 Split",
+        "v1": 3,
+        "v2": 3,
+        "pct1": 50.0,
+        "pct2": 50.0,
+        "verdict": "Even 50/50 Split",
+        "detail": "6-person bettor focus group produced an even 3-3 deadlock split between Aaron Pico and Losene Keita."
+      },
       "publicPicks": {
         "red": 205,
         "blue": 137,
@@ -729,6 +829,11 @@ const FIGHTS_DATA = [
         "bluePct": 59.3
       },
       "pickTallySummary": "16 sharp analysts pick Keita by KO vs 11 for Pico (59.3% expert dog lean)"
+    },
+    "weighIn": {
+      "status": "Official",
+      "bothMadeWeight": true,
+      "summary": "Both fighters made weight (Pico 145.5 lbs vs Keita 146.0 lbs)."
     }
   },
   {
@@ -778,7 +883,10 @@ const FIGHTS_DATA = [
       "elo": 1101.9,
       "peakElo": 1127.8,
       "eloProb": 48.2,
-      "eloOdds": "+107"
+      "eloOdds": "+107",
+      "officialWeight": 206.0,
+      "weighInStatus": "made",
+      "weighInNote": "206.0 lbs (hit non-title limit on dot)"
     },
     "blue": {
       "id": "reyes",
@@ -822,7 +930,10 @@ const FIGHTS_DATA = [
       "elo": 1114.5,
       "peakElo": 1128.5,
       "eloProb": 51.8,
-      "eloOdds": "-107"
+      "eloOdds": "-107",
+      "officialWeight": 205.0,
+      "weighInStatus": "made",
+      "weighInNote": "205.0 lbs (made weight cleanly)"
     },
     "consensus": {
       "favorite": "Azamat Murzakanov",
@@ -875,6 +986,11 @@ const FIGHTS_DATA = [
         "bluePct": 22.2
       },
       "pickTallySummary": "49 users pick Murzakanov vs 16 for Reyes (100% alignment among high-ROI sharp predictors)"
+    },
+    "weighIn": {
+      "status": "Official",
+      "bothMadeWeight": true,
+      "summary": "Both fighters made weight (Murzakanov 206.0 lbs vs Reyes 205.0 lbs)."
     }
   },
   {
@@ -924,7 +1040,10 @@ const FIGHTS_DATA = [
       "elo": 1000.0,
       "peakElo": 1000.0,
       "eloProb": 41.4,
-      "eloOdds": "+141"
+      "eloOdds": "+141",
+      "officialWeight": 206.0,
+      "weighInStatus": "made",
+      "weighInNote": "206.0 lbs (hit non-title limit on dot)"
     },
     "blue": {
       "id": "krylov",
@@ -968,7 +1087,10 @@ const FIGHTS_DATA = [
       "elo": 1060.2,
       "peakElo": 1102.5,
       "eloProb": 58.6,
-      "eloOdds": "-141"
+      "eloOdds": "-141",
+      "officialWeight": 206.0,
+      "weighInStatus": "made",
+      "weighInNote": "206.0 lbs (hit non-title limit on dot)"
     },
     "consensus": {
       "favorite": "Abdul Rakhman Yakhyaev",
@@ -1021,6 +1143,11 @@ const FIGHTS_DATA = [
         "bluePct": 3.7
       },
       "pickTallySummary": "348 users pick Yakhyaev vs 16 for Krylov (95.6% consensus - Bisping's 'surefire guarantee')"
+    },
+    "weighIn": {
+      "status": "Official",
+      "bothMadeWeight": true,
+      "summary": "Both fighters hit 206.0 lbs non-title limit on the dot."
     }
   },
   {
@@ -1070,7 +1197,10 @@ const FIGHTS_DATA = [
       "elo": 1064.0,
       "peakElo": 1064.0,
       "eloProb": 49.7,
-      "eloOdds": "+101"
+      "eloOdds": "+101",
+      "officialWeight": 185.5,
+      "weighInStatus": "made",
+      "weighInNote": "185.5 lbs (made weight)"
     },
     "blue": {
       "id": "rowston",
@@ -1114,7 +1244,10 @@ const FIGHTS_DATA = [
       "elo": 1065.9,
       "peakElo": 1065.9,
       "eloProb": 50.3,
-      "eloOdds": "-101"
+      "eloOdds": "-101",
+      "officialWeight": 185.0,
+      "weighInStatus": "made",
+      "weighInNote": "185.0 lbs (hit championship mark)"
     },
     "consensus": {
       "favorite": "Cam Rowston (Sharp Underdog)",
@@ -1167,6 +1300,11 @@ const FIGHTS_DATA = [
         "bluePct": 57.1
       },
       "pickTallySummary": "174 users pick Rowston vs 272 for Abus (57.1% sharp experts & Elo model favors Rowston)"
+    },
+    "weighIn": {
+      "status": "Official",
+      "bothMadeWeight": true,
+      "summary": "Both fighters made weight (Magomedov 185.5 lbs vs Rowston 185.0 lbs)."
     }
   },
   {
@@ -1216,7 +1354,10 @@ const FIGHTS_DATA = [
       "elo": 1163.5,
       "peakElo": 1178.6,
       "eloProb": 62.0,
-      "eloOdds": "-163"
+      "eloOdds": "-163",
+      "officialWeight": 156.0,
+      "weighInStatus": "made",
+      "weighInNote": "156.0 lbs (hit non-title limit on dot)"
     },
     "blue": {
       "id": "aliev",
@@ -1260,7 +1401,10 @@ const FIGHTS_DATA = [
       "elo": 1078.7,
       "peakElo": 1078.7,
       "eloProb": 38.0,
-      "eloOdds": "+163"
+      "eloOdds": "+163",
+      "officialWeight": 155.0,
+      "weighInStatus": "made",
+      "weighInNote": "155.0 lbs (hit championship mark)"
     },
     "consensus": {
       "favorite": "Grant Dawson",
@@ -1313,6 +1457,11 @@ const FIGHTS_DATA = [
         "bluePct": 37.0
       },
       "pickTallySummary": "225 users pick Dawson vs 202 for Aliev (+84.8 Elo edge & 62.0% model win probability)"
+    },
+    "weighIn": {
+      "status": "Official",
+      "bothMadeWeight": true,
+      "summary": "Both fighters made weight (Dawson 156.0 lbs vs Aliev 155.0 lbs)."
     }
   },
   {
@@ -1362,7 +1511,10 @@ const FIGHTS_DATA = [
       "elo": 1000.0,
       "peakElo": 1000.0,
       "eloProb": 47.8,
-      "eloOdds": "+109"
+      "eloOdds": "+109",
+      "officialWeight": 136.0,
+      "weighInStatus": "made",
+      "weighInNote": "136.0 lbs (hit non-title limit on dot)"
     },
     "blue": {
       "id": "thicknesse",
@@ -1406,7 +1558,10 @@ const FIGHTS_DATA = [
       "elo": 1015.6,
       "peakElo": 1015.6,
       "eloProb": 52.2,
-      "eloOdds": "-109"
+      "eloOdds": "-109",
+      "officialWeight": 135.5,
+      "weighInStatus": "made",
+      "weighInNote": "135.5 lbs (made weight cleanly)"
     },
     "consensus": {
       "favorite": "Asaf Chopurov",
@@ -1459,6 +1614,11 @@ const FIGHTS_DATA = [
         "bluePct": 14.8
       },
       "pickTallySummary": "305 users pick Chopurov vs 27 for Thicknesse (91.9% consensus - largest favorite -550 on card)"
+    },
+    "weighIn": {
+      "status": "Official",
+      "bothMadeWeight": true,
+      "summary": "Both fighters made weight (Chopurov 136.0 lbs vs Thicknesse 135.5 lbs)."
     }
   },
   {
@@ -1508,7 +1668,10 @@ const FIGHTS_DATA = [
       "elo": 1019.0,
       "peakElo": 1019.0,
       "eloProb": 43.7,
-      "eloOdds": "+129"
+      "eloOdds": "+129",
+      "officialWeight": 185.5,
+      "weighInStatus": "made",
+      "weighInNote": "185.5 lbs (made weight)"
     },
     "blue": {
       "id": "malkoun",
@@ -1552,7 +1715,10 @@ const FIGHTS_DATA = [
       "elo": 1063.4,
       "peakElo": 1063.4,
       "eloProb": 56.3,
-      "eloOdds": "-129"
+      "eloOdds": "-129",
+      "officialWeight": 186.0,
+      "weighInStatus": "made",
+      "weighInNote": "186.0 lbs (hit non-title limit on dot)"
     },
     "consensus": {
       "favorite": "Abubakar Vagaev",
@@ -1605,11 +1771,16 @@ const FIGHTS_DATA = [
         "bluePct": 23.1
       },
       "pickTallySummary": "402 users pick Vagaev vs 75 for Malkoun (84.3% public consensus & 76.9% experts)"
+    },
+    "weighIn": {
+      "status": "Official",
+      "bothMadeWeight": true,
+      "summary": "Both fighters made weight (Vagaev 185.5 lbs vs Malkoun 186.0 lbs)."
     }
   },
   {
     "id": "bout-12",
-    "weightClass": "Lightweight (155 lbs)",
+    "weightClass": "Featherweight (145 lbs)",
     "card": "Early Prelims",
     "distance": "3 Rounds",
     "red": {
@@ -1619,7 +1790,7 @@ const FIGHTS_DATA = [
       "age": 31,
       "record": "12-2-0",
       "height": "5'7\" (170 cm)",
-      "weight": "155 lbs (70 kg)",
+      "weight": "146 lbs (66 kg)",
       "style": "Chute Boxe Muay Thai / Aggressive Pressure",
       "image": "images/santos.png",
       "odds": -125,
@@ -1654,7 +1825,10 @@ const FIGHTS_DATA = [
       "elo": 1043.5,
       "peakElo": 1067.8,
       "eloProb": 60.4,
-      "eloOdds": "-152"
+      "eloOdds": "-152",
+      "officialWeight": 146.0,
+      "weighInStatus": "made",
+      "weighInNote": "146.0 lbs (hit featherweight limit on dot)"
     },
     "blue": {
       "id": "oki",
@@ -1663,7 +1837,7 @@ const FIGHTS_DATA = [
       "age": 30,
       "record": "9-2-0",
       "height": "5'10\" (178 cm)",
-      "weight": "155 lbs (70 kg)",
+      "weight": "146 lbs (66 kg)",
       "style": "Explosive Boxing / Counter Striking",
       "image": "images/oki.png",
       "odds": 105,
@@ -1698,7 +1872,10 @@ const FIGHTS_DATA = [
       "elo": 970.4,
       "peakElo": 1020.0,
       "eloProb": 39.6,
-      "eloOdds": "+152"
+      "eloOdds": "+152",
+      "officialWeight": 146.0,
+      "weighInStatus": "made",
+      "weighInNote": "146.0 lbs (hit featherweight limit on dot)"
     },
     "consensus": {
       "favorite": "Daniel Santos",
@@ -1751,6 +1928,11 @@ const FIGHTS_DATA = [
         "bluePct": 19.2
       },
       "pickTallySummary": "21 expert analysts pick Santos vs 5 for Oki (80.8% expert consensus & +73.1 Elo edge)"
+    },
+    "weighIn": {
+      "status": "Official",
+      "bothMadeWeight": true,
+      "summary": "Both fighters made 146.0 lbs on weight for Featherweight."
     }
   },
   {
@@ -1800,7 +1982,10 @@ const FIGHTS_DATA = [
       "elo": 1003.5,
       "peakElo": 1003.5,
       "eloProb": 47.2,
-      "eloOdds": "+112"
+      "eloOdds": "+112",
+      "officialWeight": 156.0,
+      "weighInStatus": "made",
+      "weighInNote": "156.0 lbs (hit non-title limit on dot)"
     },
     "blue": {
       "id": "gugnon",
@@ -1844,7 +2029,10 @@ const FIGHTS_DATA = [
       "elo": 1023.0,
       "peakElo": 1023.0,
       "eloProb": 52.8,
-      "eloOdds": "-112"
+      "eloOdds": "-112",
+      "officialWeight": 156.0,
+      "weighInStatus": "made",
+      "weighInNote": "156.0 lbs (hit non-title limit on dot)"
     },
     "consensus": {
       "favorite": "Kody Steele",
@@ -1897,11 +2085,16 @@ const FIGHTS_DATA = [
         "bluePct": 30.8
       },
       "pickTallySummary": "125 users pick Steele vs 31 for Gugnon (80.1% public consensus & 69.2% experts)"
+    },
+    "weighIn": {
+      "status": "Official",
+      "bothMadeWeight": true,
+      "summary": "Both fighters hit 156.0 lbs non-title limit on the dot."
     }
   },
   {
     "id": "bout-14",
-    "weightClass": "Women's Strawweight (115 lbs)",
+    "weightClass": "Catchweight (120.5 lbs)",
     "card": "Early Prelims Opener",
     "distance": "3 Rounds",
     "red": {
@@ -1946,7 +2139,10 @@ const FIGHTS_DATA = [
       "elo": 1065.8,
       "peakElo": 1065.8,
       "eloProb": 61.7,
-      "eloOdds": "-161"
+      "eloOdds": "-161",
+      "officialWeight": 115.0,
+      "weighInStatus": "made",
+      "weighInNote": "115.0 lbs (strawweight limit made cleanly; awarded 30% purse fine)"
     },
     "blue": {
       "id": "caliari",
@@ -1955,7 +2151,7 @@ const FIGHTS_DATA = [
       "age": 29,
       "record": "9-3-0",
       "height": "5'4\" (163 cm)",
-      "weight": "115 lbs (52 kg)",
+      "weight": "120.5 lbs (Catchweight)",
       "style": "Muay Thai / Clinch Striker",
       "image": "images/caliari.png",
       "odds": 310,
@@ -1990,7 +2186,12 @@ const FIGHTS_DATA = [
       "elo": 983.2,
       "peakElo": 983.2,
       "eloProb": 38.3,
-      "eloOdds": "+161"
+      "eloOdds": "+161",
+      "officialWeight": 120.5,
+      "weighInStatus": "missed",
+      "weighInNote": "120.5 lbs \u2014 MISSED WEIGHT by 4.5 lbs (forfeited 30% purse to Lucindo; proceeds at Catchweight)",
+      "weightMissLbs": 4.5,
+      "pursePenaltyPct": 30
     },
     "consensus": {
       "favorite": "Iasmin Lucindo",
@@ -2029,7 +2230,7 @@ const FIGHTS_DATA = [
       "likelyWinner": "Iasmin Lucindo",
       "predictedMethod": "Unanimous Decision (66% Decision / 22% Sub)",
       "lockStatus": "UNANIMOUS LOCK",
-      "lockBadge": "\ud83d\udd12 UNANIMOUS LOCK (89.2% Public / 93% Experts)",
+      "lockBadge": "\ud83d\udd12 UNANIMOUS LOCK (89.2% Public / 93% Experts \u2022 Caliari Missed Weight by 4.5 lbs)",
       "publicPicks": {
         "red": 148,
         "blue": 18,
@@ -2042,8 +2243,17 @@ const FIGHTS_DATA = [
         "redPct": 92.6,
         "bluePct": 7.4
       },
-      "pickTallySummary": "148 users pick Lucindo vs 18 for Caliari (89.2% public & 92.6% expert consensus)"
-    }
+      "pickTallySummary": "148 users pick Lucindo vs 18 for Caliari (89.2% public & 92.6% expert consensus)",
+      "weighInImpact": "Caliari missed weight by 4.5 lbs (120.5 lbs Catchweight), forfeiting 30% purse to Lucindo. Lucindo made 115.0 lbs cleanly. Severe weight cut trauma compromises Caliari's 3-round gas tank and recovery against Lucindo's relentless grappling pressure, solidifying Lucindo's status as a card lock."
+    },
+    "weighIn": {
+      "status": "Official (Catchweight)",
+      "bothMadeWeight": false,
+      "summary": "Nicolle Caliari missed weight by 4.5 lbs (120.5 lbs vs 116.0 max limit). Bout proceeds at Catchweight; Caliari forfeits 30% fight purse to Lucindo.",
+      "missedFighter": "Nicolle Caliari"
+    },
+    "weighInDrama": true,
+    "originalWeightClass": "Women's Strawweight (115 lbs)"
   }
 ];
 
@@ -2076,7 +2286,9 @@ const INITIAL_SLIPS = [
         "img": "images/chopurov.png"
       }
     ],
-    "rationale": "Highest conviction foundation on the board. Yakhyaev is 94% consensus pick with Bisping's 'surefire guarantee', Chopurov is the card's heaviest favorite (-550) with 83% computer win probability."
+    "rationale": "Highest conviction foundation on the board. Yakhyaev is 94% consensus pick with Bisping's 'surefire guarantee', Chopurov is the card's heaviest favorite (-550) with 83% computer win probability.",
+    "weighInVerified": true,
+    "weighInImpact": "Both fighters weighed in on the championship mark (Yakhyaev 206.0 lbs, Chopurov 136.0 lbs). Anchor foundation is rock solid."
   },
   {
     "id": "slip-2",
@@ -2114,7 +2326,9 @@ const INITIAL_SLIPS = [
         "img": "images/lucindo.png"
       }
     ],
-    "rationale": "100% consensus pick among high-ROI sharp predictors. Murzakanov's 14-0 knockout power against Reyes' suspect chin, combined with Lucindo's physical dominance and cardio edge."
+    "rationale": "100% consensus pick among high-ROI sharp predictors. Murzakanov's 14-0 knockout power against Reyes' suspect chin, combined with Lucindo's physical dominance and cardio edge.",
+    "weighInVerified": true,
+    "weighInImpact": "FORTIFIED LOCK: Lucindo made weight at 115.0 lbs sharp. Caliari missed by 4.5 lbs (120.5 lbs Catchweight), forfeiting 30% purse to Lucindo. Severe weight cut trauma compromises Caliari's 3-round gas tank against Lucindo's relentless grappling pressure, cementing Lucindo ML (-350) as an ultra-high conviction anchor."
   },
   {
     "id": "slip-3",
@@ -2144,7 +2358,9 @@ const INITIAL_SLIPS = [
         "img": "images/yan.png"
       }
     ],
-    "rationale": "Elite championship pedigree parlay. Volkanovski's legendary 5-round cardio and defensive wrestling against Evloev, paired with Yan's razor-sharp boxing adjustments in the bantamweight trilogy."
+    "rationale": "Elite championship pedigree parlay. Volkanovski's legendary 5-round cardio and defensive wrestling against Evloev, paired with Yan's razor-sharp boxing adjustments in the bantamweight trilogy.",
+    "weighInVerified": true,
+    "weighInImpact": "CHAMPIONSHIP LOCKED: Volkanovski stepped on the scale looking lean and energized at 144.5 lbs (0.5 lb under championship limit). Movsar Evloev hit 145.0 on the dot. Petr Yan and Merab Dvalishvili both hit 135.0 lbs cleanly. Zero weight-cut flags on championship favorites."
   },
   {
     "id": "slip-4",
@@ -2182,7 +2398,9 @@ const INITIAL_SLIPS = [
         "img": "images/volkov.png"
       }
     ],
-    "rationale": "Triple ground and positional control specialists. Vagaev backed by 402 Pikkit community bets, Steele ADCC submission pedigree, and Volkov 6'7\" range control over 15 minutes."
+    "rationale": "Triple ground and positional control specialists. Vagaev backed by 402 Pikkit community bets, Steele ADCC submission pedigree, and Volkov 6'7\" range control over 15 minutes.",
+    "weighInVerified": true,
+    "weighInImpact": "CARDIO ADVANTAGE: Alexander Volkov weighed in at 256.0 lbs (9 lbs lighter and significantly more agile than Kuniev at 265.0 lbs max), boosting his 15-minute range boxing and movement edge. Vagaev (185.5) and Steele (156.0) both on point."
   },
   {
     "id": "slip-5",
@@ -2204,7 +2422,9 @@ const INITIAL_SLIPS = [
         "img": "images/rowston.png"
       }
     ],
-    "rationale": "Top consensus value underdog of the entire event. Multiple sharp analysts (Austin Swaim 'biggest bet of week', Mike Finch, MMA Experts) expect Rowston to withstand early danger and take over rounds 2-3 as Abus gases out."
+    "rationale": "Top consensus value underdog of the entire event. Multiple sharp analysts (Austin Swaim 'biggest bet of week', Mike Finch, MMA Experts) expect Rowston to withstand early danger and take over rounds 2-3 as Abus gases out.",
+    "weighInVerified": true,
+    "weighInImpact": "WEIGHT VERIFIED: Cam Rowston weighed 185.0 lbs, looking dialed in and fresh against Abus Magomedov (185.5 lbs). Sharp underdog thesis fully intact."
   },
   {
     "id": "slip-6",
@@ -2258,7 +2478,9 @@ const INITIAL_SLIPS = [
         "img": "images/santos.png"
       }
     ],
-    "rationale": "High-octane R5 flier on the 5 fiercest knockout punchers on the card, where finish probability exceeds 75% according to market distance data."
+    "rationale": "High-octane R5 flier on the 5 fiercest knockout punchers on the card, where finish probability exceeds 75% according to market distance data.",
+    "weighInVerified": true,
+    "weighInImpact": "WEIGHT VERIFIED: Daniel Santos and Bolaji Oki both made 146.0 lbs for Featherweight. Temirov, Keita, Murzakanov, and Yakhyaev all on weight with full power intact."
   },
   {
     "id": "slip-7",
@@ -2304,7 +2526,9 @@ const INITIAL_SLIPS = [
         "img": "images/temirov.png"
       }
     ],
-    "rationale": "All four plus-money underdogs flagged in Discord & Youtube sharp breakdowns as heavily undervalued relative to their true fight potential."
+    "rationale": "All four plus-money underdogs flagged in Discord & Youtube sharp breakdowns as heavily undervalued relative to their true fight potential.",
+    "weighInVerified": true,
+    "weighInImpact": "All 4 underdogs (Keita, Rowston, Oki, Temirov) hit weight cleanly with zero weight cut issues."
   },
   {
     "id": "slip-8",
@@ -2358,7 +2582,9 @@ const INITIAL_SLIPS = [
         "img": "images/volkanovski.png"
       }
     ],
-    "rationale": "Popular Instagram 'Coldest Takes' featured card parlay, mixing heavy anchor props with championship moneyline favorites."
+    "rationale": "Popular Instagram 'Coldest Takes' featured card parlay, mixing heavy anchor props with championship moneyline favorites.",
+    "weighInVerified": true,
+    "weighInImpact": "All 5 legs made weight cleanly. Title fights official."
   },
   {
     "id": "slip-9",
@@ -2404,7 +2630,9 @@ const INITIAL_SLIPS = [
         "img": "images/lucindo.png"
       }
     ],
-    "rationale": "Market distance picks show 65-71% distance probability for all four bouts. Backing elite technicians to win comfortably on the scorecards."
+    "rationale": "Market distance picks show 65-71% distance probability for all four bouts. Backing elite technicians to win comfortably on the scorecards.",
+    "weighInVerified": true,
+    "weighInImpact": "TACTICAL WEIGH-IN NOTICE: Lucindo Decision (-160) remains high probability (66%), but Caliari's 4.5-lb missed weight introduces late stoppage hazard if Caliari's gas tank gives out under Lucindo's top control in round 3. Bettors may consider Lucindo ML as a safer parlay anchor."
   },
   {
     "id": "slip-10",
@@ -2466,7 +2694,9 @@ const INITIAL_SLIPS = [
         "img": "images/steele.png"
       }
     ],
-    "rationale": "Crazy R5 flier with massive +12,400 potential return combining exact stylistic finish predictions."
+    "rationale": "Crazy R5 flier with massive +12,400 potential return combining exact stylistic finish predictions.",
+    "weighInVerified": true,
+    "weighInImpact": "All 6 fighters on weight. High finish variance intact."
   },
   {
     "id": "slip-11",
@@ -2544,7 +2774,9 @@ const INITIAL_SLIPS = [
         "img": "images/lucindo.png"
       }
     ],
-    "rationale": "Favorite sweep accumulator. Backing the 8 highest confidence fighters across the event."
+    "rationale": "Favorite sweep accumulator. Backing the 8 highest confidence fighters across the event.",
+    "weighInVerified": true,
+    "weighInImpact": "All 8 legs verified on weight. Lucindo holds massive conditioning advantage in Catchweight bout."
   },
   {
     "id": "slip-12",
@@ -2654,7 +2886,9 @@ const INITIAL_SLIPS = [
         "img": "images/lucindo.png"
       }
     ],
-    "rationale": "The dream R5 parlay ticket paying over R2,100.00 if all 12 consensus selections hit."
+    "rationale": "The dream R5 parlay ticket paying over R2,100.00 if all 12 consensus selections hit.",
+    "weighInVerified": true,
+    "weighInImpact": "All 12 selections officially cleared weigh-ins. 11 on weight, 1 Catchweight (Lucindo favored)."
   },
   {
     "id": "slip-13",
@@ -2692,17 +2926,146 @@ const INITIAL_SLIPS = [
         "img": "images/malkoun.png"
       }
     ],
-    "rationale": "Backing all three Australian competitors fighting on UFC 333 (featured in Reddit/Discord Aussie fan slips)."
+    "rationale": "Backing all three Australian competitors fighting on UFC 333 (featured in Reddit/Discord Aussie fan slips).",
+    "weighInVerified": true,
+    "weighInImpact": "All 3 Australian fighters on weight: Volkanovski 144.5 lbs (under limit), Rowston 185.0 lbs, Malkoun 186.0 lbs."
+  },
+  {
+    "id": "slip-14",
+    "title": "Sharp Multi-Market 13-Leg Ticket ('Might Be Alr')",
+    "category": "longshots",
+    "categoryLabel": "LONGSHOT VALUE",
+    "baseStake": 5,
+    "active": true,
+    "combinedOdds": 2026.68,
+    "americanOdds": "+202,568",
+    "impliedProb": "0.05%",
+    "legs": [
+      {
+        "fighter": "Alexander Volkanovski",
+        "bout": "Main Event (Bout 1)",
+        "market": "Moneyline",
+        "odds": -105,
+        "dec": 1.95,
+        "img": "images/volkanovski.png"
+      },
+      {
+        "fighter": "Petr Yan",
+        "bout": "Co-Main Event (Bout 2)",
+        "market": "Moneyline",
+        "odds": -150,
+        "dec": 1.67,
+        "img": "images/yan.png"
+      },
+      {
+        "fighter": "Ramazan Temirov",
+        "bout": "Main Card (Bout 3)",
+        "market": "Method: KO/TKO or Decision",
+        "odds": -130,
+        "dec": 1.77,
+        "img": "images/temirov.png"
+      },
+      {
+        "fighter": "Abdul Rakhman Yakhyaev",
+        "bout": "Prelims (Bout 7)",
+        "market": "Decision or Over 2.5 Rds",
+        "odds": 120,
+        "dec": 2.20,
+        "img": "images/yakhyaev.png"
+      },
+      {
+        "fighter": "Losene Keita / A. Pico",
+        "bout": "Main Card (Bout 5)",
+        "market": "Total: Under 2.5 Rounds",
+        "odds": -145,
+        "dec": 1.69,
+        "img": "images/keita.png"
+      },
+      {
+        "fighter": "Azamat Murzakanov",
+        "bout": "Main Card (Bout 6)",
+        "market": "Method: KO/TKO",
+        "odds": 105,
+        "dec": 2.05,
+        "img": "images/murzakanov.png"
+      },
+      {
+        "fighter": "Cam Rowston",
+        "bout": "Prelims (Bout 8)",
+        "market": "Moneyline (Underdog)",
+        "odds": 105,
+        "dec": 2.05,
+        "img": "images/rowston.png"
+      },
+      {
+        "fighter": "Nurullo Aliev / G. Dawson",
+        "bout": "Prelims (Bout 9)",
+        "market": "Total: Over 2.5 Rounds",
+        "odds": -180,
+        "dec": 1.56,
+        "img": "images/aliev.png"
+      },
+      {
+        "fighter": "Asaf Chopurov / C. Thicknesse",
+        "bout": "Early Prelims (Bout 10)",
+        "market": "Total: Under 1.5 Rounds",
+        "odds": -125,
+        "dec": 1.80,
+        "img": "images/chopurov.png"
+      },
+      {
+        "fighter": "Abubakar Vagaev",
+        "bout": "Early Prelims (Bout 11)",
+        "market": "Method: Decision",
+        "odds": -120,
+        "dec": 1.83,
+        "img": "images/vagaev.png"
+      },
+      {
+        "fighter": "Bolaji Oki",
+        "bout": "Early Prelims (Bout 12)",
+        "market": "Moneyline",
+        "odds": 100,
+        "dec": 2.00,
+        "img": "images/oki.png"
+      },
+      {
+        "fighter": "Kody Steele",
+        "bout": "Early Prelims (Bout 13)",
+        "market": "Method: Submission or Decision",
+        "odds": -165,
+        "dec": 1.61,
+        "img": "images/steele.png"
+      },
+      {
+        "fighter": "Iasmin Lucindo",
+        "bout": "Early Prelims (Bout 14)",
+        "market": "Moneyline (Catchweight 120.5 lbs)",
+        "odds": -275,
+        "dec": 1.36,
+        "img": "images/lucindo.png"
+      }
+    ],
+    "rationale": "High-multiplier community 13-leg ticket ('Might Be Alr'). Blends championship moneylines (Volk ML, Yan ML), finishing props (Murzakanov KO, Chopurov U1.5, Keita U2.5), tactical control/totals (Temirov KO/Dec, Yakhyaev Dec/O2.5, Aliev O2.5, Vagaev Dec, Steele Sub/Dec), live value dog Rowston ML, Oki ML, and Lucindo over weight-missed Caliari.",
+    "weighInVerified": true,
+    "weighInImpact": "All 13 legs confirmed after official weigh-ins. Lucindo holds immense physical conditioning edge against Caliari (+4.5 lbs missed); Volkanovski (144.5), Yan (135.0), and Rowston (185.0) in peak condition."
   }
 ];
 
 const EXPERT_SOURCES = [
   {
-    "name": "NBAtrev / UFC-Elo-Engine",
-    "platform": "GitHub Repository",
-    "audience": "Open Source Model",
-    "topPicks": "Volkanovski (54.1%), Volkov (70.7%), Dawson (62.0%), Lucindo (61.7%), Santos (60.4%), Rowston (50.3%)",
-    "badge": "Mathematical Elo Rating Model"
+    "name": "Trev (Vanderbilt) / UFC-Elo-Engine",
+    "platform": "Vanderbilt AI Model & GitHub",
+    "audience": "Modeled Every UFC Fight in History",
+    "topPicks": "Volkanovski (56.0% vs Evloev 44.0%), Merab Slight Fav (53.0%), Volkov (70.7%), Dawson (62.0%), Lucindo (61.7%), Santos (60.4%), Rowston (50.3%)",
+    "badge": "Vanderbilt AI Elo System"
+  },
+  {
+    "name": "6-Person Bettor Consensus Survey",
+    "platform": "Live Focus Group (N=6)",
+    "audience": "6 Surveyed Sharps",
+    "topPicks": "Yan (5-1), Kuniev (4-2), Volk/Evloev (3-3 Split), Kavanagh/Temirov (3-3 Split), Pico/Keita (3-3 Split)",
+    "badge": "Community Survey (N=6)"
   },
   {
     "name": "Michael Bisping",
@@ -2771,7 +3134,7 @@ const EXPERT_SOURCES = [
     "name": "We Want Picks",
     "platform": "Podcast",
     "audience": "50K subs",
-    "topPicks": "Steele (High), Volkov (High), Dawson, Murzakanov, Caliari Dog Play",
+    "topPicks": "Steele (High), Volkov (High), Dawson, Murzakanov, Caliari Dog Play ⚠️ (Compromised: Caliari missed weight by 4.5 lbs)",
     "badge": "3.5h Deep Dive"
   },
   {
@@ -2790,14 +3153,148 @@ const EXPERT_SOURCES = [
   }
 ];
 
+const COMMUNITY_SURVEY_DATA = [
+  {
+    boutId: "bout-1",
+    boutName: "UFC Featherweight Championship",
+    f1: "Alexander Volkanovski",
+    f2: "Movsar Evloev",
+    votes1: 3,
+    votes2: 3,
+    pct1: 50.0,
+    pct2: 50.0,
+    splitStr: "3-3 Split",
+    verdict: "Even 50/50 Deadlock",
+    detail: "6 knowledgeable bettors surveyed: exactly 3 picked Alexander Volkanovski and 3 picked Movsar Evloev, reflecting the massive tension between Volk's championship pedigree and Evloev's youth/grappling."
+  },
+  {
+    boutId: "bout-2",
+    boutName: "UFC Bantamweight Championship",
+    f1: "Petr Yan",
+    f2: "Merab Dvalishvili",
+    votes1: 5,
+    votes2: 1,
+    pct1: 83.3,
+    pct2: 16.7,
+    splitStr: "5-1 Yan",
+    verdict: "Decisive Yan Majority (83.3%)",
+    detail: "5 of 6 surveyed bettors backed Petr Yan to reclaim the bantamweight title in the trilogy, citing boxing adjustments and Merab's high absorption rate."
+  },
+  {
+    boutId: "bout-3",
+    boutName: "Flyweight Bout",
+    f1: "Lone'er Kavanagh",
+    f2: "Ramazan Temirov",
+    votes1: 3,
+    votes2: 3,
+    pct1: 50.0,
+    pct2: 50.0,
+    splitStr: "3-3 Split",
+    verdict: "Even 50/50 Deadlock",
+    detail: "3-3 split between Kavanagh's 4-inch reach advantage & speed vs Temirov's 1.10 KD/15m explosive first-round knockout power."
+  },
+  {
+    boutId: "bout-4",
+    boutName: "Heavyweight Bout",
+    f1: "Alexander Volkov",
+    f2: "Rizvan Kuniev",
+    votes1: 2,
+    votes2: 4,
+    pct1: 33.3,
+    pct2: 66.7,
+    splitStr: "4-2 Kuniev",
+    verdict: "Kuniev Underdog Lean (66.7%)",
+    detail: "4 out of 6 bettors favored underdog Rizvan Kuniev (+105) over veteran Volkov, backing Kuniev's heavy combat sambo top pressure."
+  },
+  {
+    boutId: "bout-5",
+    boutName: "Featherweight Bout",
+    f1: "Aaron Pico",
+    f2: "Losene Keita",
+    votes1: 3,
+    votes2: 3,
+    pct1: 50.0,
+    pct2: 50.0,
+    splitStr: "3-3 Split",
+    verdict: "Even 50/50 Deadlock",
+    detail: "True coin-flip split: 3 backing Aaron Pico's wrestling & body punch pedigree vs 3 backing Losene Keita's blistering Dutch kickboxing counters."
+  }
+];
+
+const WEIGH_IN_DATA = {
+  venue: "Etihad Arena, Abu Dhabi, UAE",
+  date: "October 23, 2026",
+  status: "Official Weigh-Ins Complete",
+  totalFighters: 28,
+  totalMade: 27,
+  totalMissed: 1,
+  missedFighters: [
+    {
+      fighter: "Nicolle Caliari",
+      bout: "vs Iasmin Lucindo",
+      targetWeight: 116.0,
+      scaledWeight: 120.5,
+      missAmountLbs: 4.5,
+      penalty: "Forfeited 30% of purse to Lucindo; bout proceeds at 120.5 lbs Catchweight",
+      impact: "Severe cut distress; cardio and conditioning severely degraded against Lucindo's relentless grappling pressure. High risk of late stoppage / cardio collapse."
+    }
+  ],
+  titleFights: [
+    {
+      title: "UFC Featherweight Championship",
+      f1: "Alexander Volkanovski",
+      w1: 144.5,
+      f2: "Movsar Evloev",
+      w2: 145.0,
+      status: "Championship Weight Made (Volkanovski 0.5 lb under championship limit, peak physical condition)"
+    },
+    {
+      title: "UFC Bantamweight Championship",
+      f1: "Petr Yan",
+      w1: 135.0,
+      f2: "Merab Dvalishvili",
+      w2: 135.0,
+      status: "Championship Weight Made (Both 135.0 lbs on the dot, trilogy co-main event locked)"
+    }
+  ],
+  results: [
+    { boutId: "bout-1", weightClass: "Featherweight Championship", f1: "Alexander Volkanovski", w1: 144.5, f2: "Movsar Evloev", w2: 145.0, status: "Official Title Fight" },
+    { boutId: "bout-2", weightClass: "Bantamweight Championship", f1: "Petr Yan", w1: 135.0, f2: "Merab Dvalishvili", w2: 135.0, status: "Official Title Fight" },
+    { boutId: "bout-3", weightClass: "Flyweight", f1: "Lone'er Kavanagh", w1: 125.5, f2: "Ramazan Temirov", w2: 126.0, status: "Both Made Weight" },
+    { boutId: "bout-4", weightClass: "Heavyweight", f1: "Alexander Volkov", w1: 256.0, f2: "Rizvan Kuniev", w2: 265.0, status: "Both Made Weight (Volkov 9 lbs leaner)" },
+    { boutId: "bout-5", weightClass: "Featherweight", f1: "Aaron Pico", w1: 145.5, f2: "Losene Keita", w2: 146.0, status: "Both Made Weight" },
+    { boutId: "bout-6", weightClass: "Light Heavyweight", f1: "Azamat Murzakanov", w1: 206.0, f2: "Dominick Reyes", w2: 205.0, status: "Both Made Weight" },
+    { boutId: "bout-7", weightClass: "Light Heavyweight", f1: "Abdul Rakhman Yakhyaev", w1: 206.0, f2: "Nikita Krylov", w2: 206.0, status: "Both Made Weight" },
+    { boutId: "bout-8", weightClass: "Middleweight", f1: "Abus Magomedov", w1: 185.5, f2: "Cam Rowston", w2: 185.0, status: "Both Made Weight" },
+    { boutId: "bout-9", weightClass: "Lightweight", f1: "Grant Dawson", w1: 156.0, f2: "Nurullo Aliev", w2: 155.0, status: "Both Made Weight" },
+    { boutId: "bout-10", weightClass: "Bantamweight", f1: "Asaf Chopurov", w1: 136.0, f2: "Colby Thicknesse", w2: 135.5, status: "Both Made Weight" },
+    { boutId: "bout-11", weightClass: "Middleweight", f1: "Abubakar Vagaev", w1: 185.5, f2: "Jacob Malkoun", w2: 186.0, status: "Both Made Weight" },
+    { boutId: "bout-12", weightClass: "Featherweight", f1: "Daniel Santos", w1: 146.0, f2: "Bolaji Oki", w2: 146.0, status: "Both Made Weight (146 lbs Featherweight)" },
+    { boutId: "bout-13", weightClass: "Lightweight", f1: "Kody Steele", w1: 156.0, f2: "Noah Gugnon", w2: 156.0, status: "Both Made Weight" },
+    { boutId: "bout-14", weightClass: "Catchweight (120.5 lbs)", f1: "Iasmin Lucindo", w1: 115.0, f2: "Nicolle Caliari", w2: 120.5, status: "Caliari MISSED by 4.5 lbs (Proceeds at Catchweight, 30% Fine to Lucindo)" }
+  ]
+};
+
 const CARD_META = {
   event: "UFC 333: Volkanovski vs. Evloev",
   date: "October 24, 2026",
-  venue: "Delta Center, Salt Lake City, Utah",
+  venue: "Etihad Arena, Abu Dhabi, UAE",
   totalFights: 14,
   currencyDefault: "ZAR",
   currencySymbol: "R",
-  defaultBankroll: 350
+  defaultBankroll: 350,
+  weighInStatus: "Official Weigh-Ins Complete",
+  weighInVenue: "Etihad Arena, Abu Dhabi",
+  fightersMadeWeight: 27,
+  fightersMissedWeight: 1,
+  missedWeightDetails: {
+    fighter: "Nicolle Caliari",
+    scaledWeight: 120.5,
+    targetLimit: 116.0,
+    missedByLbs: 4.5,
+    purseForfeitPct: 30,
+    status: "Proceeds at 120.5 lbs Catchweight"
+  }
 };
 
 
@@ -2808,17 +3305,18 @@ const ELO_PREDICTIONS = [
     "fighter_1": "Alexander Volkanovski",
     "elo_1": 1227.6,
     "peak_1": 1252.0,
-    "prob_1": 54.1,
-    "odds_1": "-118",
+    "prob_1": 56.0,
+    "odds_1": "-127",
     "fighter_2": "Movsar Evloev",
     "elo_2": 1198.9,
     "peak_2": 1198.9,
-    "prob_2": 45.9,
-    "odds_2": "+118",
+    "prob_2": 44.0,
+    "odds_2": "+127",
     "elo_diff": 28.7,
     "elo_favorite": "Alexander Volkanovski",
-    "elo_fav_prob": 54.1,
-    "elo_fav_odds": "-118"
+    "elo_fav_prob": 56.0,
+    "elo_fav_odds": "-127",
+    "model_notes": "Vanderbilt AI Model: Volkanovski 56% vs Evloev 44%"
   },
   {
     "bout_id": "bout-2",
@@ -2826,17 +3324,18 @@ const ELO_PREDICTIONS = [
     "fighter_1": "Petr Yan",
     "elo_1": 1181.5,
     "peak_1": 1181.5,
-    "prob_1": 44.7,
-    "odds_1": "+123",
+    "prob_1": 47.0,
+    "odds_1": "+113",
     "fighter_2": "Merab Dvalishvili",
     "elo_2": 1218.1,
     "peak_2": 1243.0,
-    "prob_2": 55.3,
-    "odds_2": "-123",
-    "elo_diff": -36.6,
+    "prob_2": 53.0,
+    "odds_2": "-113",
+    "elo_diff": -21.4,
     "elo_favorite": "Merab Dvalishvili",
-    "elo_fav_prob": 55.3,
-    "elo_fav_odds": "-123"
+    "elo_fav_prob": 53.0,
+    "elo_fav_odds": "-113",
+    "model_notes": "Vanderbilt AI Model: Merab slight favorite (53%)"
   },
   {
     "bout_id": "bout-3",
@@ -3579,7 +4078,7 @@ const QUANT_BOUTS = [
       "f1_decay": 0.035,
       "f2_decay": 0.035
     },
-    "bout_name": "Lightweight"
+    "bout_name": "Featherweight"
   },
   {
     "fighter_1": "Kody Steele",
@@ -3633,7 +4132,7 @@ const QUANT_BOUTS = [
       "f1_decay": 0.035,
       "f2_decay": 0.035
     },
-    "bout_name": "Women's Strawweight"
+    "bout_name": "Catchweight (120.5 lbs)"
   }
 ];
 
@@ -14244,8 +14743,8 @@ const APEX_50_BOUTS = [
   },
   {
     "bout_id": "bout-12",
-    "bout_name": "Lightweight Bout",
-    "weight_class": "Lightweight",
+    "bout_name": "Featherweight Bout",
+    "weight_class": "Featherweight",
     "rounds": 3,
     "f1": "Daniel Santos",
     "f2": "Bolaji Oki",
@@ -15966,8 +16465,8 @@ const APEX_50_BOUTS = [
   },
   {
     "bout_id": "bout-14",
-    "bout_name": "Women's Strawweight Bout",
-    "weight_class": "Strawweight",
+    "bout_name": "Catchweight Bout (120.5 lbs)",
+    "weight_class": "Catchweight",
     "rounds": 3,
     "f1": "Iasmin Lucindo",
     "f2": "Nicolle Caliari",
@@ -16839,11 +17338,12 @@ const MODEL_COMPARISON_DATA = [
     "rounds": 5,
     "elo": {
       "fav": "Alexander Volkanovski",
-      "p1": 54.1,
-      "p2": 45.9,
-      "odds1": "-118",
-      "odds2": "+118",
-      "diff": "+28.7 Elo"
+      "p1": 56.0,
+      "p2": 44.0,
+      "odds1": "-127",
+      "odds2": "+127",
+      "diff": "+42.5 Elo",
+      "notes": "Vanderbilt AI Model (modeled every single UFC bout in history): Volkanovski 56% vs Evloev 44%"
     },
     "youtube_ml": {
       "fav": "Movsar Evloev",
@@ -16877,12 +17377,19 @@ const MODEL_COMPARISON_DATA = [
       "odds2": "-102",
       "notes": "Dead-even pick'em line moving toward Evloev steam"
     },
+    "survey": {
+      "split": "3-3 Split",
+      "v1": 3,
+      "v2": 3,
+      "verdict": "Even 50/50 Deadlock",
+      "notes": "6-person bettor focus group produced an exact 3-3 tie"
+    },
     "alignment": {
       "consensus_fav": "Movsar Evloev",
       "agreement_score": "3 of 4 Models",
       "category": "Age & Grappling Divergence",
       "divergence_severity": "High (42% Spread)",
-      "summary": "Pure historical Elo favors Volkanovski due to legendary championship tenure. However, all three multi-dimensional models (YouTube ML, Quant Diff, and Apex 50) flip decisively to Evloev due to the 38 vs 32 age gap, undefeated streak (10-0), and heavy wrestling pace."
+      "summary": "Vanderbilt AI Elo favors Volkanovski at 56% vs 44%. However, the multi-dimensional models (YouTube ML, Quant Diff, and Apex 50) flip decisively to Evloev due to the 38 vs 32 age gap, undefeated streak (10-0), and heavy wrestling pace. Bettor focus group split 3-3."
     }
   },
   {
@@ -16894,11 +17401,12 @@ const MODEL_COMPARISON_DATA = [
     "rounds": 5,
     "elo": {
       "fav": "Merab Dvalishvili",
-      "p1": 44.7,
-      "p2": 55.3,
-      "odds1": "+123",
-      "odds2": "-123",
-      "diff": "+36.6 Elo"
+      "p1": 47.0,
+      "p2": 53.0,
+      "odds1": "+113",
+      "odds2": "-113",
+      "diff": "+21.4 Elo",
+      "notes": "Vanderbilt AI Model: Merab Dvalishvili slight favorite (53.0%)"
     },
     "youtube_ml": {
       "fav": "Merab Dvalishvili",
@@ -16932,12 +17440,19 @@ const MODEL_COMPARISON_DATA = [
       "odds2": "-123",
       "notes": "Market consensus favors defending champion Merab"
     },
+    "survey": {
+      "split": "5-1 Yan",
+      "v1": 5,
+      "v2": 1,
+      "verdict": "Heavy Yan Majority",
+      "notes": "6-person bettor focus group overwhelmingly voted 5-1 for Petr Yan"
+    },
     "alignment": {
       "consensus_fav": "Merab Dvalishvili",
       "agreement_score": "4 of 4 Models Unanimous",
       "category": "Unanimous Champion Lean",
       "divergence_severity": "Low (2.9% Spread)",
-      "summary": "Complete model harmony across all mathematical engines. Merab's relentless pace (11+ takedowns/bout) and low strike absorption give him a consistent 53% to 56% mathematical edge across every model."
+      "summary": "Complete model harmony across all mathematical engines. Merab holds a slight 53% to 56% mathematical edge. In stark contrast, 6-person bettor survey heavily backs Petr Yan 5-1."
     }
   },
   {
@@ -16987,12 +17502,19 @@ const MODEL_COMPARISON_DATA = [
       "odds2": "-110",
       "notes": "Temirov slight market favorite"
     },
+    "survey": {
+      "split": "3-3 Split",
+      "v1": 3,
+      "v2": 3,
+      "verdict": "Even 50/50 Deadlock",
+      "notes": "6-person bettor focus group produced an exact 3-3 deadlock"
+    },
     "alignment": {
       "consensus_fav": "Ramazan Temirov",
       "agreement_score": "3 of 4 Models",
       "category": "Power vs Reach Split",
       "divergence_severity": "Moderate (21.7% Spread)",
-      "summary": "YouTube ML treated this as a dead coin flip (50.2%) due to Kavanagh's 4-inch reach advantage. However, Elo, Quant, and Apex 50 all favor Temirov due to his heavy 1.10 knockdown ratio, 82% takedown defense, and proven finishing power."
+      "summary": "YouTube ML treated this as a dead coin flip (50.2%) due to Kavanagh's 4-inch reach advantage. However, Elo, Quant, and Apex 50 all favor Temirov. 6-person focus group split 3-3."
     }
   },
   {
@@ -17008,7 +17530,7 @@ const MODEL_COMPARISON_DATA = [
       "p2": 29.3,
       "odds1": "-241",
       "odds2": "+241",
-      "diff": "+153.1 Elo \ud83d\udd12"
+      "diff": "+153.1 Elo 🔒"
     },
     "youtube_ml": {
       "fav": "Alexander Volkov",
@@ -17042,12 +17564,19 @@ const MODEL_COMPARISON_DATA = [
       "odds2": "+180",
       "notes": "Clear market consensus anchor favorite"
     },
+    "survey": {
+      "split": "4-2 Kuniev",
+      "v1": 2,
+      "v2": 4,
+      "verdict": "Kuniev Underdog Lean",
+      "notes": "6-person bettor focus group favored underdog Kuniev 4 to 2"
+    },
     "alignment": {
       "consensus_fav": "Alexander Volkov",
-      "agreement_score": "4 of 4 Models Unanimous \ud83d\udd12",
+      "agreement_score": "4 of 4 Models Unanimous 🔒",
       "category": "Unanimous Heavyweight Anchor",
       "divergence_severity": "Low-Moderate (16.1% Spread)",
-      "summary": "All models pick Volkov. While YouTube ML had its overall percentage depressed by Random Forest penalizing Volkov's age (38), pure Elo (+153.1 delta), Quant differential (90.4 OPR), and Apex 50 all confirm Volkov as a top card lock."
+      "summary": "All models pick Volkov (70.7% Elo, 90.4 OPR). Notably, 6-person focus group diverged with 4-2 Kuniev underdog sentiment."
     }
   },
   {
@@ -17096,6 +17625,13 @@ const MODEL_COMPARISON_DATA = [
       "odds1": "-118",
       "odds2": "-102",
       "notes": "Pico slight betting favorite"
+    },
+    "survey": {
+      "split": "3-3 Split",
+      "v1": 3,
+      "v2": 3,
+      "verdict": "Even 50/50 Deadlock",
+      "notes": "6-person bettor focus group produced an exact 3-3 deadlock"
     },
     "alignment": {
       "consensus_fav": "Aaron Pico",
@@ -17437,10 +17973,10 @@ const MODEL_COMPARISON_DATA = [
   },
   {
     "bout_id": "bout-12",
-    "bout_name": "Lightweight Bout",
+    "bout_name": "Featherweight Bout",
     "f1": "Daniel Santos",
     "f2": "Bolaji Oki",
-    "weight_class": "Lightweight (155 lbs)",
+    "weight_class": "Featherweight (145 lbs)",
     "rounds": 3,
     "elo": {
       "fav": "Daniel Santos",
@@ -17547,10 +18083,10 @@ const MODEL_COMPARISON_DATA = [
   },
   {
     "bout_id": "bout-14",
-    "bout_name": "Women's Strawweight Bout",
+    "bout_name": "Catchweight Bout (120.5 lbs)",
     "f1": "Iasmin Lucindo",
     "f2": "Nicolle Caliari",
-    "weight_class": "Strawweight (115 lbs)",
+    "weight_class": "Catchweight (120.5 lbs)",
     "rounds": 3,
     "elo": {
       "fav": "Iasmin Lucindo",

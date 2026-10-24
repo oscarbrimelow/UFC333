@@ -2695,5 +2695,567 @@ body {
   color: var(--success);
 }
 
+/* ==========================================================================
+   OFFICIAL WEIGH-IN INTELLIGENCE DESIGN SYSTEM
+   High contrast, professional dark terminal, WCAG AA, strict 6-10px radius
+   ========================================================================== */
 
+.btn-weigh-in-header {
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: #fff;
+  padding: 6px 14px;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+  font-family: var(--font-sans);
+}
+
+.btn-weigh-in-header:hover {
+  background: rgba(245, 158, 11, 0.22);
+  border-color: var(--primary);
+  transform: translateY(-1px);
+}
+
+/* Weigh-In Alert Banner */
+.weigh-in-alert-banner {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-left: 3px solid var(--primary);
+  border-radius: var(--radius-md);
+  margin-bottom: 20px;
+  padding: 14px 18px;
+  box-shadow: var(--shadow-card);
+}
+
+.weigh-in-banner-inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.weigh-in-status-cluster {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 140px;
+}
+
+.weigh-in-live-badge {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: var(--primary);
+  text-transform: uppercase;
+  font-family: var(--font-mono);
+}
+
+.weigh-in-metric-chip {
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  color: var(--success);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+}
+
+.weigh-in-metric-chip.title-locked {
+  background: rgba(245, 158, 11, 0.1);
+  border-color: rgba(245, 158, 11, 0.25);
+  color: var(--primary);
+}
+
+.weigh-in-banner-body {
+  flex: 1;
+  min-width: 320px;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.weigh-in-banner-text {
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.weigh-in-banner-warning {
+  color: #fca5a5;
+  background: rgba(225, 29, 72, 0.1);
+  border: 1px solid rgba(225, 29, 72, 0.25);
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.weigh-in-banner-action {
+  margin-left: auto;
+}
+
+.btn-weigh-in-docket {
+  background: var(--bg-inset);
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+
+.btn-weigh-in-docket:hover {
+  background: var(--primary);
+  color: #000;
+}
+
+/* Fighter Card Weigh-In Chips */
+.weigh-in-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-family: var(--font-mono);
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  margin-top: 6px;
+  width: fit-content;
+}
+
+.weigh-in-chip.made {
+  background: rgba(34, 197, 94, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  color: #86efac;
+}
+
+.weigh-in-chip.missed {
+  background: rgba(225, 29, 72, 0.15);
+  border: 1px solid rgba(225, 29, 72, 0.5);
+  color: #fca5a5;
+}
+
+.weigh-in-chip .miss-tag {
+  background: var(--danger);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 800;
+  padding: 1px 4px;
+  border-radius: 3px;
+  letter-spacing: 0.5px;
+}
+
+.catchweight-flag {
+  display: inline-block;
+  background: rgba(225, 29, 72, 0.15);
+  border: 1px solid var(--danger);
+  color: #fca5a5;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  margin-left: 6px;
+}
+
+.weigh-in-cleared-pill {
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  color: var(--success);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+}
+
+.weigh-in-drama-pill {
+  background: rgba(225, 29, 72, 0.15);
+  border: 1px solid var(--danger);
+  color: #fca5a5;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+}
+
+.home-drama-pill {
+  background: rgba(225, 29, 72, 0.15);
+  border: 1px solid rgba(225, 29, 72, 0.4);
+  color: #fca5a5;
+  font-size: 9px;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+}
+
+.home-weight-pill {
+  background: rgba(34, 197, 94, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  color: var(--success);
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+}
+
+.bout-weigh-in-drama-alert {
+  background: rgba(225, 29, 72, 0.08);
+  border: 1px solid rgba(225, 29, 72, 0.35);
+  border-left: 3px solid var(--danger);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  margin: 10px 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 12px;
+  color: #fecdd3;
+  line-height: 1.45;
+}
+
+/* Bet Slip Weigh-In Intelligence Containers */
+.slip-weigh-in-box {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  line-height: 1.45;
+  border: 1px solid var(--border-default);
+}
+
+.slip-weigh-in-box.fortified {
+  background: rgba(34, 197, 94, 0.07);
+  border-color: rgba(34, 197, 94, 0.3);
+  border-left: 3px solid var(--success);
+}
+
+.slip-weigh-in-box.warning {
+  background: rgba(245, 158, 11, 0.07);
+  border-color: rgba(245, 158, 11, 0.3);
+  border-left: 3px solid var(--warning);
+}
+
+.slip-weigh-in-box.verified {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: var(--border-default);
+  border-left: 3px solid var(--secondary);
+}
+
+.weigh-in-box-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.weigh-in-box-title {
+  font-weight: 800;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #fff;
+}
+
+.weigh-in-box-text {
+  color: var(--text-secondary);
+}
+
+/* Weigh-In Modal Overlay & Dialog */
+.weigh-in-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.weigh-in-modal-overlay.active {
+  display: flex;
+}
+
+.weigh-in-modal-content {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 960px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+.weigh-in-modal-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-default);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: var(--bg-inset);
+}
+
+.weigh-in-modal-body {
+  padding: 20px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.weigh-in-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.weigh-in-stat-card {
+  background: var(--bg-inset);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+}
+
+.weigh-in-stat-card.warning {
+  border-color: rgba(225, 29, 72, 0.4);
+  background: rgba(225, 29, 72, 0.05);
+}
+
+.stat-card-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.stat-card-val {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 2px;
+}
+
+.stat-card-sub {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* Drama Deep Dive Box */
+.weigh-in-drama-deep-dive {
+  background: rgba(225, 29, 72, 0.06);
+  border: 1px solid rgba(225, 29, 72, 0.3);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  margin-bottom: 18px;
+}
+
+.deep-dive-header {
+  margin-bottom: 12px;
+}
+
+.deep-dive-badge {
+  display: inline-block;
+  background: var(--danger);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 3px;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.deep-dive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+}
+
+.deep-dive-item {
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.deep-dive-item .item-title {
+  font-weight: 800;
+  color: #fff;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.deep-dive-item p {
+  color: var(--text-secondary);
+}
+
+/* ==================== 6-PERSON COMMUNITY SURVEY STYLES ==================== */
+.survey-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 16px;
+  width: 100%;
+}
+
+.survey-bout-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.survey-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.survey-weight-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.survey-bout-title {
+  font-size: 14px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.survey-verdict-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  font-family: var(--font-mono);
+}
+
+.survey-chip-split {
+  background: rgba(245, 158, 11, 0.14);
+  color: var(--primary);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.survey-chip-red {
+  background: rgba(225, 29, 72, 0.14);
+  color: #fb7185;
+  border: 1px solid rgba(225, 29, 72, 0.3);
+}
+
+.survey-chip-blue {
+  background: rgba(37, 99, 235, 0.14);
+  color: #93c5fd;
+  border: 1px solid rgba(37, 99, 235, 0.3);
+}
+
+.survey-head-to-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 12px;
+}
+
+.survey-fighter-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.survey-fighter-block.corner-red .survey-fname {
+  color: #fda4af;
+  font-weight: 700;
+}
+
+.survey-fighter-block.corner-blue {
+  text-align: right;
+}
+
+.survey-fighter-block.corner-blue .survey-fname {
+  color: #93c5fd;
+  font-weight: 700;
+}
+
+.survey-fvotes {
+  font-size: 11px;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+}
+
+.survey-bar-track {
+  display: flex;
+  width: 100%;
+  height: 20px;
+  background: var(--bg-inset);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--border-default);
+}
+
+.survey-bar-fill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  color: #fff;
+  transition: width 200ms ease;
+  min-width: 24px;
+}
+
+.survey-bar-fill.red {
+  background: linear-gradient(90deg, #be123c, #e11d48);
+}
+
+.survey-bar-fill.blue {
+  background: linear-gradient(90deg, #2563eb, #1d4ed8);
+}
+
+.survey-notes-text {
+  font-size: 11px;
+  line-height: 1.45;
+  color: var(--text-secondary);
+  background: var(--bg-inset);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+}
+
+.survey-pill-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(245, 158, 11, 0.12);
+  color: var(--primary);
+  border: 1px solid rgba(245, 158, 11, 0.28);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+}
 
