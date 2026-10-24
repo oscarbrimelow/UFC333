@@ -635,62 +635,160 @@
       const isLock = isFightLock(fight);
       const lockMark = isLock ? '🔒 ' : '';
 
+      const rName = fight.red.name.split(' ').pop();
+      const bName = fight.blue.name.split(' ').pop();
+
+      const rWinProb = ((fight.red.eloProb || 50) / 100);
+      const bWinProb = ((fight.blue.eloProb || 50) / 100);
+      const methods = fight.consensus && fight.consensus.methodBreakdown ? fight.consensus.methodBreakdown : { ko: 25, sub: 15, dec: 60 };
+      const koShare = (methods.ko || 25) / 100;
+      const decShare = (methods.dec || 55) / 100;
+
+      // 1. Red Moneyline
       const rLeg = {
         fighter: fight.red.name,
-        bout: `vs ${fight.blue.name.split(' ').pop()}`,
+        bout: `vs ${bName}`,
         market: 'Moneyline',
         dec: fight.red.decimalOdds || 1.95,
         odds: fight.red.odds || -105,
+        statProb: rWinProb,
         img: fight.red.image
       };
 
+      // 2. Blue Moneyline
       const bLeg = {
         fighter: fight.blue.name,
-        bout: `vs ${fight.red.name.split(' ').pop()}`,
+        bout: `vs ${rName}`,
         market: 'Moneyline',
         dec: fight.blue.decimalOdds || 1.98,
         odds: fight.blue.odds || -102,
+        statProb: bWinProb,
         img: fight.blue.image
       };
 
+      // 3. Red via Decision
+      const rDecProb = Math.round(rWinProb * decShare * 1000) / 1000;
+      const rDecDec = Math.max(1.5, Math.round((1 / Math.max(0.08, rDecProb * 0.88)) * 100) / 100);
+      const rLegDec = {
+        fighter: fight.red.name,
+        bout: `vs ${bName}`,
+        market: 'Method: Decision',
+        dec: rDecDec,
+        odds: rDecDec >= 2.0 ? `+${Math.round((rDecDec - 1) * 100)}` : `-${Math.round(100 / (rDecDec - 1))}`,
+        statProb: rDecProb,
+        img: fight.red.image
+      };
+
+      // 4. Red via KO/TKO
+      const rKoProb = Math.round(rWinProb * koShare * 1000) / 1000;
+      const rKoDec = Math.max(1.8, Math.round((1 / Math.max(0.06, rKoProb * 0.88)) * 100) / 100);
+      const rLegKO = {
+        fighter: fight.red.name,
+        bout: `vs ${bName}`,
+        market: 'Method: KO/TKO',
+        dec: rKoDec,
+        odds: rKoDec >= 2.0 ? `+${Math.round((rKoDec - 1) * 100)}` : `-${Math.round(100 / (rKoDec - 1))}`,
+        statProb: rKoProb,
+        img: fight.red.image
+      };
+
+      // 5. Blue via Decision
+      const bDecProb = Math.round(bWinProb * decShare * 1000) / 1000;
+      const bDecDec = Math.max(1.5, Math.round((1 / Math.max(0.08, bDecProb * 0.88)) * 100) / 100);
+      const bLegDec = {
+        fighter: fight.blue.name,
+        bout: `vs ${rName}`,
+        market: 'Method: Decision',
+        dec: bDecDec,
+        odds: bDecDec >= 2.0 ? `+${Math.round((bDecDec - 1) * 100)}` : `-${Math.round(100 / (bDecDec - 1))}`,
+        statProb: bDecProb,
+        img: fight.blue.image
+      };
+
+      // 6. Blue via KO/TKO
+      const bKoProb = Math.round(bWinProb * koShare * 1000) / 1000;
+      const bKoDec = Math.max(1.8, Math.round((1 / Math.max(0.06, bKoProb * 0.88)) * 100) / 100);
+      const bLegKO = {
+        fighter: fight.blue.name,
+        bout: `vs ${rName}`,
+        market: 'Method: KO/TKO',
+        dec: bKoDec,
+        odds: bKoDec >= 2.0 ? `+${Math.round((bKoDec - 1) * 100)}` : `-${Math.round(100 / (bKoDec - 1))}`,
+        statProb: bKoProb,
+        img: fight.blue.image
+      };
+
+      // 7. Distance Prop
       const propLeg = {
-        fighter: `${fight.red.name.split(' ').pop()}/${fight.blue.name.split(' ').pop()}`,
+        fighter: `${rName}/${bName}`,
         bout: fight.weightClass,
         market: 'Over 1.5 Rounds',
         dec: 1.42,
         odds: -240,
+        statProb: 0.72,
         img: 'images/volkanovski.png'
       };
 
       const isRSelected = builderSelectedLegs.some(l => l.fighter === rLeg.fighter && l.market === rLeg.market);
       const isBSelected = builderSelectedLegs.some(l => l.fighter === bLeg.fighter && l.market === bLeg.market);
+      const isRDecSelected = builderSelectedLegs.some(l => l.fighter === rLegDec.fighter && l.market === rLegDec.market);
+      const isRKoSelected = builderSelectedLegs.some(l => l.fighter === rLegKO.fighter && l.market === rLegKO.market);
+      const isBDecSelected = builderSelectedLegs.some(l => l.fighter === bLegDec.fighter && l.market === bLegDec.market);
+      const isBKoSelected = builderSelectedLegs.some(l => l.fighter === bLegKO.fighter && l.market === bLegKO.market);
       const isPropSelected = builderSelectedLegs.some(l => l.fighter === propLeg.fighter && l.market === propLeg.market);
 
       row.innerHTML = `
         <div class="builder-matchup-header">
           <span>${idx + 1}. ${fight.card} &bull; ${fight.weightClass}</span>
-          <span>${lockMark}${fight.distance || '3 Rounds'}</span>
+          <span style="font-family: var(--font-mono); font-size: 11px; color: #38bdf8;">
+            Stat Model: ${rName} ${(rWinProb * 100).toFixed(0)}% vs ${bName} ${(bWinProb * 100).toFixed(0)}%
+          </span>
         </div>
 
-        <div class="builder-pick-buttons">
-          <button type="button" class="odds-pick-btn ${isRSelected ? 'selected' : ''}" data-type="red">
-            <span>${fight.red.name.split(' ').pop()} ML</span>
+        <!-- Primary Moneylines Row -->
+        <div class="builder-pick-buttons" style="margin-bottom: 6px;">
+          <button type="button" class="odds-pick-btn ${isRSelected ? 'selected' : ''}" data-type="r-ml" title="Statistical Probability: ${(rWinProb * 100).toFixed(1)}%">
+            <span>${rName} ML <small style="opacity: 0.75;">(${(rWinProb * 100).toFixed(0)}% Stat)</small></span>
             <span class="odds-pick-val">${formatOdds(rLeg.dec)}</span>
           </button>
-          <button type="button" class="odds-pick-btn ${isBSelected ? 'selected' : ''}" data-type="blue">
-            <span>${fight.blue.name.split(' ').pop()} ML</span>
+          <button type="button" class="odds-pick-btn ${isBSelected ? 'selected' : ''}" data-type="b-ml" title="Statistical Probability: ${(bWinProb * 100).toFixed(1)}%">
+            <span>${bName} ML <small style="opacity: 0.75;">(${(bWinProb * 100).toFixed(0)}% Stat)</small></span>
             <span class="odds-pick-val">${formatOdds(bLeg.dec)}</span>
           </button>
-          <button type="button" class="odds-pick-btn ${isPropSelected ? 'selected' : ''}" data-type="prop" style="min-width: 110px;">
+          <button type="button" class="odds-pick-btn ${isPropSelected ? 'selected' : ''}" data-type="prop" style="min-width: 100px;">
             <span>Over 1.5R</span>
             <span class="odds-pick-val">${formatOdds(propLeg.dec)}</span>
           </button>
         </div>
+
+        <!-- Winner + Method Props Row -->
+        <div class="builder-method-buttons" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 6px;">
+          <button type="button" class="odds-pick-btn method-btn ${isRDecSelected ? 'selected' : ''}" data-type="r-dec" style="padding: 5px 8px; font-size: 11px;">
+            <span>${rName} by DEC <small style="color: #4ade80;">${(rDecProb * 100).toFixed(0)}%</small></span>
+            <span class="odds-pick-val">${formatOdds(rLegDec.dec)}</span>
+          </button>
+          <button type="button" class="odds-pick-btn method-btn ${isRKoSelected ? 'selected' : ''}" data-type="r-ko" style="padding: 5px 8px; font-size: 11px;">
+            <span>${rName} by KO <small style="color: #4ade80;">${(rKoProb * 100).toFixed(0)}%</small></span>
+            <span class="odds-pick-val">${formatOdds(rLegKO.dec)}</span>
+          </button>
+          <button type="button" class="odds-pick-btn method-btn ${isBDecSelected ? 'selected' : ''}" data-type="b-dec" style="padding: 5px 8px; font-size: 11px;">
+            <span>${bName} by DEC <small style="color: #4ade80;">${(bDecProb * 100).toFixed(0)}%</small></span>
+            <span class="odds-pick-val">${formatOdds(bLegDec.dec)}</span>
+          </button>
+          <button type="button" class="odds-pick-btn method-btn ${isBKoSelected ? 'selected' : ''}" data-type="b-ko" style="padding: 5px 8px; font-size: 11px;">
+            <span>${bName} by KO <small style="color: #4ade80;">${(bKoProb * 100).toFixed(0)}%</small></span>
+            <span class="odds-pick-val">${formatOdds(bLegKO.dec)}</span>
+          </button>
+        </div>
       `;
 
-      row.querySelector('[data-type="red"]').addEventListener('click', () => toggleBuilderLeg(rLeg, bLeg));
-      row.querySelector('[data-type="blue"]').addEventListener('click', () => toggleBuilderLeg(bLeg, rLeg));
+      row.querySelector('[data-type="r-ml"]').addEventListener('click', () => toggleBuilderLeg(rLeg, bLeg));
+      row.querySelector('[data-type="b-ml"]').addEventListener('click', () => toggleBuilderLeg(bLeg, rLeg));
       row.querySelector('[data-type="prop"]').addEventListener('click', () => toggleBuilderLeg(propLeg));
+      row.querySelector('[data-type="r-dec"]').addEventListener('click', () => toggleBuilderLeg(rLegDec));
+      row.querySelector('[data-type="r-ko"]').addEventListener('click', () => toggleBuilderLeg(rLegKO));
+      row.querySelector('[data-type="b-dec"]').addEventListener('click', () => toggleBuilderLeg(bLegDec));
+      row.querySelector('[data-type="b-ko"]').addEventListener('click', () => toggleBuilderLeg(bLegKO));
 
       container.appendChild(row);
     });
@@ -722,6 +820,8 @@
     const legsList = document.getElementById('ticketLegsList');
     const combinedOddsEl = document.getElementById('ticketCombinedOdds');
     const impliedProbEl = document.getElementById('ticketImpliedProb');
+    const statProbEl = document.getElementById('ticketStatProb');
+    const evEdgeEl = document.getElementById('ticketEvEdge');
     const convictionTierEl = document.getElementById('ticketConvictionTier');
     const stakeInput = document.getElementById('ticketStakeInput');
     const curSym = document.getElementById('ticketCurrencySym');
@@ -740,7 +840,15 @@
       ? builderSelectedLegs.reduce((acc, l) => acc * (Number(l.dec) || 1.0), 1.0)
       : 1.0;
 
+    // Sportsbook implied probability
     const impliedProb = combinedOdds > 1.0 ? Math.min(100, (1 / combinedOdds) * 100) : 100.0;
+    
+    // Statistical Hit Probability calculated from Elo & Consensus method probabilities
+    const statProbCombined = builderSelectedLegs.length > 0
+      ? builderSelectedLegs.reduce((acc, l) => acc * (Number(l.statProb) || (1 / (Number(l.dec) || 1.9))), 1.0)
+      : 1.0;
+    const statProbPct = statProbCombined * 100;
+
     const payout = currentStake * combinedOdds;
     const profit = payout - currentStake;
 
@@ -748,7 +856,27 @@
       combinedOddsEl.textContent = `${combinedOdds.toFixed(2)}x (${formatOdds(combinedOdds)})`;
     }
     if (impliedProbEl) {
-      impliedProbEl.textContent = `${impliedProb.toFixed(1)}%`;
+      impliedProbEl.textContent = `${impliedProb < 0.01 ? impliedProb.toFixed(3) : impliedProb.toFixed(2)}% (1 in ${Math.round(100 / Math.max(0.0001, impliedProb)).toLocaleString()})`;
+    }
+    if (statProbEl) {
+      if (builderSelectedLegs.length === 0) {
+        statProbEl.textContent = '100.0%';
+      } else {
+        const oddsRatio = Math.round(1 / Math.max(0.000001, statProbCombined));
+        statProbEl.textContent = `${statProbPct < 0.01 ? statProbPct.toFixed(4) : statProbPct.toFixed(2)}% (1 in ${oddsRatio.toLocaleString()})`;
+      }
+    }
+    if (evEdgeEl) {
+      if (builderSelectedLegs.length === 0) {
+        evEdgeEl.textContent = 'Even • 0.0% Edge';
+        evEdgeEl.style.color = 'var(--text-muted)';
+      } else {
+        const evVal = (combinedOdds * statProbCombined) - 1;
+        const evPct = (evVal * 100).toFixed(1);
+        const isPositive = evVal >= 0;
+        evEdgeEl.innerHTML = `${isPositive ? '+' : ''}${evPct}% EV ${isPositive ? '🔥 (+EV Edge)' : '⚠️ (High Vig)'}`;
+        evEdgeEl.style.color = isPositive ? 'var(--success)' : 'var(--accent)';
+      }
     }
 
     if (convictionTierEl) {
@@ -768,7 +896,7 @@
           convictionTierEl.textContent = 'Medium-Value Double / Triple';
           convictionTierEl.style.color = 'var(--gold)';
         } else {
-          convictionTierEl.textContent = 'Longshot Ticket';
+          convictionTierEl.textContent = 'Longshot Multi-Legger';
           convictionTierEl.style.color = '#fb923c';
         }
       }
@@ -781,7 +909,7 @@
       if (builderSelectedLegs.length === 0) {
         legsList.innerHTML = `
           <div style="text-align: center; padding: 32px 10px; color: var(--text-muted); font-size: 12px;">
-            Select odds from any fight on the left to add legs to your parlay, or click "Add 5 Unanimous Locks" above!
+            Select Moneyline or Winner + Method from any fight on the left to calculate live statistical hit %!
           </div>
         `;
       } else {
@@ -789,6 +917,7 @@
         builderSelectedLegs.forEach((leg, idx) => {
           const item = document.createElement('div');
           item.className = 'ticket-leg-item';
+          const statPct = ((leg.statProb || (1 / (leg.dec || 1.9))) * 100).toFixed(1);
           item.innerHTML = `
             <div class="ticket-leg-item-left">
               <img src="${leg.img || 'images/volkanovski.png'}" alt="${leg.fighter}" style="width: 28px; height: 28px; border-radius: 50%; object-fit: cover; background: var(--bg-surface);" onerror="this.src='images/volkanovski.png'">
@@ -798,6 +927,7 @@
               </div>
             </div>
             <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="ticket-leg-stat-pill" style="font-size: 11px; font-weight: 700; background: rgba(34, 197, 94, 0.12); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.25); padding: 2px 6px; border-radius: 4px; font-family: var(--font-mono);">${statPct}% Stat</span>
               <span class="ticket-leg-odds">${formatOdds(leg.dec)}</span>
               <button type="button" class="ticket-remove-leg-btn" data-idx="${idx}" title="Remove leg">&times;</button>
             </div>
@@ -817,6 +947,7 @@
         market: "Moneyline",
         dec: 1.22,
         odds: -460,
+        statProb: 0.78,
         img: "images/yakhyaev.png"
       },
       {
@@ -825,6 +956,7 @@
         market: "Moneyline",
         dec: 1.18,
         odds: -550,
+        statProb: 0.81,
         img: "images/chopurov.png"
       },
       {
@@ -833,6 +965,7 @@
         market: "Moneyline",
         dec: 1.44,
         odds: -225,
+        statProb: 0.69,
         img: "images/murzakanov.png"
       },
       {
@@ -841,6 +974,7 @@
         market: "Moneyline",
         dec: 1.28,
         odds: -350,
+        statProb: 0.75,
         img: "images/lucindo.png"
       },
       {
@@ -849,6 +983,7 @@
         market: "Moneyline",
         dec: 1.67,
         odds: -150,
+        statProb: 0.62,
         img: "images/vagaev.png"
       }
     ];
@@ -864,6 +999,7 @@
         market: "Moneyline",
         dec: 1.95,
         odds: -105,
+        statProb: 0.56,
         img: "images/volkanovski.png"
       },
       {
@@ -872,6 +1008,7 @@
         market: "Moneyline",
         dec: 1.67,
         odds: -150,
+        statProb: 0.58,
         img: "images/yan.png"
       },
       {
@@ -880,6 +1017,7 @@
         market: "Moneyline",
         dec: 1.80,
         odds: -125,
+        statProb: 0.52,
         img: "images/volkov.png"
       },
       {
@@ -888,6 +1026,7 @@
         market: "Moneyline",
         dec: 1.44,
         odds: -225,
+        statProb: 0.69,
         img: "images/murzakanov.png"
       }
     ];
